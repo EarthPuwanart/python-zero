@@ -282,17 +282,24 @@ hello</div>
 <div class="slide">
   <span class="badge anim">Variables & Data Types</span>
   <h2 class="anim">กฎและตัวอย่างการตั้งชื่อตัวแปร</h2>
-  <div class="columns anim" style="grid-template-columns: 1fr 1fr; align-items: stretch; gap: 1.5rem;">
-    <div class="card card--accent" style="display: flex; flex-direction: column; justify-content: center;">
-      <h3 style="margin-top: 0; margin-bottom: 1rem;">กฎการตั้งชื่อ</h3>
-      <ul style="font-size: 1.2rem; line-height: 1.9; margin-bottom: 0;">
-        <li>ใช้ได้แค่ <strong>ตัวอักษรภาษาอังกฤษ, ตัวเลข, หรือขีดล่าง (<code>_</code>)</strong></li>
-        <li><strong style="color:var(--accent);">ห้าม</strong> ขึ้นต้นด้วยตัวเลข</li>
-        <li><strong style="color:var(--accent);">ห้าม</strong> เว้นวรรค หรือใช้เครื่องหมายพิเศษ (เช่น <code>@</code>, <code>-</code>)</li>
-        <li><strong style="color:var(--accent);">ห้าม</strong> ซ้ำกับคำสงวน (เช่น <code>if</code>, <code>for</code>, <code>class</code>)</li>
-        <li>ตัวพิมพ์เล็ก-ใหญ่ ถือว่าต่างกัน (<strong>Case-Sensitive</strong>)</li>
-      </ul>
+  <div class="columns anim" style="grid-template-columns: 1fr 1fr; align-items: start; gap: 1.5rem;">
+    <!-- ฝั่งซ้าย: กฎและคำแนะนำ -->
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <div class="card card--accent">
+        <h3 style="margin-top: 0; margin-bottom: 1rem;">กฎการตั้งชื่อ</h3>
+        <ul style="font-size: 1.2rem; line-height: 1.9; margin-bottom: 0;">
+          <li>ใช้ได้แค่ <strong>ตัวอักษรภาษาอังกฤษ, ตัวเลข, หรือขีดล่าง (<code>_</code>)</strong></li>
+          <li><strong style="color:var(--accent);">ห้าม</strong> ขึ้นต้นด้วยตัวเลข</li>
+          <li><strong style="color:var(--accent);">ห้าม</strong> เว้นวรรค หรือใช้เครื่องหมายพิเศษ (เช่น <code>@</code>, <code>-</code>)</li>
+          <li><strong style="color:var(--accent);">ห้าม</strong> ซ้ำกับคำสงวน (เช่น <code>if</code>, <code>for</code>, <code>class</code>)</li>
+          <li>ตัวพิมพ์เล็ก-ใหญ่ ถือว่าต่างกัน (<strong>Case-Sensitive</strong>)</li>
+        </ul>
+      </div>
+      <div class="highlight-box" style="margin-top: 0; padding: 1rem 1.5rem;">
+        <p>💡 <strong>ข้อแนะนำ:</strong> ควรตั้งชื่อให้สื่อความหมาย และถ้ามีหลายคำ นิยมใช้แบบ <code>snake_case</code> (ตัวเล็กคั่นด้วย <code>_</code>)</p>
+      </div>
     </div>
+    <!-- ฝั่งขวา: ตัวอย่าง -->
     <div style="display: flex; flex-direction: column; gap: 1rem;">
       <div class="card" style="padding: 1rem;">
         <h3 style="margin-top: 0; margin-bottom: 0.5rem; color: #16a34a;">✅ ทำได้ (ถูกต้อง)</h3>
@@ -311,9 +318,6 @@ hello</div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="highlight-box anim" style="margin-top:1.5rem">
-    <p>💡 <strong>ข้อแนะนำ:</strong> ควรตั้งชื่อให้สื่อความหมาย และถ้ามีหลายคำ นิยมใช้แบบ <code>snake_case</code> (ตัวเล็กคั่นด้วย <code>_</code>)</p>
   </div>
 </div>
 
