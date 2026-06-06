@@ -282,29 +282,45 @@ hello</div>
 <div class="slide">
   <span class="badge anim">Naming Rules</span>
   <h2 class="anim">กฎการตั้งชื่อตัวแปร</h2>
+  <div class="card card--accent anim" style="margin-top: 1rem;">
+    <ul style="font-size: 1.3rem; line-height: 2;">
+      <li>ต้องประกอบด้วย <strong>ตัวอักษรภาษาอังกฤษ (a-z, A-Z), ตัวเลข (0-9) หรือขีดล่าง (<code>_</code>)</strong> เท่านั้น</li>
+      <li><strong style="color:var(--accent);">ห้าม</strong> ขึ้นต้นด้วยตัวเลข</li>
+      <li><strong style="color:var(--accent);">ห้าม</strong> มีช่องว่าง (เว้นวรรค) หรือใช้เครื่องหมายพิเศษอื่นๆ (เช่น <code>@</code>, <code>#</code>, <code>-</code>)</li>
+      <li><strong style="color:var(--accent);">ห้าม</strong> ตั้งชื่อซ้ำกับคำสงวนของภาษา Python (เช่น <code>if</code>, <code>for</code>, <code>class</code>, <code>True</code>, <code>False</code>)</li>
+      <li>ตัวพิมพ์เล็กและพิมพ์ใหญ่ถือเป็นคนละตัวแปร (<strong>Case-Sensitive</strong>)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 10.5: Naming Examples ==================== -->
+<div class="slide">
+  <span class="badge anim">Examples</span>
+  <h2 class="anim">ตัวอย่างการตั้งชื่อตัวแปร</h2>
   <div class="columns anim">
     <div>
-      <h3>✅ ทำได้</h3>
+      <h3>✅ ทำได้ (ถูกต้อง)</h3>
       <div class="code-block">
-<span class="var">name</span> <span class="op">=</span> <span class="str">"Alice"</span>        <span class="cmt"># ตัวอักษร</span><br>
-<span class="var">_private</span> <span class="op">=</span> <span class="num">42</span>         <span class="cmt"># ขีดล่างนำ</span><br>
-<span class="var">student_name</span> <span class="op">=</span> <span class="str">"Bob"</span>      <span class="cmt"># snake_case</span><br>
-<span class="var">score1</span> <span class="op">=</span> <span class="num">95</span>           <span class="cmt"># มีตัวเลขได้</span><br>
-<span class="var">MAX_SIZE</span> <span class="op">=</span> <span class="num">100</span>        <span class="cmt"># UPPER_CASE สำหรับค่าคงที่</span>
+<span class="var">name</span> <span class="op">=</span> <span class="str">"Alice"</span>        <span class="cmt"># ตัวอักษรล้วน</span><br>
+<span class="var">_private</span> <span class="op">=</span> <span class="num">42</span>         <span class="cmt"># มีขีดล่างนำหน้า</span><br>
+<span class="var">student_name</span> <span class="op">=</span> <span class="str">"Bob"</span>      <span class="cmt"># ใช้ขีดล่างเชื่อมคำ</span><br>
+<span class="var">score1</span> <span class="op">=</span> <span class="num">95</span>           <span class="cmt"># ตัวเลขอยู่ด้านหลัง</span><br>
+<span class="var">MAX_SIZE</span> <span class="op">=</span> <span class="num">100</span>        <span class="cmt"># พิมพ์ใหญ่ (นิยมใช้กับค่าคงที่)</span>
       </div>
     </div>
     <div>
-      <h3>❌ ทำไม่ได้</h3>
+      <h3>❌ ทำไม่ได้ (ผิดกฎ)</h3>
       <div class="code-block">
-<span class="cmt"># 1name = "error"    # ขึ้นต้นด้วยตัวเลข</span><br>
-<span class="cmt"># my-name = "error"  # มีเครื่องหมาย -</span><br>
-<span class="cmt"># my name = "error"  # มีช่องว่าง</span><br>
-<span class="cmt"># class = "error"    # ชื่อซ้ำ keyword</span>
+<span class="cmt"># 1name = "error"    # ❌ ขึ้นต้นด้วยตัวเลข</span><br>
+<span class="cmt"># my-name = "error"  # ❌ ใช้เครื่องหมาย -</span><br>
+<span class="cmt"># my name = "error"  # ❌ มีช่องว่าง</span><br>
+<span class="cmt"># class = "error"    # ❌ ซ้ำคำสงวน</span><br>
+<span class="cmt"># user@id = "error"  # ❌ มีเครื่องหมายพิเศษ</span>
       </div>
     </div>
   </div>
   <div class="highlight-box anim" style="margin-top:1.5rem">
-    <p>⚠️ Python เป็น <strong>Case-Sensitive</strong> → <code>Name</code>, <code>name</code>, <code>NAME</code> เป็นคนละตัวแปร!</p>
+    <p>💡 <strong>ข้อแนะนำ:</strong> ควรตั้งชื่อให้สื่อความหมาย และถ้ามีหลายคำ นิยมใช้แบบ <code>snake_case</code> (ตัวเล็กคั่นด้วย <code>_</code>)</p>
   </div>
 </div>
 
