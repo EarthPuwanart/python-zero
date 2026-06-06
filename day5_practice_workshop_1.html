@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วันที่ 5 — Practice Workshop 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#fff;--text:#111827;--text-muted:#6b7280;--text-light:#9ca3af;--accent:#ef4444;--accent-light:#fee2e2;--accent-dark:#991b1b;--code-bg:#1e1e2e;--code-text:#cdd6f4;--border:#e5e7eb;--surface:#f9fafb;--success:#10b981;--warning:#f59e0b;--info:#3b82f6;--font-sans:'Prompt',system-ui,sans-serif;--font-mono:'JetBrains Mono','Fira Code',monospace;--transition:0.5s cubic-bezier(0.4,0,0.2,1)}
+        html,body{height:100%;overflow:hidden;font-family:var(--font-sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+        .presentation{position:relative;width:100%;height:100vh;overflow:hidden}
+        .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:60px 100px;opacity:0;transform:translateY(12px);transition:opacity var(--transition),transform var(--transition);pointer-events:none;overflow-y:auto}
+        .slide.active{opacity:1;transform:translateY(0);pointer-events:all}
+        .slide.active .anim{animation:fadeUp .6s ease both}
+        .slide.active .anim:nth-child(1){animation-delay:.08s}.slide.active .anim:nth-child(2){animation-delay:.16s}.slide.active .anim:nth-child(3){animation-delay:.24s}.slide.active .anim:nth-child(4){animation-delay:.32s}.slide.active .anim:nth-child(5){animation-delay:.4s}.slide.active .anim:nth-child(6){animation-delay:.48s}.slide.active .anim:nth-child(7){animation-delay:.56s}.slide.active .anim:nth-child(8){animation-delay:.64s}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+        .slide--title,.slide--section,.slide--center{align-items:center;text-align:center}
+        .title-hero{font-size:3.2rem;font-weight:700;letter-spacing:-.02em;line-height:1.2}.title-sub{font-size:1.3rem;font-weight:300;color:var(--text-muted);margin-top:.8rem}.title-accent{color:var(--accent)}
+        h2{font-size:2.1rem;font-weight:600;margin-bottom:1.5rem}h3{font-size:1.5rem;font-weight:600;margin-bottom:1rem;color:var(--accent-dark)}
+        p,li{font-size:1.15rem;line-height:1.8}.text-muted{color:var(--text-muted)}.text-small{font-size:.95rem;color:var(--text-muted)}
+        .badge{display:inline-block;padding:.25rem .9rem;border-radius:50px;font-size:.85rem;font-weight:500;background:var(--accent-light);color:var(--accent-dark);margin-bottom:1rem}
+        .divider{width:60px;height:3px;background:var(--accent);border-radius:2px;margin:1.2rem 0}.slide--title .divider,.slide--section .divider,.slide--center .divider{margin:1.2rem auto}
+        .list{list-style:none;padding:0}.list li{position:relative;padding-left:1.6rem;margin-bottom:.7rem}.list li::before{content:'';position:absolute;left:0;top:.65rem;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+        .columns{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;width:100%}.columns-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;width:100%}
+        .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem}.card h3{font-size:1.15rem;margin-bottom:.5rem}.card p{font-size:1.05rem;color:var(--text-muted)}.card--accent{border-left:4px solid var(--accent)}
+        .emoji-lg{font-size:3rem;margin-bottom:.8rem;display:block}.emoji-md{font-size:1.6rem;margin-bottom:.4rem;display:block}
+        .highlight-box{background:var(--accent-light);border-radius:12px;padding:1.5rem 2rem;margin:1rem 0;border-left:4px solid var(--accent)}.highlight-box p{color:var(--accent-dark);font-weight:500}
+        .code-block{background:var(--code-bg);color:var(--code-text);border-radius:12px;padding:1.2rem 1.8rem;font-family:var(--font-mono);font-size:.95rem;line-height:1.7;overflow-x:auto;margin:1rem 0;white-space:pre-wrap}.code-block br{display:none}
+        .code-block .kw{color:#cba6f7}.code-block .fn{color:#89b4fa}.code-block .str{color:#a6e3a1}.code-block .num{color:#fab387}.code-block .cmt{color:#6c7086;font-style:italic}.code-block .op{color:#89dceb}.code-block .var{color:#f5c2e7}
+        .progress-bar{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--border);z-index:100}.progress-fill{height:100%;background:var(--accent);width:0%;transition:width .4s ease}
+        .nav{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:1.2rem;z-index:100}
+        .nav-btn{width:40px;height:40px;border:1px solid var(--border);background:var(--bg);border-radius:10px;font-size:1.2rem;color:var(--text-muted);cursor:pointer;transition:all .2s ease;display:flex;align-items:center;justify-content:center;font-family:var(--font-sans)}
+        .nav-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+        .slide-counter{font-size:.85rem;color:var(--text-light);font-variant-numeric:tabular-nums;min-width:60px;text-align:center}
+        .day-badge{position:fixed;top:16px;right:24px;padding:.3rem 1rem;background:var(--accent-light);color:var(--accent-dark);border-radius:8px;font-size:.8rem;font-weight:600;z-index:100}
+        @media(max-width:768px){.slide{padding:40px 30px}.title-hero{font-size:2.2rem}h2{font-size:1.6rem}p,li{font-size:1.05rem}.columns,.columns-3{grid-template-columns:1fr}}
+        @media print{.slide{position:relative;opacity:1;transform:none;page-break-after:always;height:100vh}.nav,.progress-bar,.day-badge{display:none}}
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <div class="day-badge">DAY 5</div>
+
+        <!-- SLIDE 1: Title -->
+        <section class="slide slide--title active">
+            <span class="badge anim">สำหรับสาขาวิชาวิทยาการข้อมูล</span>
+            <h1 class="title-hero anim">Practice <span class="title-accent">Workshop 1</span></h1>
+            <div class="divider anim"></div>
+            <p class="title-sub anim">วันที่ 5 — Built-in Functions และฝึกทำโจทย์</p>
+        </section>
+
+        <!-- SLIDE 2: Agenda -->
+        <section class="slide">
+            <span class="badge anim">AGENDA</span>
+            <h2 class="anim">กิจกรรมวันนี้</h2>
+            <div class="columns anim">
+                <div class="card card--accent">
+                    <span class="emoji-md">☀️</span>
+                    <h3>ช่วงเช้า — Built-in + Lab Part 2</h3>
+                    <ul class="list">
+                        <li>abs, max, min, sum, len, round</li>
+                        <li>โจทย์ Loops & Collections (10 ข้อ)</li>
+                        <li>list และ dict พื้นฐาน</li>
+                        <li>break / continue patterns</li>
+                    </ul>
+                </div>
+                <div class="card card--accent">
+                    <span class="emoji-md">🌤️</span>
+                    <h3>ช่วงบ่าย — Lab Part 3</h3>
+                    <ul class="list">
+                        <li>โจทย์ Functions (7 ข้อ)</li>
+                        <li>เขียน def, return</li>
+                        <li>คณิตศาสตร์ + logic</li>
+                        <li>ฝึก problem solving</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: Built-in Functions Warm-up -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">Built-in Functions ที่ใช้บ่อย</h2>
+            <table class="anim">
+                <tr><th>Function</th><th>ใช้ทำอะไร</th><th>ตัวอย่าง</th></tr>
+                <tr><td><code>abs(x)</code></td><td>ค่าสัมบูรณ์</td><td><code>abs(-5) → 5</code></td></tr>
+                <tr><td><code>max(...)</code></td><td>ค่ามากที่สุด</td><td><code>max(3, 7, 2) → 7</code></td></tr>
+                <tr><td><code>min(...)</code></td><td>ค่าน้อยที่สุด</td><td><code>min([3, 7, 2]) → 2</code></td></tr>
+                <tr><td><code>sum(list)</code></td><td>ผลรวมของข้อมูลใน list</td><td><code>sum([10, 20, 30]) → 60</code></td></tr>
+                <tr><td><code>len(x)</code></td><td>จำนวนสมาชิก/ความยาวข้อความ</td><td><code>len("data") → 4</code></td></tr>
+                <tr><td><code>round(x, n)</code></td><td>ปัดทศนิยม</td><td><code>round(3.14159, 2) → 3.14</code></td></tr>
+            </table>
+            <div class="highlight-box anim" style="margin-top:1rem">
+                <p>💡 ให้ฝึกใช้กับ list ของตัวเลข เพราะจะเชื่อมกับโจทย์สถิติพื้นฐานได้ทันที</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: Tips -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">🎯 เคล็ดลับการทำโจทย์</h2>
+            <ul class="list anim">
+                <li><strong>อ่านโจทย์ให้ครบ</strong> — ทำความเข้าใจ input/output ก่อน</li>
+                <li><strong>แบ่งปัญหาเป็นขั้นตอน</strong> — อย่ารีบเขียนโค้ดทันที</li>
+                <li><strong>เขียนทีละส่วน</strong> — ทดสอบทุกขั้น อย่ารอเขียนเสร็จแล้วค่อยรัน</li>
+                <li><strong>ใช้ print() debug</strong> — เช็คค่าตัวแปรระหว่างทาง</li>
+                <li><strong>อ่าน Error message</strong> — Python บอกว่าผิดตรงไหน!</li>
+            </ul>
+            <div class="highlight-box anim">
+                <p>💡 ผิดไม่เป็นไร ที่สำคัญคือ "พยายามคิด" ก่อนดูเฉลย</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: Lab Part 2 Header -->
+        <section class="slide slide--section">
+            <span class="emoji-lg anim" style="font-size:4rem">🔄</span>
+            <h1 class="title-hero anim" style="font-size:2.8rem">Lab Part 2</h1>
+            <div class="divider anim"></div>
+            <p class="title-sub anim">Loops & Collections — 10 ข้อ</p>
+        </section>
+
+        <!-- SLIDE 5: Problem 2.1-2.2 -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">โจทย์ 2.1 & 2.2</h2>
+            <div class="columns anim">
+                <div class="card">
+                    <h3>2.1 — Common Words</h3>
+                    <p>รับ 2 ประโยค หาคำที่ปรากฏซ้ำกันในทั้งสองประโยค (ห้ามใช้ set)</p>
+                    <div class="code-block no-bottom-radius">
+<span class="cmt"># อินพุต:</span>
+<span class="str">"cat dog fish"</span>
+<span class="str">"dog bird fish"</span>
+      </div>
+      <div class="output-box">['dog', 'fish']</div>
+                </div>
+                <div class="card">
+                    <h3>2.2 — Sum 1 to N</h3>
+                    <p>รับจำนวนเต็ม N คำนวณ 1+2+...+N</p>
+                    <div class="code-block no-bottom-radius">
+<span class="cmt"># อินพุต: 5</span>
+<span class="cmt"># อินพุต: 10</span>
+      </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: Problem 2.3-2.4 -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">โจทย์ 2.3 & 2.4</h2>
+            <div class="columns anim">
+                <div class="card">
+                    <h3>2.3 — Filtered List</h3>
+                    <p>หาร 3 ลงตัว → แสดง, >200 → skip, >1000 → stop</p>
+                    <div class="code-block no-bottom-radius">
+[<span class="num">18</span>, <span class="num">210</span>, <span class="num">180</span>, <span class="num">999</span>, <span class="num">1002</span>, <span class="num">24</span>]
+      </div>
+      <div class="output-box">18, 180, 999</div>
+                </div>
+                <div class="card">
+                    <h3>2.4 — Number Triangle</h3>
+                    <p>สร้างรูปสามเหลี่ยมตัวเลข</p>
+                    <div class="code-block">
+<span class="num">1</span>
+<span class="num">1 2</span>
+<span class="num">1 2 3</span>
+<span class="num">1 2 3 4</span>
+<span class="num">1 2 3 4 5</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: Problem 2.5-2.7 -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">โจทย์ 2.5, 2.6 & 2.7</h2>
+            <div class="columns-3 anim">
+                <div class="card">
+                    <h3>2.5 — Basic Stats</h3>
+                    <p>รับ 5 เลข หา max, min, range, sum, average</p>
+                </div>
+                <div class="card">
+                    <h3>2.6 — Score Sum</h3>
+                    <p>รับคะแนนจนกว่าเลขลบ รวมเฉพาะ >50</p>
+                </div>
+                <div class="card">
+                    <h3>2.7 — Even/Odd</h3>
+                    <p>รับ 5 เลข แยก even กับ odd เป็น 2 lists</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: Problem 2.8-2.10 -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">โจทย์ 2.8, 2.9 & 2.10</h2>
+            <div class="columns-3 anim">
+                <div class="card">
+                    <h3>2.8 — Most Frequent</h3>
+                    <p>รับ N ตัวเลข หาตัวที่ปรากฏบ่อยสุด</p>
+                </div>
+                <div class="card">
+                    <h3>2.9 — Pass/Fail Dict</h3>
+                    <p>รับ N นักศึกษา แยก pass(≥50) / fail(<50)</p>
+                </div>
+                <div class="card">
+                    <h3>2.10 — Grade Dict</h3>
+                    <p>แยกเกรด A(80+), B(70-79), C(60-69), F(<60)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: Lab Part 3 Header -->
+        <section class="slide slide--section">
+            <span class="emoji-lg anim" style="font-size:4rem">⚡</span>
+            <h1 class="title-hero anim" style="font-size:2.8rem">Lab Part 3</h1>
+            <div class="divider anim"></div>
+            <p class="title-sub anim">Functions — 7 ข้อ</p>
+        </section>
+
+        <!-- SLIDE 10: Problem 3.1-3.3 -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">โจทย์ 3.1, 3.2 & 3.3</h2>
+            <div class="columns-3 anim">
+                <div class="card">
+                    <h3>3.1 — square(n)</h3>
+                    <p>คืนค่ากำลังสอง</p>
+                    <div class="code-block">
+<span class="fn">square</span>(<span class="num">5</span>) <span class="op">→</span> <span class="num">25</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>3.2 — is_even(n)</h3>
+                    <p>คืน "Even" หรือ "Odd"</p>
+                    <div class="code-block">
+<span class="fn">is_even</span>(<span class="num">7</span>) <span class="op">→</span> <span class="str">"Odd"</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>3.3 — factorial(n)</h3>
+                    <p>หา n! (ห้ามใช้ math)</p>
+                    <div class="code-block">
+<span class="fn">factorial</span>(<span class="num">4</span>) <span class="op">→</span> <span class="num">24</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: Problem 3.4-3.5 -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">โจทย์ 3.4 & 3.5</h2>
+            <div class="columns anim">
+                <div class="card">
+                    <h3>3.4 — is_prime(n)</h3>
+                    <p>ตรวจว่าเป็นจำนวนเฉพาะหรือไม่</p>
+                    <div class="code-block">
+<span class="fn">is_prime</span>(<span class="num">11</span>) <span class="op">→</span> <span class="num">True</span>
+<span class="fn">is_prime</span>(<span class="num">4</span>)  <span class="op">→</span> <span class="num">False</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>3.5 — celsius_to_fahrenheit(c)</h3>
+                    <p>แปลงอุณหภูมิ F = C × 9/5 + 32</p>
+                    <div class="code-block">
+<span class="fn">celsius_to_fahrenheit</span>(<span class="num">0</span>)
+<span class="op">→</span> <span class="num">32.0</span>
+<span class="fn">celsius_to_fahrenheit</span>(<span class="num">100</span>)
+<span class="op">→</span> <span class="num">212.0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12: Problem 3.6-3.7 -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">โจทย์ 3.6 & 3.7</h2>
+            <div class="columns anim">
+                <div class="card">
+                    <h3>3.6 — Line Intersection</h3>
+                    <p>หาจุดตัดเส้นตรง y=mx+b กับ y=nx+c</p>
+                    <div class="code-block">
+<span class="fn">find_intersection</span>(<span class="num">2</span>,<span class="num">3</span>,<span class="num">-1</span>,<span class="num">4</span>)
+<span class="op">→</span> (<span class="num">0.33</span>, <span class="num">3.67</span>)
+<span class="fn">find_intersection</span>(<span class="num">1</span>,<span class="num">2</span>,<span class="num">1</span>,<span class="num">3</span>)
+<span class="op">→</span> <span class="str">"Parallel"</span> <span class="cmt">(ขนาน)</span>
+<span class="fn">find_intersection</span>(<span class="num">1</span>,<span class="num">2</span>,<span class="num">1</span>,<span class="num">2</span>)
+<span class="op">→</span> <span class="str">"Same line"</span> <span class="cmt">(เส้นเดียวกัน)</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>3.7 — is_palindrome(s)</h3>
+                    <p>ตรวจว่าอ่านจากหน้า-หลังเหมือนกัน</p>
+                    <div class="code-block">
+<span class="fn">is_palindrome</span>(<span class="str">"madam"</span>)   <span class="op">→</span> <span class="num">True</span>
+<span class="fn">is_palindrome</span>(<span class="str">"racecar"</span>) <span class="op">→</span> <span class="num">True</span>
+<span class="fn">is_palindrome</span>(<span class="str">"hello"</span>)   <span class="op">→</span> <span class="num">False</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 13: Summary -->
+        <section class="slide slide--center">
+            <span class="badge anim">SUMMARY</span>
+            <h2 class="anim">สรุปวันที่ 5 🎉</h2>
+            <div class="columns anim" style="max-width:700px">
+                <div class="card" style="border-top:3px solid var(--accent)">
+                    <span class="emoji-md">🔄</span>
+                    <h3>Lab Part 2</h3>
+                    <p>Loops & Collections (10 ข้อ)</p>
+                </div>
+                <div class="card" style="border-top:3px solid var(--info)">
+                    <span class="emoji-md">⚡</span>
+                    <h3>Lab Part 3</h3>
+                    <p>Functions (7 ข้อ)</p>
+                </div>
+            </div>
+            <div class="highlight-box anim" style="margin-top:2rem;max-width:600px">
+                <p>📌 พรุ่งนี้: Practice Workshop 2 + <strong>Post Test</strong></p>
+            </div>
+            <p class="text-small anim" style="margin-top:1rem">💪 ทบทวนเนื้อหาทั้งหมด Day 1-4 เพื่อเตรียมสอบ!</p>
+        </section>
+
+        <!-- NAV -->
+        <div class="nav">
+            <button onclick="engine.prev()" class="nav-btn">‹</button>
+            <span class="slide-counter"></span>
+            <button onclick="engine.next()" class="nav-btn">›</button>
+        </div>
+    </div>
+
+    <script>
+    class SlideEngine{constructor(){this.slides=document.querySelectorAll('.slide');this.current=0;this.total=this.slides.length;this.touchStartX=0;this.init()}init(){this.bindKeyboard();this.bindTouch();this.updateUI();const h=parseInt(location.hash.replace('#',''));if(h&&h>=1&&h<=this.total)this.goto(h-1)}goto(i){if(i<0||i>=this.total)return;this.slides[this.current].classList.remove('active');this.slides[this.current].querySelectorAll('.anim').forEach(el=>{el.style.animation='none';el.offsetHeight;el.style.animation=''});this.current=i;this.slides[this.current].classList.add('active');this.updateUI();location.hash=this.current+1}next(){this.goto(this.current+1)}prev(){this.goto(this.current-1)}updateUI(){const p=((this.current+1)/this.total)*100;document.querySelector('.progress-fill').style.width=p+'%';document.querySelector('.slide-counter').textContent=`${this.current+1} / ${this.total}`}bindKeyboard(){document.addEventListener('keydown',e=>{switch(e.key){case'ArrowRight':case' ':case'PageDown':e.preventDefault();this.next();break;case'ArrowLeft':case'PageUp':e.preventDefault();this.prev();break;case'Home':e.preventDefault();this.goto(0);break;case'End':e.preventDefault();this.goto(this.total-1);break}})}bindTouch(){document.addEventListener('touchstart',e=>{this.touchStartX=e.changedTouches[0].screenX},{passive:true});document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].screenX-this.touchStartX;if(Math.abs(dx)>50){dx>0?this.prev():this.next()}},{passive:true})}}
+    const engine=new SlideEngine();
+    </script>
+</body>
+</html>

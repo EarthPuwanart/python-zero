@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>วันที่ 1 — Thinking & Flowcharts</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    :root {
+      --bg: #fff;
+      --text: #111827;
+      --text-muted: #6b7280;
+      --text-light: #9ca3af;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --accent-dark: #92400e;
+      --code-bg: #1e1e2e;
+      --code-text: #cdd6f4;
+      --border: #e5e7eb;
+      --surface: #f9fafb;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --info: #3b82f6;
+      --font-sans: 'Prompt', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1)
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased
+    }
+
+    .presentation {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 100px;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity var(--transition), transform var(--transition);
+      pointer-events: none;
+      overflow-y: auto
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all
+    }
+
+    .slide.active .anim {
+      animation: fadeUp .6s ease both
+    }
+
+    .slide.active .anim:nth-child(1) {
+      animation-delay: .08s
+    }
+
+    .slide.active .anim:nth-child(2) {
+      animation-delay: .16s
+    }
+
+    .slide.active .anim:nth-child(3) {
+      animation-delay: .24s
+    }
+
+    .slide.active .anim:nth-child(4) {
+      animation-delay: .32s
+    }
+
+    .slide.active .anim:nth-child(5) {
+      animation-delay: .4s
+    }
+
+    .slide.active .anim:nth-child(6) {
+      animation-delay: .48s
+    }
+
+    .slide.active .anim:nth-child(7) {
+      animation-delay: .56s
+    }
+
+    .slide.active .anim:nth-child(8) {
+      animation-delay: .64s
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .slide--title,
+    .slide--section,
+    .slide--center {
+      align-items: center;
+      text-align: center
+    }
+
+    .title-hero {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.2
+    }
+
+    .title-sub {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-top: .8rem
+    }
+
+    .title-accent {
+      color: var(--accent)
+    }
+
+    h2 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--accent-dark)
+    }
+
+    p,
+    li {
+      font-size: 1.15rem;
+      line-height: 1.8
+    }
+
+    .text-muted {
+      color: var(--text-muted)
+    }
+
+    .text-small {
+      font-size: .95rem;
+      color: var(--text-muted)
+    }
+
+    .badge {
+      display: inline-block;
+      padding: .25rem .9rem;
+      border-radius: 50px;
+      font-size: .85rem;
+      font-weight: 500;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      margin-bottom: 1rem
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 1.2rem 0
+    }
+
+    .slide--title .divider,
+    .slide--section .divider,
+    .slide--center .divider {
+      margin: 1.2rem auto
+    }
+
+    .list {
+      list-style: none;
+      padding: 0
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 1.6rem;
+      margin-bottom: .7rem
+    }
+
+    .list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: .65rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent)
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      width: 100%
+    }
+
+    .columns-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      width: 100%
+    }
+
+    .columns-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      width: 100%
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: .5rem
+    }
+
+    .card p {
+      font-size: 1.05rem;
+      color: var(--text-muted)
+    }
+
+    .card--accent {
+      border-left: 4px solid var(--accent)
+    }
+
+    .emoji-lg {
+      font-size: 3rem;
+      margin-bottom: .8rem;
+      display: block
+    }
+
+    .emoji-md {
+      font-size: 1.6rem;
+      margin-bottom: .4rem;
+      display: block
+    }
+
+    .highlight-box {
+      background: var(--accent-light);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin: 1rem 0;
+      border-left: 4px solid var(--accent)
+    }
+
+    .highlight-box p {
+      color: var(--accent-dark);
+      font-weight: 500
+    }
+
+    .coach-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--info);
+      border-radius: 12px;
+      padding: .55rem .9rem;
+      margin: .35rem auto .6rem;
+      text-align: left;
+      max-width: 560px
+    }
+
+    .coach-box p {
+      font-size: .95rem;
+      line-height: 1.45;
+      color: var(--text)
+    }
+
+    .coach-label {
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--info);
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      margin-bottom: .15rem
+    }
+
+    .choice-row {
+      display: flex;
+      gap: .4rem;
+      flex-wrap: wrap;
+      margin-top: .35rem
+    }
+
+    .choice-pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: .25rem .7rem;
+      font-size: .85rem;
+      color: var(--text-muted);
+      background: #fff
+    }
+
+    .code-block {
+      background: var(--code-bg);
+      color: var(--code-text);
+      border-radius: 12px;
+      padding: 1.2rem 1.8rem;
+      font-family: var(--font-mono);
+      font-size: .95rem;
+      line-height: 1.7;
+      overflow-x: auto;
+      margin: 1rem 0;
+      white-space: pre-wrap
+    }
+
+    .code-block br {
+      display: none
+    }
+
+    .code-block .kw {
+      color: #cba6f7
+    }
+
+    .code-block .fn {
+      color: #89b4fa
+    }
+
+    .code-block .str {
+      color: #a6e3a1
+    }
+
+    .code-block .num {
+      color: #fab387
+    }
+
+    .code-block .cmt {
+      color: #6c7086;
+      font-style: italic
+    }
+
+    .code-block .op {
+      color: #89dceb
+    }
+
+    .code-block .var {
+      color: #f5c2e7
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 1rem
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border);
+      padding: .5rem .8rem;
+      text-align: left
+    }
+
+    th {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      font-weight: 600
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--border);
+      z-index: 100
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+      transition: width .4s ease
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      z-index: 100
+    }
+
+    .nav-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      border-radius: 10px;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all .2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans)
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light)
+    }
+
+    .slide-counter {
+      font-size: .85rem;
+      color: var(--text-light);
+      font-variant-numeric: tabular-nums;
+      min-width: 60px;
+      text-align: center
+    }
+
+    .day-badge {
+      position: fixed;
+      top: 16px;
+      right: 24px;
+      padding: .3rem 1rem;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border-radius: 8px;
+      font-size: .8rem;
+      font-weight: 600;
+      z-index: 100
+    }
+
+    .slide--center h2 {
+      margin-bottom: .75rem
+    }
+
+    .slide--center svg {
+      max-height: 330px;
+      width: auto
+    }
+
+    .slide--center button[onclick*=revealStep] {
+      margin-top: .35rem !important;
+      margin-bottom: 5rem
+    }
+
+    @media(max-width:768px) {
+      .slide {
+        padding: 40px 30px
+      }
+
+      .title-hero {
+        font-size: 2.2rem
+      }
+
+      h2 {
+        font-size: 1.6rem
+      }
+
+      p,
+      li {
+        font-size: 1.05rem
+      }
+
+      .columns,
+      .columns-3 {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media print {
+      .slide {
+        position: relative;
+        opacity: 1;
+        transform: none;
+        page-break-after: always;
+        height: 100vh
+      }
+
+      .nav,
+      .progress-bar,
+      .day-badge {
+        display: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="presentation">
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+    <div class="day-badge">DAY 1</div>
+
+    <!-- SLIDE 1: Title -->
+    <section class="slide slide--title active">
+      <span class="badge anim">ปรับพื้นฐาน Python</span>
+      <h1 class="title-hero anim">Thinking & Flowcharts</h1>
+      <div class="divider anim"></div>
+      <p class="title-sub anim">วันที่ 1 — กระบวนการคิดและผังงาน</p>
+    </section>
+    <!-- SLIDE 2: Agenda -->
+    <section class="slide">
+      <span class="badge anim">AGENDA</span>
+      <h2 class="anim">สิ่งที่จะเรียนวันนี้</h2>
+      <div class="columns anim">
+        <div class="card card--accent">
+          <span class="emoji-md">☀️</span>
+          <h3>ช่วงเช้า — Lecture</h3>
+          <ul class="list">
+            <li>Why Programming & Python?</li>
+            <li>Algorithms</li>
+            <li>Flowcharts</li>
+          </ul>
+        </div>
+        <div class="card card--accent">
+          <span class="emoji-md">🌤️</span>
+          <h3>ช่วงบ่าย — Lab</h3>
+          <ul class="list">
+            <li>Lab ตอนที่ 1: แบบฝึกหัด Flowchart</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- ==================== SLIDE 3: Why Programming? ==================== -->
+    <div class="slide">
+      <span class="badge anim">Introduction</span>
+      <h2 class="anim">ทำไมต้องเขียนโปรแกรม?</h2>
+      <div class="columns-4 anim">
+        <div class="card" style="text-align:center">
+          <span class="emoji-lg">📊</span>
+          <h3>Data Science</h3>
+          <p style="text-align:left; display:inline-block; margin:0 auto; line-height:1.6;">• จัดการข้อมูลขนาดใหญ่<br>•
+            ทำ Data Cleaning อัตโนมัติ<br>• สร้างโมเดล Machine Learning</p>
+        </div>
+        <div class="card" style="text-align:center">
+          <span class="emoji-lg">📈</span>
+          <h3>Statistics</h3>
+          <p style="text-align:left; display:inline-block; margin:0 auto; line-height:1.6;">• คำนวณค่าสถิติแม่นยำ<br>•
+            จำลอง/ทดสอบสมมติฐาน<br>• สร้าง Data Visualization</p>
+        </div>
+        <div class="card" style="text-align:center">
+          <span class="emoji-lg">🧮</span>
+          <h3>Mathematics</h3>
+          <p style="text-align:left; display:inline-block; margin:0 auto; line-height:1.6;">• แก้สมการหลายตัวแปร<br>•
+            คำนวณพีชคณิตเชิงสัญลักษณ์<br>• หาคำตอบของแคลคูลัส</p>
+        </div>
+        <div class="card" style="text-align:center">
+          <span class="emoji-lg">⚙️</span>
+          <h3>Applied Math</h3>
+          <p style="text-align:left; display:inline-block; margin:0 auto; line-height:1.6;">• สร้างแบบจำลอง
+            Simulation<br>• หาจุดคุ้มทุน (Optimization)<br>• แก้ปัญหาเชิงตัวเลข</p>
+        </div>
+      </div>
+      <div class="highlight-box anim" style="margin-top:1.5rem">
+        <p>💡 การเขียนโปรแกรมจะทำให้การทำงานของแต่ละสาขาง่ายยิ่งขึ้น</p>
+      </div>
+    </div>
+
+
+    <!-- ==================== SLIDE 3.5: Why Python? ==================== -->
+    <div class="slide">
+      <span class="badge anim">Introduction</span>
+      <h2 class="anim">ทำไมต้อง Python? <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo"
+          style="height: 1em; vertical-align: middle; margin-left: 0.25rem;"></h2>
+      <div class="columns-4 anim">
+        <div class="card card--accent" style="text-align:center;">
+          <span class="emoji-lg">📖</span>
+          <h3>อ่านง่าย เรียนรู้ไว</h3>
+          <p>โครงสร้างเหมือนภาษามนุษย์</p>
+        </div>
+        <div class="card card--accent" style="text-align:center">
+          <span class="emoji-lg">🧰</span>
+          <h3>มีเครื่องมือครบ</h3>
+          <p>มี Library พร้อมใช้งาน</p>
+        </div>
+        <div class="card card--accent" style="text-align:center">
+          <span class="emoji-lg">🚀</span>
+          <h3>ได้รับความนิยมสูงสุด</h3>
+          <p>เป็นที่นิยมในหลายสายงาน</p>
+        </div>
+        <div class="card card--accent" style="text-align:center">
+          <span class="emoji-lg">💻</span>
+          <h3>ใช้ได้กับทุก OS</h3>
+          <p>Windows, macOS, Linux</p>
+        </div>
+      </div>
+      <div class="highlight-box anim" style="margin-top:1.5rem">
+        <p>💡 Python ในภาษาอังกฤษแปลว่า "งูหลาม" จึงเป็นที่มาของโลโก้ <img
+            src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo"
+            style="height: 1.2rem; vertical-align: text-bottom; margin-left: 0.5rem;"></p>
+      </div>
+    </div>
+    <!-- ==================== SLIDE 8: Algorithm Design ==================== -->
+    <div class="slide">
+      <span class="badge anim">Algorithms</span>
+      <h2 class="anim">📝 Algorithm</h2>
+
+      <p class="anim" style="font-size: 1.2rem; margin-bottom: 2rem;">Algorithm หมายถึง ชุดขั้นตอนที่ชัดเจนและเป็นลำดับ
+        สำหรับแก้ปัญหาหรือทำงานอย่างใดอย่างหนึ่งให้สำเร็จ</p>
+
+      <h3 class="anim" style="margin-bottom: 1rem;">คุณสมบัติของ Algorithm ที่ดี</h3>
+      <div class="columns-4 anim">
+        <div class="card card--accent" style="text-align:center">
+          <span class="emoji-lg">🎯</span>
+          <h3>ชัดเจน</h3>
+          <p>ครอบคลุม ไม่คลุมเครือ</p>
+        </div>
+        <div class="card card--accent" style="text-align:center">
+          <span class="emoji-lg">🔢</span>
+          <h3>เป็นลำดับ</h3>
+          <p>ทำงานเป็นขั้นเป็นตอน</p>
+        </div>
+        <div class="card card--accent" style="text-align:center">
+          <span class="emoji-lg">🏁</span>
+          <h3>มีจุดสิ้นสุด</h3>
+          <p>ต้องจบได้ ไม่ติดลูป</p>
+        </div>
+        <div class="card card--accent" style="text-align:center">
+          <span class="emoji-lg">✅</span>
+          <h3>ถูกต้อง</h3>
+          <p>ให้ผลลัพธ์ตามที่ต้องการ</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 9: Algorithm Example — Coffee ==================== -->
+    <div class="slide">
+      <span class="badge anim">Algorithms</span>
+      <h2 class="anim">☕ ตัวอย่าง Algorithm: ชงกาแฟ</h2>
+      <div class="columns anim">
+        <div class="card card--accent">
+          <h3>ขั้นตอน (Steps)</h3>
+          <p style="font-family:var(--font-mono);font-size:1.05rem;line-height:2">
+            1. เริ่มต้น (START)<br>
+            2. ต้มน้ำร้อน<br>
+            3. ใส่ผงกาแฟลงในแก้ว<br>
+            4. เทน้ำร้อนลงในแก้ว<br>
+            5. เติมน้ำตาลหรือไม่? (Yes/No)<br>
+            &nbsp;&nbsp;&nbsp;5a. ถ้าใช่ (Yes) → เติมน้ำตาลและคนให้เข้ากัน<br>
+            &nbsp;&nbsp;&nbsp;5b. ถ้าไม่ (No) → ข้ามขั้นตอนนี้<br>
+            6. เติมนมหรือไม่? (Yes/No)<br>
+            &nbsp;&nbsp;&nbsp;6a. ถ้าใช่ (Yes) → เติมนมและคนให้เข้ากัน<br>
+            &nbsp;&nbsp;&nbsp;6b. ถ้าไม่ (No) → ข้ามขั้นตอนนี้<br>
+            7. เสิร์ฟกาแฟ<br>
+            8. จบการทำงาน (END)
+          </p>
+        </div>
+        <div>
+          <h3>สังเกต</h3>
+          <ul class="list">
+            <li>มีจุดเริ่มต้น (START) และจุดสิ้นสุด (END)</li>
+            <li>แต่ละขั้นตอนชัดเจน ทำตามได้</li>
+            <li>มี <strong>Decision</strong> (ตัดสินใจ) — ใส่น้ำตาล? ใส่นม?</li>
+            <li>ผลลัพธ์ขึ้นอยู่กับ Input ของผู้ใช้</li>
+          </ul>
+          <div class="highlight-box" style="margin-top:1rem">
+            <p>💡 Algorithm ไม่ได้มีแค่ในคอมพิวเตอร์ — สูตรอาหาร คู่มือประกอบเฟอร์นิเจอร์ ก็เป็น Algorithm!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 8.5: Algorithm Example — Grade ==================== -->
+    <div class="slide">
+      <span class="badge anim">Algorithms</span>
+      <h2 class="anim">🎓 ตัวอย่าง Algorithm: คำนวณเกรด</h2>
+      <div class="columns anim">
+        <div class="card card--accent">
+          <h3>ขั้นตอน (Steps)</h3>
+          <p style="font-family:var(--font-mono);font-size:1rem;line-height:1.9">
+            1. รับคะแนนสอบ (score)<br>
+            2. ถ้า score ≥ 80 → grade = "A"<br>
+            3. ถ้า score ≥ 70 → grade = "B"<br>
+            4. ถ้า score ≥ 60 → grade = "C"<br>
+            5. ถ้า score ≥ 50 → grade = "D"<br>
+            6. อื่นๆ → grade = "F"<br>
+            7. แสดงผล grade
+          </p>
+        </div>
+        <div>
+          <h3>ทดสอบด้วย score = 75</h3>
+          <div class="card" style="margin-bottom:1rem">
+            <p style="font-family:var(--font-mono);font-size:1rem;line-height:1.8">
+              <span class="text-muted">1. รับค่า:</span> score = 75<br>
+              <span class="text-muted">2. 75 ≥ 80 ?</span> (เท็จ) เลื่อนไปข้อ 3<br>
+              <span class="text-muted">3. 75 ≥ 70 ?</span> <strong>(จริง)</strong> → grade = "B"<br>
+              <span class="text-muted">7. แสดงผล:</span> "B"
+            </p>
+          </div>
+          <div class="highlight-box">
+            <p>💡 โปรแกรมจะตรวจสอบเงื่อนไขตามลำดับจากบนลงล่าง เมื่อเจอเงื่อนไขที่เป็น "จริง" แล้ว
+              จะไม่ตรวจสอบเงื่อนไขด้านล่างอีก</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 11: Section — Flowcharts ==================== -->
+    <div class="slide slide--section">
+      <span class="badge anim">Algorithms</span>
+      <h1 class="title-hero anim">📐 <span class="title-accent">Flowcharts</span></h1>
+      <div class="divider anim"></div>
+      <p class="title-sub anim">แผนภูมิลำดับงาน — เครื่องมือสื่อสาร Algorithm ด้วยภาพ</p>
+    </div>
+
+    <!-- ==================== SLIDE 12: Flowchart Symbols ==================== -->
+    <div class="slide">
+      <span class="badge anim">Flowcharts</span>
+      <h2 class="anim">สัญลักษณ์พื้นฐานของ Flowchart</h2>
+      <div class="columns anim" style="gap:1.5rem">
+        <div>
+          <div class="card" style="margin-bottom:1rem;display:flex;align-items:center;gap:1rem">
+            <div style="width:100px;height:50px;flex-shrink:0;">
+              <svg width="100%" height="100%" viewBox="0 0 100 50">
+                <rect x="2" y="2" width="96" height="46" rx="23" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+                <text x="50" y="30" text-anchor="middle" font-size="12" fill="#1e3a8a"
+                  font-weight="bold">START/END</text>
+              </svg>
+            </div>
+            <div><strong>Terminator</strong><br><span class="text-muted">จุดเริ่มต้น / จุดสิ้นสุด</span></div>
+          </div>
+          <div class="card" style="margin-bottom:1rem;display:flex;align-items:center;gap:1rem">
+            <div style="width:100px;height:50px;flex-shrink:0;">
+              <svg width="100%" height="100%" viewBox="0 0 100 50">
+                <rect x="2" y="2" width="96" height="46" fill="#f3f4f6" stroke="#64748b" stroke-width="2" />
+                <text x="50" y="30" text-anchor="middle" font-size="12" fill="#1e293b" font-weight="bold">Process</text>
+              </svg>
+            </div>
+            <div><strong>Process</strong><br><span class="text-muted">คำสั่งประมวลผล / กำหนดค่า</span></div>
+          </div>
+          <div class="card" style="margin-bottom:1rem;display:flex;align-items:center;gap:1rem">
+            <div style="width:100px;height:60px;flex-shrink:0;">
+              <svg width="100%" height="100%" viewBox="0 0 100 60">
+                <polygon points="50,2 98,30 50,58 2,30" fill="#fef9c3" stroke="#eab308" stroke-width="2" />
+                <text x="50" y="35" text-anchor="middle" font-size="12" fill="#713f12" font-weight="bold">Yes/No</text>
+              </svg>
+            </div>
+            <div><strong>Decision</strong><br><span class="text-muted">เงื่อนไข ตัดสินใจ (Yes/No)</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom:1rem;display:flex;align-items:center;gap:1rem">
+            <div style="width:100px;height:50px;flex-shrink:0;">
+              <svg width="100%" height="100%" viewBox="0 0 100 50">
+                <polygon points="15,2 98,2 85,48 2,48" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+                <text x="50" y="30" text-anchor="middle" font-size="12" fill="#14532d" font-weight="bold">I/O</text>
+              </svg>
+            </div>
+            <div><strong>Input/Output</strong><br><span class="text-muted">รับข้อมูล / แสดงผล</span></div>
+          </div>
+          <div class="card" style="display:flex;align-items:center;gap:1rem">
+            <div
+              style="width:100px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:2rem;color:#64748b">
+              → ↓</div>
+            <div><strong>Arrow (Flow Line)</strong><br><span class="text-muted">แสดงทิศทางการทำงาน</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 13: Sequential Structure ==================== -->
+    <div class="slide">
+      <span class="badge anim">Flowcharts</span>
+      <h2 class="anim" style="margin-bottom:0.5rem">โครงสร้างแบบลำดับ (Sequential)</h2>
+      <p class="anim" style="color:var(--text-muted);margin-bottom:1rem;font-size:1.1rem">ทำงานเรียงลำดับจากบนลงล่าง
+        ทีละขั้นตอน ไม่มีการข้ามหรือวนซ้ำ</p>
+      <h3 class="anim">คำนวณพื้นที่วงกลม</h3>
+      <div class="columns anim">
+        <div>
+          <div class="card card--accent"
+            style="margin-top:1rem; padding: 1rem 0; display: flex; justify-content: center;">
+            <svg width="380" height="400" viewBox="0 0 380 400" style="font-family: var(--font-sans);">
+              <defs>
+                <marker id="arrowhead" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                  <polygon points="0 0, 6 2.5, 0 5" fill="#64748b" />
+                </marker>
+              </defs>
+              <line x1="190" y1="40" x2="190" y2="90" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" />
+              <line x1="190" y1="130" x2="190" y2="180" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <line x1="190" y1="220" x2="190" y2="270" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <line x1="190" y1="310" x2="190" y2="360" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <rect x="140" y="10" width="100" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+              <text x="190" y="30" text-anchor="middle" font-size="14" fill="#1e3a8a" font-weight="bold">START</text>
+              <polygon points="135,90 255,90 245,130 125,130" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+              <text x="190" y="115" text-anchor="middle" font-size="14" fill="#14532d" font-weight="bold">Input:
+                radius</text>
+              <rect x="70" y="180" width="240" height="40" fill="#f3f4f6" stroke="#64748b" stroke-width="2" />
+              <text x="190" y="205" text-anchor="middle" font-size="14" fill="#1e293b" font-weight="bold">area = 3.14
+                &times; radius &times; radius</text>
+              <polygon points="135,270 255,270 245,310 125,310" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+              <text x="190" y="295" text-anchor="middle" font-size="14" fill="#14532d" font-weight="bold">Output:
+                area</text>
+              <rect x="140" y="360" width="100" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+              <text x="190" y="380" text-anchor="middle" font-size="14" fill="#1e3a8a" font-weight="bold">END</text>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="card card--accent">
+            <h3>ขั้นตอน (Steps)</h3>
+            <p style="font-family:var(--font-mono);font-size:1rem;line-height:1.9">
+              1. เริ่มต้น (START)<br>
+              2. กำหนดให้รัศมี (radius) = 5<br>
+              3. คำนวณพื้นที่ (area) = 3.14 &times; radius &times; radius<br>
+              4. แสดงผลพื้นที่ (area)<br>
+              5. จบการทำงาน (END)
+            </p>
+          </div>
+          <div class="highlight-box" style="margin-top:1rem">
+            <p>💡 โครงสร้างแบบลำดับเป็นโครงสร้างที่เรียบง่ายที่สุด
+              โปรแกรมส่วนใหญ่ทำงานโดยใช้โครงสร้างแบบลำดับเป็นพื้นฐาน</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 13.5: Sequential Structure 2 ==================== -->
+    <div class="slide">
+      <span class="badge anim">Flowcharts</span>
+      <h2 class="anim" style="margin-bottom:0.5rem">โครงสร้างแบบลำดับ (Sequential)</h2>
+      <p class="anim" style="color:var(--text-muted);margin-bottom:1rem;font-size:1.1rem">ทำงานเรียงลำดับจากบนลงล่าง
+        ทีละขั้นตอน ไม่มีการข้ามหรือวนซ้ำ</p>
+      <h3 class="anim">คำนวณราคาสุทธิ (รวม VAT 7%)</h3>
+      <div class="columns anim">
+        <div>
+          <div class="card card--accent"
+            style="margin-top:1rem; padding: 1rem 0; display: flex; justify-content: center;">
+            <svg width="380" height="400" viewBox="0 0 380 400" style="font-family: var(--font-sans);">
+              <defs>
+                <marker id="arrowhead" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                  <polygon points="0 0, 6 2.5, 0 5" fill="#64748b" />
+                </marker>
+              </defs>
+              <line x1="190" y1="40" x2="190" y2="90" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" />
+              <line x1="190" y1="130" x2="190" y2="180" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <line x1="190" y1="220" x2="190" y2="270" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <line x1="190" y1="310" x2="190" y2="360" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <rect x="140" y="10" width="100" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+              <text x="190" y="30" text-anchor="middle" font-size="14" fill="#1e3a8a" font-weight="bold">START</text>
+              <polygon points="135,90 255,90 245,130 125,130" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+              <text x="190" y="115" text-anchor="middle" font-size="14" fill="#14532d" font-weight="bold">Input:
+                price</text>
+              <rect x="70" y="180" width="240" height="40" fill="#f3f4f6" stroke="#64748b" stroke-width="2" />
+              <text x="190" y="205" text-anchor="middle" font-size="14" fill="#1e293b" font-weight="bold">total = price
+                &times; 1.07</text>
+              <polygon points="135,270 255,270 245,310 125,310" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+              <text x="190" y="295" text-anchor="middle" font-size="14" fill="#14532d" font-weight="bold">Output:
+                total</text>
+              <rect x="140" y="360" width="100" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+              <text x="190" y="380" text-anchor="middle" font-size="14" fill="#1e3a8a" font-weight="bold">END</text>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="card card--accent">
+            <h3>ขั้นตอน (Steps)</h3>
+            <p style="font-family:var(--font-mono);font-size:1rem;line-height:1.9">
+              1. เริ่มต้น (START)<br>
+              2. รับค่า ราคาสินค้า (price)<br>
+              3. คำนวณ ราคาสุทธิ (total) = price &times; 1.07<br>
+              4. แสดงผล ราคาสุทธิ (total)<br>
+              5. จบการทำงาน (END)
+            </p>
+          </div>
+          <div class="highlight-box" style="margin-top:1rem">
+            <p>💡 1.07 มาจาก 100% (ราคาเดิม) + 7% (VAT) เขียนแบบนี้เพื่อรวบขั้นตอนการคำนวณให้สั้นลง</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 14: Decision Structure ==================== -->
+    <div class="slide">
+      <span class="badge anim">Flowcharts</span>
+      <h2 class="anim" style="margin-bottom:0.5rem">โครงสร้างแบบเลือก (Decision / Selection)</h2>
+      <p class="anim" style="color:var(--text-muted);margin-bottom:1rem;font-size:1.1rem">ตรวจสอบเงื่อนไข แล้วทำตาม Yes
+        หรือ No</p>
+      <h3 class="anim">ตรวจสอบเลขคู่ / เลขคี่</h3>
+      <div class="columns anim">
+        <div>
+          <div class="card card--accent"
+            style="margin-top:1rem; padding: 1rem 0; display: flex; justify-content: center;">
+            <svg width="380" height="400" viewBox="0 0 380 400" style="font-family: var(--font-sans);">
+              <defs>
+                <marker id="arrowhead" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                  <polygon points="0 0, 6 2.5, 0 5" fill="#64748b" />
+                </marker>
+              </defs>
+              <line x1="190" y1="40" x2="190" y2="90" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" />
+              <line x1="190" y1="130" x2="190" y2="180" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <line x1="190" y1="240" x2="190" y2="260" stroke="#64748b" stroke-width="2" />
+              <polyline points="190,260 90,260 90,290" fill="none" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <polyline points="190,260 290,260 290,290" fill="none" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <polyline points="90,330 90,340 190,340" fill="none" stroke="#64748b" stroke-width="2" />
+              <polyline points="290,330 290,340 190,340" fill="none" stroke="#64748b" stroke-width="2" />
+              <line x1="190" y1="340" x2="190" y2="360" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+
+              <text x="130" y="252" text-anchor="middle" font-size="14" fill="#64748b" font-weight="bold">Yes</text>
+              <text x="250" y="252" text-anchor="middle" font-size="14" fill="#64748b" font-weight="bold">No</text>
+              <rect x="140" y="10" width="100" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+              <text x="190" y="30" text-anchor="middle" font-size="14" fill="#1e3a8a" font-weight="bold">START</text>
+              <polygon points="125,90 265,90 255,130 115,130" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+              <text x="190" y="115" text-anchor="middle" font-size="14" fill="#14532d" font-weight="bold">Input:
+                num</text>
+              <polygon points="190,180 270,210 190,240 110,210" fill="#fef9c3" stroke="#eab308" stroke-width="2" />
+              <text x="190" y="215" text-anchor="middle" font-size="13" fill="#713f12" font-weight="bold">num % 2 ==
+                0?</text>
+              <polygon points="35,290 155,290 145,330 25,330" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+              <text x="90" y="315" text-anchor="middle" font-size="14" fill="#14532d" font-weight="bold">Output:
+                "Even"</text>
+              <polygon points="235,290 355,290 345,330 225,330" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+              <text x="290" y="315" text-anchor="middle" font-size="14" fill="#14532d" font-weight="bold">Output:
+                "Odd"</text>
+              <rect x="140" y="360" width="100" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+              <text x="190" y="380" text-anchor="middle" font-size="14" fill="#1e3a8a" font-weight="bold">END</text>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="card card--accent">
+            <h3>ขั้นตอน (Steps)</h3>
+            <p style="font-family:var(--font-mono);font-size:1rem;line-height:1.9">
+              1. เริ่มต้น (START)<br>
+              2. รับค่า ตัวเลข (num)<br>
+              3. ตรวจสอบว่า num หารด้วย 2 ลงตัวหรือไม่<br>
+              &nbsp;&nbsp;&nbsp;3a. ถ้าจริง &rarr; แสดงผล "Even" (เลขคู่)<br>
+              &nbsp;&nbsp;&nbsp;3b. ถ้าเท็จ &rarr; แสดงผล "Odd" (เลขคี่)<br>
+              4. จบการทำงาน (END)
+            </p>
+          </div>
+          <div class="highlight-box" style="margin-top:1rem">
+            <p>💡 เครื่องหมาย % (Modulo) ใช้หาเศษจากการหาร ถ้าหารด้วย 2 แล้วเศษเป็น 0 แสดงว่าเป็นเลขคู่เสมอ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 14.5: Decision Structure 2 ==================== -->
+    <div class="slide">
+      <span class="badge anim">Flowcharts</span>
+      <h2 class="anim" style="margin-bottom:0.5rem">โครงสร้างแบบเลือก (Decision / Selection)</h2>
+      <p class="anim" style="color:var(--text-muted);margin-bottom:1rem;font-size:1.1rem">ตรวจสอบเงื่อนไข แล้วทำตาม Yes
+        หรือ No</p>
+      <h3 class="anim">ตัดเกรดจากคะแนนสอบ</h3>
+      <div class="columns anim">
+        <div>
+          <div class="card card--accent"
+            style="margin-top:0.5rem; padding: 1rem 0; display: flex; justify-content: center;">
+            <svg width="420" height="480" viewBox="0 0 360 640" style="font-family: var(--font-sans);">
+              <defs>
+                <marker id="arrowhead" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                  <polygon points="0 0, 6 2.5, 0 5" fill="#64748b" />
+                </marker>
+              </defs>
+              <!-- START → Input -->
+              <line x1="110" y1="40" x2="110" y2="65" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" />
+              <!-- Input → Diamond 1 -->
+              <line x1="110" y1="100" x2="110" y2="130" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+
+              <!-- Diamond 1 (≥80) Yes → g='A' -->
+              <line x1="155" y1="155" x2="210" y2="155" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <text x="182" y="148" text-anchor="middle" font-size="12" fill="#64748b" font-weight="bold">Yes</text>
+              <!-- Diamond 1 No → Diamond 2 -->
+              <line x1="110" y1="180" x2="110" y2="210" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <text x="125" y="200" text-anchor="middle" font-size="12" fill="#64748b" font-weight="bold">No</text>
+
+              <!-- Diamond 2 (≥70) Yes → g='B' -->
+              <line x1="155" y1="235" x2="210" y2="235" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <text x="182" y="228" text-anchor="middle" font-size="12" fill="#64748b" font-weight="bold">Yes</text>
+              <!-- Diamond 2 No → Diamond 3 -->
+              <line x1="110" y1="260" x2="110" y2="290" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <text x="125" y="280" text-anchor="middle" font-size="12" fill="#64748b" font-weight="bold">No</text>
+
+              <!-- Diamond 3 (≥60) Yes → g='C' -->
+              <line x1="155" y1="315" x2="210" y2="315" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <text x="182" y="308" text-anchor="middle" font-size="12" fill="#64748b" font-weight="bold">Yes</text>
+              <!-- Diamond 3 No → Diamond 4 -->
+              <line x1="110" y1="340" x2="110" y2="370" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <text x="125" y="360" text-anchor="middle" font-size="12" fill="#64748b" font-weight="bold">No</text>
+
+              <!-- Diamond 4 (≥50) Yes → g='D' -->
+              <line x1="155" y1="395" x2="210" y2="395" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <text x="182" y="388" text-anchor="middle" font-size="12" fill="#64748b" font-weight="bold">Yes</text>
+              <!-- Diamond 4 No → g='F' -->
+              <line x1="110" y1="420" x2="110" y2="450" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <text x="125" y="440" text-anchor="middle" font-size="12" fill="#64748b" font-weight="bold">No</text>
+
+              <!-- Right vertical merge line -->
+              <line x1="275" y1="155" x2="310" y2="155" stroke="#64748b" stroke-width="2" />
+              <line x1="275" y1="235" x2="310" y2="235" stroke="#64748b" stroke-width="2" />
+              <line x1="275" y1="315" x2="310" y2="315" stroke="#64748b" stroke-width="2" />
+              <line x1="275" y1="395" x2="310" y2="395" stroke="#64748b" stroke-width="2" />
+              <line x1="310" y1="155" x2="310" y2="500" stroke="#64748b" stroke-width="2" />
+              <line x1="310" y1="500" x2="190" y2="500" stroke="#64748b" stroke-width="2" />
+
+              <!-- g='F' → merge -->
+              <line x1="110" y1="480" x2="110" y2="500" stroke="#64748b" stroke-width="2" />
+              <line x1="110" y1="500" x2="190" y2="500" stroke="#64748b" stroke-width="2" />
+
+              <!-- Merge → Output -->
+              <line x1="190" y1="500" x2="190" y2="530" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <!-- Output → END -->
+              <line x1="190" y1="565" x2="190" y2="595" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+
+              <!-- ===== SHAPES ===== -->
+              <!-- START -->
+              <rect x="65" y="10" width="90" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+              <text x="110" y="30" text-anchor="middle" font-size="14" fill="#1e3a8a" font-weight="bold">START</text>
+              <!-- Input -->
+              <polygon points="70,65 160,65 150,100 60,100" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+              <text x="110" y="88" text-anchor="middle" font-size="14" fill="#14532d" font-weight="bold">Input:
+                score</text>
+              <!-- Diamond 1: ≥80 -->
+              <polygon points="110,130 155,155 110,180 65,155" fill="#fef9c3" stroke="#eab308" stroke-width="2" />
+              <text x="110" y="160" text-anchor="middle" font-size="13" fill="#713f12" font-weight="bold">&ge; 80</text>
+              <rect x="210" y="140" width="65" height="30" fill="#f3f4f6" stroke="#64748b" stroke-width="2" />
+              <text x="242" y="160" text-anchor="middle" font-size="13" fill="#1e293b" font-weight="bold">g = 'A'</text>
+              <!-- Diamond 2: ≥70 -->
+              <polygon points="110,210 155,235 110,260 65,235" fill="#fef9c3" stroke="#eab308" stroke-width="2" />
+              <text x="110" y="240" text-anchor="middle" font-size="13" fill="#713f12" font-weight="bold">&ge; 70</text>
+              <rect x="210" y="220" width="65" height="30" fill="#f3f4f6" stroke="#64748b" stroke-width="2" />
+              <text x="242" y="240" text-anchor="middle" font-size="13" fill="#1e293b" font-weight="bold">g = 'B'</text>
+              <!-- Diamond 3: ≥60 -->
+              <polygon points="110,290 155,315 110,340 65,315" fill="#fef9c3" stroke="#eab308" stroke-width="2" />
+              <text x="110" y="320" text-anchor="middle" font-size="13" fill="#713f12" font-weight="bold">&ge; 60</text>
+              <rect x="210" y="300" width="65" height="30" fill="#f3f4f6" stroke="#64748b" stroke-width="2" />
+              <text x="242" y="320" text-anchor="middle" font-size="13" fill="#1e293b" font-weight="bold">g = 'C'</text>
+              <!-- Diamond 4: ≥50 -->
+              <polygon points="110,370 155,395 110,420 65,395" fill="#fef9c3" stroke="#eab308" stroke-width="2" />
+              <text x="110" y="400" text-anchor="middle" font-size="13" fill="#713f12" font-weight="bold">&ge; 50</text>
+              <rect x="210" y="380" width="65" height="30" fill="#f3f4f6" stroke="#64748b" stroke-width="2" />
+              <text x="242" y="400" text-anchor="middle" font-size="13" fill="#1e293b" font-weight="bold">g = 'D'</text>
+              <!-- g = 'F' -->
+              <rect x="75" y="450" width="70" height="30" fill="#f3f4f6" stroke="#64748b" stroke-width="2" />
+              <text x="110" y="470" text-anchor="middle" font-size="13" fill="#1e293b" font-weight="bold">g = 'F'</text>
+              <!-- Output -->
+              <polygon points="145,530 245,530 235,565 135,565" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+              <text x="190" y="553" text-anchor="middle" font-size="14" fill="#14532d" font-weight="bold">Output:
+                g</text>
+              <!-- END -->
+              <rect x="145" y="595" width="90" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+              <text x="190" y="615" text-anchor="middle" font-size="14" fill="#1e3a8a" font-weight="bold">END</text>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="card card--accent">
+            <h3>ขั้นตอน (Steps)</h3>
+            <p style="font-family:var(--font-mono);font-size:0.95rem;line-height:1.7;margin:0;">
+              1. เริ่มต้น (START)<br>
+              2. รับคะแนนสอบ (score)<br>
+              3. ตรวจสอบ score ตามลำดับขั้น:<br>
+              &nbsp;&nbsp;&nbsp;3a. &ge; 80 &rarr; ได้ 'A', ข้ามไปข้อ 4<br>
+              &nbsp;&nbsp;&nbsp;3b. &ge; 70 &rarr; ได้ 'B', ข้ามไปข้อ 4<br>
+              &nbsp;&nbsp;&nbsp;3c. &ge; 60 &rarr; ได้ 'C', ข้ามไปข้อ 4<br>
+              &nbsp;&nbsp;&nbsp;3d. &ge; 50 &rarr; ได้ 'D', ข้ามไปข้อ 4<br>
+              &nbsp;&nbsp;&nbsp;3e. น้อยกว่า 50 &rarr; ได้ 'F', ข้ามไปข้อ 4<br>
+              4. แสดงผลเกรด (g)<br>
+              5. จบการทำงาน (END)
+            </p>
+          </div>
+          <div class="highlight-box" style="margin-top:1rem">
+            <p>💡 โครงสร้างแบบนี้เรียกว่า <b>Nested If</b> ใช้ในการตัดสินใจที่มีหลายเงื่อนไขต่อเนื่องกัน</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 15: Loop Structure ==================== -->
+    <div class="slide">
+      <span class="badge anim">Flowcharts</span>
+      <h2 class="anim" style="margin-bottom:0.5rem">โครงสร้างแบบวนซ้ำ (Loop / Repetition)</h2>
+      <p class="anim" style="color:var(--text-muted);margin-bottom:1rem;font-size:1.1rem">ทำซ้ำขั้นตอนเดิม
+        จนกว่าเงื่อนไขจะเปลี่ยน</p>
+      <h3 class="anim">แสดงเลข 1 ถึง 5</h3>
+      <div class="columns anim">
+        <div>
+          <div class="card card--accent"
+            style="margin-top:1rem; padding: 1rem 0; display: flex; justify-content: center;">
+            <svg width="380" height="440" viewBox="0 0 380 440" style="font-family: var(--font-sans);">
+              <defs>
+                <marker id="arrowhead" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                  <polygon points="0 0, 6 2.5, 0 5" fill="#64748b" />
+                </marker>
+              </defs>
+              <line x1="190" y1="40" x2="190" y2="90" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" />
+              <line x1="190" y1="130" x2="190" y2="180" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <line x1="190" y1="240" x2="190" y2="260" stroke="#64748b" stroke-width="2" />
+              <polyline points="190,260 90,260 90,290" fill="none" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <polyline points="190,260 290,260 290,290" fill="none" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <line x1="90" y1="330" x2="90" y2="360" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" />
+              <polyline points="90,400 90,420 5,420 5,155 190,155" fill="none" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <text x="130" y="252" text-anchor="middle" font-size="14" fill="#64748b" font-weight="bold">Yes</text>
+              <text x="250" y="252" text-anchor="middle" font-size="14" fill="#64748b" font-weight="bold">No</text>
+              <rect x="140" y="10" width="100" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+              <text x="190" y="30" text-anchor="middle" font-size="14" fill="#1e3a8a" font-weight="bold">START</text>
+              <rect x="140" y="90" width="100" height="40" fill="#f3f4f6" stroke="#64748b" stroke-width="2" />
+              <text x="190" y="115" text-anchor="middle" font-size="14" fill="#1e293b" font-weight="bold">i = 1</text>
+              <polygon points="190,180 270,210 190,240 110,210" fill="#fef9c3" stroke="#eab308" stroke-width="2" />
+              <text x="190" y="215" text-anchor="middle" font-size="14" fill="#713f12" font-weight="bold">i &le;
+                5?</text>
+              <polygon points="35,290 155,290 145,330 25,330" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+              <text x="90" y="315" text-anchor="middle" font-size="14" fill="#14532d" font-weight="bold">Output:
+                i</text>
+              <rect x="40" y="360" width="100" height="40" fill="#f3f4f6" stroke="#64748b" stroke-width="2" />
+              <text x="90" y="385" text-anchor="middle" font-size="14" fill="#1e293b" font-weight="bold">i = i +
+                1</text>
+              <rect x="240" y="290" width="100" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+              <text x="290" y="310" text-anchor="middle" font-size="14" fill="#1e3a8a" font-weight="bold">END</text>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="card card--accent">
+            <h3>ขั้นตอน (Steps)</h3>
+            <p style="font-family:var(--font-mono);font-size:1rem;line-height:1.9">
+              1. เริ่มต้น (START)<br>
+              2. กำหนดให้ i = 1<br>
+              3. ตรวจสอบว่า i &le; 5 ใช่หรือไม่<br>
+              &nbsp;&nbsp;&nbsp;3a. จริง &rarr; แสดงผลค่า i, ให้ i = i + 1, แล้ววนกลับไปข้อ 3<br>
+              &nbsp;&nbsp;&nbsp;3b. เท็จ &rarr; ไปทำข้อ 4<br>
+              4. จบการทำงาน (END)
+            </p>
+          </div>
+          <div class="highlight-box" style="margin-top:1rem">
+            <p>⚠️ ข้อควรระวัง! ถ้าเงื่อนไขไม่เปลี่ยนแปลง จะเกิด Infinite Loop</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 15.5: Loop Structure 2 ==================== -->
+    <div class="slide">
+      <span class="badge anim">Flowcharts</span>
+      <h2 class="anim" style="margin-bottom:0.5rem">โครงสร้างแบบวนซ้ำ (Loop / Repetition)</h2>
+      <p class="anim" style="color:var(--text-muted);margin-bottom:1rem;font-size:1.1rem">ทำซ้ำขั้นตอนเดิม
+        จนกว่าเงื่อนไขจะเปลี่ยน</p>
+      <h3 class="anim">หาผลรวมเลข 1 ถึง 3</h3>
+      <div class="columns anim">
+        <div>
+          <div class="card card--accent"
+            style="margin-top:1rem; padding: 1rem 0; display: flex; justify-content: center;">
+            <svg width="380" height="440" viewBox="0 0 380 440" style="font-family: var(--font-sans);">
+              <defs>
+                <marker id="arrowhead" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                  <polygon points="0 0, 6 2.5, 0 5" fill="#64748b" />
+                </marker>
+              </defs>
+              <line x1="190" y1="40" x2="190" y2="90" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" />
+              <line x1="190" y1="130" x2="190" y2="180" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <line x1="190" y1="240" x2="190" y2="260" stroke="#64748b" stroke-width="2" />
+              <polyline points="190,260 90,260 90,290" fill="none" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <polyline points="190,260 290,260 290,290" fill="none" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <polyline points="90,350 90,390 5,390 5,155 190,155" fill="none" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+              <text x="130" y="252" text-anchor="middle" font-size="14" fill="#64748b" font-weight="bold">Yes</text>
+              <text x="250" y="252" text-anchor="middle" font-size="14" fill="#64748b" font-weight="bold">No</text>
+              <rect x="140" y="10" width="100" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+              <text x="190" y="30" text-anchor="middle" font-size="14" fill="#1e3a8a" font-weight="bold">START</text>
+              <rect x="110" y="90" width="160" height="40" fill="#f3f4f6" stroke="#64748b" stroke-width="2" />
+              <text x="190" y="115" text-anchor="middle" font-size="14" fill="#1e293b" font-weight="bold">sum = 0, i =
+                1</text>
+              <polygon points="190,180 270,210 190,240 110,210" fill="#fef9c3" stroke="#eab308" stroke-width="2" />
+              <text x="190" y="215" text-anchor="middle" font-size="14" fill="#713f12" font-weight="bold">i &le;
+                3?</text>
+              <rect x="30" y="290" width="120" height="60" fill="#f3f4f6" stroke="#64748b" stroke-width="2" />
+              <text x="90" y="315" text-anchor="middle" font-size="13" fill="#1e293b" font-weight="bold">sum = sum +
+                i</text>
+              <text x="90" y="335" text-anchor="middle" font-size="13" fill="#1e293b" font-weight="bold">i = i +
+                1</text>
+              <polygon points="235,290 355,290 345,330 225,330" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+              <text x="290" y="315" text-anchor="middle" font-size="14" fill="#14532d" font-weight="bold">Output:
+                sum</text>
+              <rect x="240" y="360" width="100" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+              <text x="290" y="380" text-anchor="middle" font-size="14" fill="#1e3a8a" font-weight="bold">END</text>
+              <line x1="290" y1="330" x2="290" y2="360" stroke="#64748b" stroke-width="2"
+                marker-end="url(#arrowhead)" />
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="card card--accent">
+            <h3>ขั้นตอน (Steps)</h3>
+            <p style="font-family:var(--font-mono);font-size:1rem;line-height:1.9">
+              1. เริ่มต้น (START)<br>
+              2. กำหนด sum = 0, i = 1<br>
+              3. ตรวจสอบว่า i &le; 3 ใช่หรือไม่<br>
+              &nbsp;&nbsp;&nbsp;3a. จริง &rarr; sum = sum + i,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เพิ่มค่า i = i + 1 แล้ววนกลับข้อ 3<br>
+              &nbsp;&nbsp;&nbsp;3b. เท็จ &rarr; ออกจากการวนซ้ำ ไปข้อ 4<br>
+              4. แสดงผลลัพธ์ ผลรวม (sum)<br>
+              5. จบการทำงาน (END)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 16: Practice ==================== -->
+    <div class="slide slide--section">
+      <span class="badge anim">Practice</span>
+      <h1 class="title-hero anim">✏️ <span class="title-accent">แบบฝึกหัด Flowchart</span></h1>
+      <div class="divider anim"></div>
+      <p class="title-sub anim">มาลองฝึกเขียน Flowchart 5 ข้อ จากง่ายไปยาก!</p>
+    </div>
+
+    <!-- ==================== SLIDE 17: Practice 1 ==================== -->
+    <div class="slide">
+      <span class="badge anim">Practice</span>
+      <h2 class="anim">โจทย์ที่ 1: คำนวณพื้นที่สามเหลี่ยม</h2>
+      <div class="columns anim">
+        <div>
+          <h3>โจทย์</h3>
+          <p>รับค่าฐาน (base) และความสูง (height) จากนั้นคำนวณพื้นที่สามเหลี่ยม และแสดงผลลัพธ์</p>
+          <div class="highlight-box" style="margin-top:1rem">
+            <p>💡 คำใบ้: พื้นที่ = 0.5 * ฐาน * สูง</p>
+          </div>
+        </div>
+        <div class="card card--accent">
+          <h3>Algorithm</h3>
+          <p style="font-family:var(--font-mono);font-size:1rem;line-height:2">
+            1. รับค่า base, height<br>
+            2. area = 0.5 * base * height<br>
+            3. แสดงผล area
+          </p>
+          <p class="text-muted" style="margin-top:1rem; font-size:0.9rem;">(ลองฝึกวาด Flowchart ด้วยตัวเองนะ!)</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== SLIDE 19: Practice 2 ==================== -->
+    <div class="slide">
+      <span class="badge anim">Practice</span>
+      <h2 class="anim">โจทย์ที่ 2: ตรวจสอบสิทธิ์เลือกตั้ง</h2>
+      <div class="columns anim">
+        <div>
+          <h3>โจทย์</h3>
+          <p>รับค่าอายุ (age) หากอายุตั้งแต่ 18 ปีขึ้นไป ให้แสดง 'Vote' ถ้าไม่ใช่ให้แสดง 'Wait'</p>
+          <div class="highlight-box" style="margin-top:1rem">
+            <p>💡 คำใบ้: ต้องใช้โครงสร้างแบบตัดสินใจ (Decision)</p>
+          </div>
+        </div>
+        <div class="card card--accent">
+          <h3>Algorithm</h3>
+          <p style="font-family:var(--font-mono);font-size:1rem;line-height:2">
+            1. รับค่า age<br>
+            2. ถ้า age &ge; 18<br>
+            &nbsp;&nbsp;&nbsp;2a. จริง &rarr; แสดงผล "Vote"<br>
+            &nbsp;&nbsp;&nbsp;2b. เท็จ &rarr; แสดงผล "Wait"
+          </p>
+          <p class="text-muted" style="margin-top:1rem; font-size:0.9rem;">(ลองฝึกวาด Flowchart ด้วยตัวเองนะ!)</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== SLIDE 21: Practice 3 ==================== -->
+    <div class="slide">
+      <span class="badge anim">Practice</span>
+      <h2 class="anim">โจทย์ที่ 3: ตรวจสอบเลขคู่/คี่</h2>
+      <div class="columns anim">
+        <div>
+          <h3>โจทย์</h3>
+          <p>รับค่าตัวเลข n ตรวจสอบว่าเป็น 'เลขคู่' (Even) หรือ 'เลขคี่' (Odd)</p>
+          <div class="highlight-box" style="margin-top:1rem">
+            <p>💡 คำใบ้: เลขคู่ คือเลขที่หารด้วย 2 แล้วเหลือเศษ 0 (n % 2 = 0)</p>
+          </div>
+        </div>
+        <div class="card card--accent">
+          <h3>Algorithm</h3>
+          <p style="font-family:var(--font-mono);font-size:1rem;line-height:2">
+            1. รับค่า n<br>
+            2. ถ้า n % 2 = 0<br>
+            &nbsp;&nbsp;&nbsp;2a. จริง &rarr; แสดงผล "Even"<br>
+            &nbsp;&nbsp;&nbsp;2b. เท็จ &rarr; แสดงผล "Odd"
+          </p>
+          <p class="text-muted" style="margin-top:1rem; font-size:0.9rem;">(ลองฝึกวาด Flowchart ด้วยตัวเองนะ!)</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== SLIDE 23: Practice 4 ==================== -->
+    <div class="slide">
+      <span class="badge anim">Practice</span>
+      <h2 class="anim">โจทย์ที่ 4: นับถอยหลัง (Countdown)</h2>
+      <div class="columns anim">
+        <div>
+          <h3>โจทย์</h3>
+          <p>ตั้งค่าเริ่มต้นนับถอยหลังตั้งแต่ 3 เมื่อนับจนถึง 0 ให้แสดงคำว่า 'GO!'</p>
+          <div class="highlight-box" style="margin-top:1rem">
+            <p>💡 คำใบ้: ใช้ตัวแปร count=3 แล้วลดค่าลงทีละ 1 ใน Loop</p>
+          </div>
+        </div>
+        <div class="card card--accent">
+          <h3>Algorithm</h3>
+          <p style="font-family:var(--font-mono);font-size:1rem;line-height:2">
+            1. count = 3<br>
+            2. ถ้า count > 0<br>
+            &nbsp;&nbsp;&nbsp;2a. จริง &rarr; แสดงผล count, count = count - 1, ย้อนไป 2.<br>
+            &nbsp;&nbsp;&nbsp;2b. เท็จ &rarr; แสดงผล "GO!"
+          </p>
+          <p class="text-muted" style="margin-top:1rem; font-size:0.9rem;">(ลองฝึกวาด Flowchart ด้วยตัวเองนะ!)</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== SLIDE 25: Practice 5 ==================== -->
+    <div class="slide">
+      <span class="badge anim">Practice</span>
+      <h2 class="anim">โจทย์ที่ 5: ระบบล็อกอิน</h2>
+      <div class="columns anim">
+        <div>
+          <h3>โจทย์</h3>
+          <p>รับค่ารหัสผ่าน ถ้ารหัสผ่านคือ '1234' ให้แสดง 'Welcome' ถ้าไม่ใช่ ให้แสดง 'Try Again' แล้ววนกลับไปรับค่าใหม่
+          </p>
+          <div class="highlight-box" style="margin-top:1rem">
+            <p>💡 คำใบ้: รวม Decision เข้ากับ Loop โดยวนกลับไปจุดรับค่า (Input)</p>
+          </div>
+        </div>
+        <div class="card card--accent">
+          <h3>Algorithm</h3>
+          <p style="font-family:var(--font-mono);font-size:1rem;line-height:2">
+            1. รับค่า password<br>
+            2. ถ้า password = "1234"<br>
+            &nbsp;&nbsp;&nbsp;2a. จริง &rarr; แสดงผล "Welcome"<br>
+            &nbsp;&nbsp;&nbsp;2b. เท็จ &rarr; แสดงผล "Try Again" แล้วย้อนไป 1.
+          </p>
+          <p class="text-muted" style="margin-top:1rem; font-size:0.9rem;">(ลองฝึกวาด Flowchart ด้วยตัวเองนะ!)</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== SLIDE 27: Summary ==================== -->
+
+    <div class="slide">
+      <span class="badge anim">Summary</span>
+      <h2 class="anim">🎉 สรุปสิ่งที่เรียนวันนี้</h2>
+      <div class="columns anim">
+        <div class="card card--accent">
+          <span class="emoji-md">🧠</span>
+          <h3>กระบวนการคิด (Thinking)</h3>
+          <ul class="list">
+            <li>เขียนโปรแกรมต้องคิดเป็น Algorithm</li>
+            <li>Algorithm ที่ดีต้อง ชัดเจน มีลำดับขั้นตอน มีจุดจบ</li>
+          </ul>
+        </div>
+        <div class="card card--accent">
+          <span class="emoji-md">📐</span>
+          <h3>Flowcharts</h3>
+          <ul class="list">
+            <li>โครงสร้างแบบลำดับ (Sequential)</li>
+            <li>โครงสร้างแบบเลือก (Decision)</li>
+            <li>โครงสร้างแบบวนซ้ำ (Loop)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 20: Tomorrow ==================== -->
+    <div class="slide slide--center">
+      <span class="badge anim">Tomorrow</span>
+      <h2 class="anim">เตรียมตัวสำหรับวันพรุ่งนี้ 🚀</h2>
+      <div class="card card--accent anim"
+        style="display:inline-block; text-align:left; max-width:600px; margin:0 auto;">
+        <ul class="list">
+          <li>พรุ่งนี้เราจะเริ่มลงมือเขียน <strong>โค้ด Python</strong> จริงๆ!</li>
+          <li>เปลี่ยน Flowchart ให้กลายเป็นโค้ดที่ทำงานได้</li>
+          <li>เรียนรู้เรื่องตัวแปร (Variables) และชนิดข้อมูล (Data Types)</li>
+        </ul>
+      </div>
+      <div class="highlight-box anim" style="display:inline-block; margin-top:2rem;">
+        <p>💡 สำหรับคนที่ยังไม่แม่นเรื่องการคิดเชิงตรรกะ Flowchart สามารถช่วยคุณได้</p>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <div class="nav">
+      <button onclick="engine.prev()" class="nav-btn">‹</button>
+      <span class="slide-counter"></span>
+      <button onclick="engine.next()" class="nav-btn">›</button>
+    </div>
+  </div>
+
+  <script>
+    class SlideEngine { constructor() { this.slides = document.querySelectorAll('.slide'); this.current = 0; this.total = this.slides.length; this.touchStartX = 0; this.init() } init() { this.bindKeyboard(); this.bindTouch(); this.updateUI(); const h = parseInt(location.hash.replace('#', '')); if (h && h >= 1 && h <= this.total) this.goto(h - 1) } goto(i) { if (i < 0 || i >= this.total) return; this.slides[this.current].classList.remove('active'); this.slides[this.current].querySelectorAll('.anim').forEach(el => { el.style.animation = 'none'; el.offsetHeight; el.style.animation = '' }); this.current = i; this.slides[this.current].classList.add('active'); this.updateUI(); location.hash = this.current + 1 } next() { this.goto(this.current + 1) } prev() { this.goto(this.current - 1) } updateUI() { const p = ((this.current + 1) / this.total) * 100; document.querySelector('.progress-fill').style.width = p + '%'; document.querySelector('.slide-counter').textContent = `${this.current + 1} / ${this.total}` } bindKeyboard() { document.addEventListener('keydown', e => { switch (e.key) { case 'ArrowRight': case ' ': case 'PageDown': e.preventDefault(); this.next(); break; case 'ArrowLeft': case 'PageUp': e.preventDefault(); this.prev(); break; case 'Home': e.preventDefault(); this.goto(0); break; case 'End': e.preventDefault(); this.goto(this.total - 1); break } }) } bindTouch() { document.addEventListener('touchstart', e => { this.touchStartX = e.changedTouches[0].screenX }, { passive: true }); document.addEventListener('touchend', e => { const dx = e.changedTouches[0].screenX - this.touchStartX; if (Math.abs(dx) > 50) { dx > 0 ? this.prev() : this.next() } }, { passive: true }) } }
+    const engine = new SlideEngine();
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วันที่ 3 — Collections & Conditionals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#fff;--text:#111827;--text-muted:#6b7280;--text-light:#9ca3af;--accent:#10b981;--accent-light:#d1fae5;--accent-dark:#065f46;--code-bg:#1e1e2e;--code-text:#cdd6f4;--border:#e5e7eb;--surface:#f9fafb;--success:#10b981;--warning:#f59e0b;--info:#3b82f6;--font-sans:'Prompt',system-ui,sans-serif;--font-mono:'JetBrains Mono','Fira Code',monospace;--transition:0.5s cubic-bezier(0.4,0,0.2,1)}
+        html,body{height:100%;overflow:hidden;font-family:var(--font-sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+        .presentation{position:relative;width:100%;height:100vh;overflow:hidden}
+        .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:60px 100px;opacity:0;transform:translateY(12px);transition:opacity var(--transition),transform var(--transition);pointer-events:none;overflow-y:auto}
+        .slide.active{opacity:1;transform:translateY(0);pointer-events:all}
+        .slide.active .anim{animation:fadeUp .6s ease both}
+        .slide.active .anim:nth-child(1){animation-delay:.08s}.slide.active .anim:nth-child(2){animation-delay:.16s}.slide.active .anim:nth-child(3){animation-delay:.24s}.slide.active .anim:nth-child(4){animation-delay:.32s}.slide.active .anim:nth-child(5){animation-delay:.4s}.slide.active .anim:nth-child(6){animation-delay:.48s}.slide.active .anim:nth-child(7){animation-delay:.56s}.slide.active .anim:nth-child(8){animation-delay:.64s}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+        .slide--title,.slide--section,.slide--center{align-items:center;text-align:center}
+        .title-hero{font-size:3.2rem;font-weight:700;letter-spacing:-.02em;line-height:1.2}.title-sub{font-size:1.3rem;font-weight:300;color:var(--text-muted);margin-top:.8rem}.title-accent{color:var(--accent)}
+        h2{font-size:2.1rem;font-weight:600;margin-bottom:1.5rem}h3{font-size:1.5rem;font-weight:600;margin-bottom:1rem;color:var(--accent-dark)}
+        p,li{font-size:1.15rem;line-height:1.8}.text-muted{color:var(--text-muted)}.text-small{font-size:.95rem;color:var(--text-muted)}
+        .badge{display:inline-block;padding:.25rem .9rem;border-radius:50px;font-size:.85rem;font-weight:500;background:var(--accent-light);color:var(--accent-dark);margin-bottom:1rem}
+        .divider{width:60px;height:3px;background:var(--accent);border-radius:2px;margin:1.2rem 0}.slide--title .divider,.slide--section .divider,.slide--center .divider{margin:1.2rem auto}
+        .list{list-style:none;padding:0}.list li{position:relative;padding-left:1.6rem;margin-bottom:.7rem}.list li::before{content:'';position:absolute;left:0;top:.65rem;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+        .columns{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;width:100%}.columns-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;width:100%}.columns-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;width:100%}
+        .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem}.card h3{font-size:1.15rem;margin-bottom:.5rem}.card p{font-size:1.05rem;color:var(--text-muted)}.card--accent{border-left:4px solid var(--accent)}
+        .emoji-lg{font-size:3rem;margin-bottom:.8rem;display:block}.emoji-md{font-size:1.6rem;margin-bottom:.4rem;display:block}
+        .highlight-box{background:var(--accent-light);border-radius:12px;padding:1.5rem 2rem;margin:1rem 0;border-left:4px solid var(--accent)}.highlight-box p{color:var(--accent-dark);font-weight:500}
+        .code-block{background:var(--code-bg);color:var(--code-text);border-radius:12px;padding:1.2rem 1.8rem;font-family:var(--font-mono);font-size:.95rem;line-height:1.7;overflow-x:auto;margin:1rem 0;white-space:pre-wrap}.code-block br{display:none}
+        .code-block .kw{color:#cba6f7}.code-block .fn{color:#89b4fa}.code-block .str{color:#a6e3a1}.code-block .num{color:#fab387}.code-block .cmt{color:#6c7086;font-style:italic}.code-block .op{color:#89dceb}.code-block .var{color:#f5c2e7}
+        .code-block.no-bottom-radius{border-radius:12px 12px 0 0;margin-bottom:0}
+        .output-box{background:#0d1117;color:#58d68d;border-radius:0 0 12px 12px;padding:.8rem 1.8rem;font-family:var(--font-mono);font-size:.95rem;line-height:1.7;border-left:3px solid #58d68d;white-space:pre-wrap;position:relative}
+        .output-box::before{content:'OUTPUT';position:absolute;top:.5rem;right:1rem;font-size:.6rem;font-weight:700;letter-spacing:.1em;color:#58d68d;opacity:.4;font-family:var(--font-sans)}
+        .code-block .result{color:#89dceb;background:rgba(137,180,235,0.1);padding:0 .4rem;border-radius:4px;border-left:2px solid #89dceb;margin-left:.3rem}
+        table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:1rem}th,td{border:1px solid var(--border);padding:.5rem .8rem;text-align:left}th{background:var(--accent-light);color:var(--accent-dark);font-weight:600}
+        .progress-bar{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--border);z-index:100}.progress-fill{height:100%;background:var(--accent);width:0%;transition:width .4s ease}
+        .nav{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:1.2rem;z-index:100}
+        .nav-btn{width:40px;height:40px;border:1px solid var(--border);background:var(--bg);border-radius:10px;font-size:1.2rem;color:var(--text-muted);cursor:pointer;transition:all .2s ease;display:flex;align-items:center;justify-content:center;font-family:var(--font-sans)}
+        .nav-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+        .slide-counter{font-size:.85rem;color:var(--text-light);font-variant-numeric:tabular-nums;min-width:60px;text-align:center}
+        .day-badge{position:fixed;top:16px;right:24px;padding:.3rem 1rem;background:var(--accent-light);color:var(--accent-dark);border-radius:8px;font-size:.8rem;font-weight:600;z-index:100}
+        @media(max-width:768px){.slide{padding:40px 30px}.title-hero{font-size:2.2rem}h2{font-size:1.6rem}p,li{font-size:1.05rem}.columns,.columns-3{grid-template-columns:1fr}}
+        @media print{.slide{position:relative;opacity:1;transform:none;page-break-after:always;height:100vh}.nav,.progress-bar,.day-badge{display:none}}
+    
+    /* Click to Reveal Styles */
+    .reveal-solution {
+      margin-top: 0.5rem;
+    }
+    .reveal-btn {
+      cursor: pointer;
+      padding: .8rem 1.8rem;
+      line-height: 1.7;
+      border-left: 3px solid rgba(255,255,255,0.2);
+      background-color: var(--code-bg);
+      color: white;
+      border-radius: 8px;
+      display: inline-block;
+      font-weight: 600;
+      font-size: 0.95rem;
+      list-style: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .reveal-btn:hover {
+      background-color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .reveal-btn::-webkit-details-marker {
+      display: none;
+    }
+    .reveal-solution[open] .reveal-btn {
+      display: none;
+    }
+    .reveal-content {
+      animation: fadeIn 0.4s ease-in-out;
+      margin-top: 1rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <div class="day-badge">DAY 3</div>
+
+                <!-- SLIDE 1: Title -->
+        <section class="slide slide--title active">
+            <span class="badge anim">ปรับพื้นฐาน Python</span>
+            <h1 class="title-hero anim">Collections & <span class="title-accent">Conditionals</span></h1>
+            <div class="divider anim"></div>
+            <p class="title-sub anim">วันที่ 3 — โครงสร้างข้อมูลและเงื่อนไข</p>
+        </section>
+        <!-- SLIDE 2: Agenda -->
+        <section class="slide">
+            <span class="badge anim">AGENDA</span>
+            <h2 class="anim">สิ่งที่จะเรียนวันนี้</h2>
+            <div class="columns anim">
+                <div class="card card--accent">
+                    <span class="emoji-md">☀️</span>
+                    <h3>ช่วงเช้า — Lecture</h3>
+                    <ul class="list">
+                        <li>Sequence data: List</li>
+                        <li>Dictionary</li>
+                        <li>Boolean</li>
+                        <li>Conditionals (if, elif, else)</li>
+                    </ul>
+                </div>
+                <div class="card card--accent">
+                    <span class="emoji-md">🌤️</span>
+                    <h3>ช่วงบ่าย — Lab</h3>
+                    <ul class="list">
+                        <li>Lab ตอนที่ 3: แบบฝึกหัด List, Dict และเงื่อนไข</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+<!-- ==================== SLIDE 3: Section — Collections ==================== -->
+<div class="slide slide--section">
+  <span class="badge anim">Lists</span>
+  <h1 class="title-hero anim">📦 <span class="title-accent">Collections</span></h1>
+  <div class="divider anim"></div>
+  <p class="title-sub anim">List &amp; Dictionary — โครงสร้างข้อมูลพื้นฐานใน Python</p>
+</div>
+
+<!-- ==================== SLIDE 4: List Basics ==================== -->
+<div class="slide">
+  <span class="badge anim">Lists</span>
+  <h2 class="anim">📋 List — รายการข้อมูลที่เปลี่ยนแปลงได้</h2>
+  <div class="columns anim">
+    <div>
+      <h3>สร้าง List</h3>
+      <div class="code-block no-bottom-radius">
+<span class="cmt"># List of integers</span><br>
+<span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>, <span class="num">78</span>, <span class="num">95</span>, <span class="num">88</span>]<br><br>
+<span class="cmt"># List of strings</span><br>
+<span class="var">names</span> <span class="op">=</span> [<span class="str">"Alice"</span>, <span class="str">"Bob"</span>, <span class="str">"Charlie"</span>]<br><br><br>
+<span class="var">info</span> <span class="op">=</span> [<span class="str">"Alice"</span>, <span class="num">20</span>, <span class="num">3.75</span>, <span class="kw">True</span>]<br><br><br>
+<span class="var">empty</span> <span class="op">=</span> []
+      </div>
+      <div class="output-box">Mixed types
+Empty list</div>
+    </div>
+    <div>
+      <h3>เข้าถึง &amp; แก้ไข</h3>
+      <div class="code-block no-bottom-radius">
+<span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>, <span class="num">78</span>, <span class="num">95</span>, <span class="num">88</span>]<br><br><br>
+<span class="fn">print</span>(<span class="var">scores</span>[<span class="num">0</span>])<br>
+<span class="fn">print</span>(<span class="var">scores</span>[<span class="num">-1</span>])<br>
+<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">scores</span>))<br><br><span class="cmt"># Mutable — change values</span><br>
+<span class="var">scores</span>[<span class="num">2</span>] <span class="op">=</span> <span class="num">80</span><br>
+<span class="fn">print</span>(<span class="var">scores</span>)
+      </div>
+      <div class="output-box">Access by index
+5
+[85, 92, 80, 95, 88]
+85
+88</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 5: List Methods ==================== -->
+<div class="slide">
+  <span class="badge anim">Lists</span>
+  <h2 class="anim">🔧 List Methods ที่ใช้บ่อย</h2>
+  <div class="columns anim">
+    <div>
+      <div class="code-block no-bottom-radius" style="font-size:.95rem">
+<span class="var">fruits</span> <span class="op">=</span> [<span class="str">"apple"</span>, <span class="str">"banana"</span>]<br><br>
+<span class="cmt"># append — เพิ่มท้าย</span><br>
+<span class="var">fruits</span>.<span class="fn">append</span>(<span class="str">"cherry"</span>)<br><br><br>
+<span class="cmt"># insert — แทรกที่ตำแหน่ง</span><br>
+<span class="var">fruits</span>.<span class="fn">insert</span>(<span class="num">1</span>, <span class="str">"mango"</span>)<br><br><br>
+<span class="cmt"># remove — ลบตามค่า</span><br>
+<span class="var">fruits</span>.<span class="fn">remove</span>(<span class="str">"banana"</span>)<br>
+      </div>
+      <div class="output-box">["apple", "banana", "cherry"]
+["apple", "mango", "banana", "cherry"]
+["apple", "mango", "cherry"]</div>
+    </div>
+    <div>
+      <div class="code-block no-bottom-radius" style="font-size:.95rem">
+<span class="cmt"># pop — ลบตามตำแหน่ง (return ค่า)</span><br>
+<span class="var">last</span> <span class="op">=</span> <span class="var">fruits</span>.<span class="fn">pop</span>()<br><br><br>
+<span class="var">nums</span> <span class="op">=</span> [<span class="num">3</span>, <span class="num">1</span>, <span class="num">4</span>, <span class="num">1</span>, <span class="num">5</span>]<br><br>
+<span class="cmt"># sort — เรียงลำดับ (in-place)</span><br>
+<span class="var">nums</span>.<span class="fn">sort</span>()<br><br><br>
+<span class="cmt"># reverse — กลับลำดับ</span><br>
+<span class="var">nums</span>.<span class="fn">reverse</span>()<br><br><br><span class="cmt"># index &amp; count</span><br>
+<span class="fn">print</span>(<span class="var">nums</span>.<span class="fn">index</span>(<span class="num">4</span>))<br>
+<span class="fn">print</span>(<span class="var">nums</span>.<span class="fn">count</span>(<span class="num">1</span>))
+      </div>
+      <div class="output-box">last = "cherry"
+[1, 1, 3, 4, 5]
+[5, 4, 3, 1, 1]
+1
+2</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 6: List Slicing ==================== -->
+<div class="slide">
+  <span class="badge anim">Lists</span>
+  <h2 class="anim">✂️ List Slicing — เหมือน String Slicing!</h2>
+  <div class="columns anim">
+    <div>
+      <div class="code-block no-bottom-radius">
+<span class="var">nums</span> <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>, <span class="num">50</span>, <span class="num">60</span>]<br><br><br>
+<span class="fn">print</span>(<span class="var">nums</span>[<span class="num">1</span>:<span class="num">4</span>])<br><br><br><span class="cmt"># [:stop]</span><br>
+<span class="fn">print</span>(<span class="var">nums</span>[:<span class="num">3</span>])<br><br><br><span class="cmt"># [start:]</span><br>
+<span class="fn">print</span>(<span class="var">nums</span>[<span class="num">3</span>:])<br>
+      </div>
+      <div class="output-box">[start:stop]
+[20, 30, 40]
+[10, 20, 30]
+[40, 50, 60]</div>
+    </div>
+    <div>
+      <div class="code-block no-bottom-radius">
+<span class="var">nums</span> <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>, <span class="num">50</span>, <span class="num">60</span>]<br><br><br>
+<span class="fn">print</span>(<span class="var">nums</span>[<span class="num">-3</span>:])<br><br><br><span class="cmt"># Step</span><br>
+<span class="fn">print</span>(<span class="var">nums</span>[::<span class="num">2</span>])<br><br><br><span class="cmt"># Reverse</span><br>
+<span class="fn">print</span>(<span class="var">nums</span>[::<span class="num">-1</span>])<br>
+      </div>
+      <div class="output-box">Last 3 elements
+[40, 50, 60]
+[10, 30, 50]
+[60, 50, 40, 30, 20, 10]</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 7: Built-in Functions with List ==================== -->
+<div class="slide">
+  <span class="badge anim">Lists</span>
+  <h2 class="anim">📊 Built-in Functions สำหรับ List</h2>
+  <div class="columns anim">
+    <div>
+      <div class="code-block no-bottom-radius">
+<span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>, <span class="num">78</span>, <span class="num">95</span>, <span class="num">88</span>]<br><br>
+<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">scores</span>))<br>
+<span class="fn">print</span>(<span class="fn">sum</span>(<span class="var">scores</span>))<br>
+<span class="fn">print</span>(<span class="fn">max</span>(<span class="var">scores</span>))<br>
+<span class="fn">print</span>(<span class="fn">min</span>(<span class="var">scores</span>))<br><br><br>
+<span class="var">avg</span> <span class="op">=</span> <span class="fn">sum</span>(<span class="var">scores</span>) <span class="op">/</span> <span class="fn">len</span>(<span class="var">scores</span>)<br>
+<span class="fn">print</span>(<span class="var">avg</span>)
+      </div>
+      <div class="output-box">Average
+5
+438
+95
+78
+87.6</div>
+    </div>
+    <div>
+      <h3>sorted() vs .sort()</h3>
+      <div class="code-block no-bottom-radius">
+<span class="var">nums</span> <span class="op">=</span> [<span class="num">3</span>, <span class="num">1</span>, <span class="num">4</span>, <span class="num">1</span>, <span class="num">5</span>]<br><br><br>
+<span class="var">new_list</span> <span class="op">=</span> <span class="fn">sorted</span>(<span class="var">nums</span>)<br>
+<span class="fn">print</span>(<span class="var">new_list</span>)<br>
+<span class="fn">print</span>(<span class="var">nums</span>)      <span class="cmt"># [3, 1, 4, 1, 5] ←ไม่เปลี่ยน</span><br><br><br>
+<span class="var">nums</span>.<span class="fn">sort</span>()<br>
+<span class="fn">print</span>(<span class="var">nums</span>)
+      </div>
+      <div class="output-box">sorted() — returns new list
+.sort() — modifies in-place
+[1, 1, 3, 4, 5] ←เปลี่ยนแล้ว</div>
+      <div class="highlight-box" style="margin-top:.5rem">
+        <p>💡 ฟังก์ชันเหล่านี้มีประโยชน์มากสำหรับงานสถิติ!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 8: Dictionary ==================== -->
+<div class="slide">
+  <span class="badge anim">Dictionaries</span>
+  <h2 class="anim">📖 Dictionary — เก็บข้อมูลแบบ key:value</h2>
+  <div class="columns anim">
+    <div>
+      <h3>สร้าง Dictionary</h3>
+      <div class="code-block no-bottom-radius">
+<span class="var">student</span> <span class="op">=</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"name"</span>: <span class="str">"Alice"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"age"</span>: <span class="num">20</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"major"</span>: <span class="str">"Data Science"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"gpa"</span>: <span class="num">3.75</span><br>
+}<br><br><br>
+<span class="var">empty</span> <span class="op">=</span> {}
+      </div>
+      <div class="output-box">Empty dict</div>
+    </div>
+    <div>
+      <h3>เข้าถึงค่า</h3>
+      <div class="code-block no-bottom-radius"><br>
+<span class="fn">print</span>(<span class="var">student</span>[<span class="str">"name"</span>])<br><br><br>
+<span class="fn">print</span>(<span class="var">student</span>[<span class="str">"gpa"</span>])<br><br><br><span class="cmt"># Add / Update</span><br>
+<span class="var">student</span>[<span class="str">"email"</span>] <span class="op">=</span> <span class="str">"alice@uni.edu"</span><br>
+<span class="var">student</span>[<span class="str">"gpa"</span>] <span class="op">=</span> <span class="num">3.85</span>
+      </div>
+      <div class="output-box">Bracket notation
+Alice
+3.75</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 9: Dict Access ==================== -->
+<div class="slide">
+  <span class="badge anim">Dictionaries</span>
+  <h2 class="anim">🔑 การเข้าถึง Dictionary อย่างปลอดภัย</h2>
+  <div class="columns anim">
+    <div>
+      <h3>d["key"] vs d.get("key")</h3>
+      <div class="code-block no-bottom-radius">
+<span class="var">student</span> <span class="op">=</span> {<span class="str">"name"</span>: <span class="str">"Alice"</span>, <span class="str">"age"</span>: <span class="num">20</span>}<br><br><span class="cmt"># ❌ KeyError if key doesn't exist</span><br><span class="cmt"># print(student["phone"])  # Error!</span><br><br><span class="cmt"># ✅ .get() returns None or default</span><br>
+<span class="fn">print</span>(<span class="var">student</span>.<span class="fn">get</span>(<span class="str">"phone"</span>))<br><br><br>
+<span class="fn">print</span>(<span class="var">student</span>.<span class="fn">get</span>(<span class="str">"phone"</span>, <span class="str">"N/A"</span>))<br>
+      </div>
+      <div class="output-box">/A</div>
+    </div>
+    <div>
+      <h3>ตรวจสอบ key</h3>
+      <div class="code-block no-bottom-radius">
+<span class="var">student</span> <span class="op">=</span> {<span class="str">"name"</span>: <span class="str">"Alice"</span>, <span class="str">"age"</span>: <span class="num">20</span>}<br><br>
+<span class="cmt"># Check if key exists</span><br>
+<span class="fn">print</span>(<span class="str">"name"</span> <span class="kw">in</span> <span class="var">student</span>)<br><br><br>
+<span class="fn">print</span>(<span class="str">"phone"</span> <span class="kw">in</span> <span class="var">student</span>)<br>
+      </div>
+      <div class="output-box">alse</div>
+      <div class="highlight-box" style="margin-top:.5rem">
+        <p>💡 ใช้ <code>.get()</code> เมื่อไม่แน่ใจว่า key มีอยู่หรือไม่ — ป้องกัน Error!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 10: Dict Methods ==================== -->
+<div class="slide">
+  <span class="badge anim">Dictionaries</span>
+  <h2 class="anim">🛠️ Dictionary Methods ที่ใช้บ่อย</h2>
+  <div class="columns anim">
+    <div>
+      <div class="code-block no-bottom-radius" style="font-size:.95rem">
+<span class="var">d</span> <span class="op">=</span> {<span class="str">"a"</span>: <span class="num">1</span>, <span class="str">"b"</span>: <span class="num">2</span>, <span class="str">"c"</span>: <span class="num">3</span>}<br><br><br>
+<span class="fn">print</span>(<span class="var">d</span>.<span class="fn">keys</span>())<br><br><br>
+<span class="fn">print</span>(<span class="var">d</span>.<span class="fn">values</span>())<br><br><br>
+<span class="fn">print</span>(<span class="var">d</span>.<span class="fn">items</span>())<br>
+      </div>
+      <div class="output-box">keys(), values(), items()
+dict_keys(['a', 'b', 'c'])
+dict_values([1, 2, 3])
+dict_items([('a', 1), ('b', 2), ('c', 3)])</div>
+    </div>
+    <div>
+      <div class="code-block no-bottom-radius" style="font-size:.95rem"><br>
+<span class="var">d</span>.<span class="fn">update</span>({<span class="str">"d"</span>: <span class="num">4</span>, <span class="str">"e"</span>: <span class="num">5</span>})<br>
+<span class="fn">print</span>(<span class="var">d</span>)<br><br><br><span class="cmt"># pop — remove by key (return value)</span><br>
+<span class="var">val</span> <span class="op">=</span> <span class="var">d</span>.<span class="fn">pop</span>(<span class="str">"b"</span>)<br>
+<span class="fn">print</span>(<span class="var">val</span>)<br>
+<span class="fn">print</span>(<span class="var">d</span>)<br><br>
+<span class="cmt"># Loop through dict</span><br>
+<span class="kw">for</span> <span class="var">key</span>, <span class="var">value</span> <span class="kw">in</span> <span class="var">d</span>.<span class="fn">items</span>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">f"<span class="op">{</span><span class="var">key</span><span class="op">}</span>: <span class="op">{</span><span class="var">value</span><span class="op">}</span>"</span>)
+      </div>
+      <div class="output-box">update — merge another dict
+{'a':1, 'b':2, 'c':3, 'd':4, 'e':5}
+{'a':1, 'c':3, 'd':4, 'e':5}
+2</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 11: List vs Dict ==================== -->
+<div class="slide">
+  <span class="badge anim">Conditionals</span>
+  <h2 class="anim">📊 List vs Dictionary</h2>
+  <div class="anim">
+    <table style="font-size:1.1rem">
+      <tr><th>คุณสมบัติ</th><th>List</th><th>Dictionary</th></tr>
+      <tr><td><strong>สัญลักษณ์</strong></td><td><code>[ ]</code></td><td><code>{ }</code></td></tr>
+      <tr><td><strong>เข้าถึงด้วย</strong></td><td>Index (0, 1, 2, ...)</td><td>Key ("name", "age", ...)</td></tr>
+      <tr><td><strong>ลำดับ</strong></td><td>มีลำดับ (Ordered)</td><td>มีลำดับ (Python 3.7+)</td></tr>
+      <tr><td><strong>ค่าซ้ำ</strong></td><td>ได้</td><td>Key ซ้ำไม่ได้, Value ซ้ำได้</td></tr>
+      <tr><td><strong>Mutable</strong></td><td>✅ เปลี่ยนแปลงได้</td><td>✅ เปลี่ยนแปลงได้</td></tr>
+      <tr><td><strong>เหมาะกับ</strong></td><td>ข้อมูลที่เรียงลำดับ (คะแนน, รายชื่อ)</td><td>ข้อมูลที่มีคู่ key-value (ข้อมูลนักศึกษา)</td></tr>
+    </table>
+  </div>
+  <div class="columns anim" style="margin-top:1.5rem">
+    <div class="code-block no-bottom-radius" style="font-size:.9rem">
+<span class="cmt"># List — ordered collection</span><br>
+<span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>, <span class="num">78</span>]<br>
+<span class="fn">print</span>(<span class="var">scores</span>[<span class="num">0</span>])
+      </div>
+      <div class="output-box">85</div>
+    <div class="code-block no-bottom-radius" style="font-size:.9rem">
+<span class="cmt"># Dict — labeled data</span><br>
+<span class="var">student</span> <span class="op">=</span> {<span class="str">"name"</span>: <span class="str">"Alice"</span>, <span class="str">"gpa"</span>: <span class="num">3.75</span>}<br>
+<span class="fn">print</span>(<span class="var">student</span>[<span class="str">"name"</span>])
+      </div>
+      <div class="output-box">Alice</div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 12: Exercise — Fill in Output ==================== -->
+<div class="slide">
+  <span class="badge anim">Conditionals</span>
+  <h2 class="anim">🧪 ลองเติมคำตอบ — Output คืออะไร?</h2>
+  <div class="columns anim">
+    <div>
+      <div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># คำถามที่ 1</span><br>
+<span class="var">nums</span> <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>]<br>
+<span class="var">nums</span>.<span class="fn">append</span>(<span class="num">50</span>)<br>
+<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">nums</span>))
+      </div>
+      <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
+        <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 ดูผลลัพธ์</summary>
+        <div class="reveal-content" style="margin-top: 0;">
+          <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">5</div>
+        </div>
+      </details>
+
+      <div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># คำถามที่ 2</span><br>
+<span class="fn">print</span>(<span class="var">nums</span>[<span class="num">1</span>:<span class="num">3</span>])
+      </div>
+      <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
+        <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 ดูผลลัพธ์</summary>
+        <div class="reveal-content" style="margin-top: 0;">
+          <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">[20, 30]</div>
+        </div>
+      </details>
+
+      <div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># คำถามที่ 3</span><br>
+<span class="var">d</span> <span class="op">=</span> {<span class="str">"x"</span>: <span class="num">10</span>, <span class="str">"y"</span>: <span class="num">20</span>}<br>
+<span class="var">d</span>[<span class="str">"z"</span>] <span class="op">=</span> <span class="num">30</span><br>
+<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">d</span>))
+      </div>
+      <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
+        <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 ดูผลลัพธ์</summary>
+        <div class="reveal-content" style="margin-top: 0;">
+          <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">3</div>
+        </div>
+      </details>
+    </div>
+
+    <div>
+      <div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># คำถามที่ 4</span><br>
+<span class="fn">print</span>(<span class="var">d</span>.<span class="fn">get</span>(<span class="str">"w"</span>, <span class="num">0</span>))
+      </div>
+      <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
+        <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 ดูผลลัพธ์</summary>
+        <div class="reveal-content" style="margin-top: 0;">
+          <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">0</div>
+        </div>
+      </details>
+
+      <div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># คำถามที่ 5</span><br>
+<span class="fn">print</span>(<span class="fn">sum</span>([<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>]))
+      </div>
+      <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
+        <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 ดูผลลัพธ์</summary>
+        <div class="reveal-content" style="margin-top: 0;">
+          <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">15</div>
+        </div>
+      </details>
+    </div>
+  </div>
+</div>
+<!-- ==================== SLIDE 13: Exercise — Fill in Code ==================== -->
+<div class="slide">
+  <span class="badge anim">Conditionals</span>
+  <h2 class="anim">🧪 เติมโค้ด — ให้ได้ Output ตามต้องการ</h2>
+  <div class="columns anim">
+    <div>
+      <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># Q1: Add "grape" to end of list</span><br>
+<span class="var">fruits</span> <span class="op">=</span> [<span class="str">"apple"</span>, <span class="str">"banana"</span>]<br>
+<span class="var">fruits</span>.___(<span class="str">"grape"</span>)
+      </div>
+      <details class="reveal-solution" style="margin-bottom: 0.4rem;">
+        <summary class="reveal-btn" style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 เฉลยข้อ 1</summary>
+        <div class="reveal-content">
+          <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># คำตอบที่ 1</span><br>
+<span class="var">fruits</span>.<span class="fn">append</span>(<span class="str">"grape"</span>)
+          </div>
+        </div>
+      </details>
+
+      <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># Q2: Get value safely</span><br>
+<span class="var">info</span> <span class="op">=</span> {<span class="str">"name"</span>: <span class="str">"Alice"</span>}<br>
+<span class="var">phone</span> <span class="op">=</span> <span class="var">info</span>.___(<span class="str">"phone"</span>, <span class="str">"N/A"</span>)
+      </div>
+      <details class="reveal-solution" style="margin-bottom: 0.4rem;">
+        <summary class="reveal-btn" style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 เฉลยข้อ 2</summary>
+        <div class="reveal-content">
+          <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># คำตอบที่ 2</span><br>
+<span class="var">phone</span> <span class="op">=</span> <span class="var">info</span>.<span class="fn">get</span>(<span class="str">"phone"</span>, <span class="str">"N/A"</span>)
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <div>
+      <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># Q3: Sort in descending order</span><br>
+<span class="var">nums</span> <span class="op">=</span> [<span class="num">3</span>, <span class="num">1</span>, <span class="num">4</span>]<br>
+<span class="var">nums</span>.<span class="fn">sort</span>(<span class="kw">reverse</span><span class="op">=</span>___)<br>
+<span class="cmt"># [4, 3, 1]</span>
+      </div>
+      <details class="reveal-solution" style="margin-bottom: 0.4rem;">
+        <summary class="reveal-btn" style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 เฉลยข้อ 3</summary>
+        <div class="reveal-content">
+          <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># คำตอบที่ 3</span><br>
+<span class="var">nums</span>.<span class="fn">sort</span>(<span class="kw">reverse</span><span class="op">=</span><span class="kw">True</span>)
+          </div>
+        </div>
+      </details>
+
+      <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># Q4: Calculate average</span><br>
+<span class="var">scores</span> <span class="op">=</span> [<span class="num">80</span>, <span class="num">90</span>, <span class="num">85</span>]<br>
+<span class="var">avg</span> <span class="op">=</span> ___(scores) <span class="op">/</span> ___(scores)
+      </div>
+      <details class="reveal-solution" style="margin-bottom: 0.4rem;">
+        <summary class="reveal-btn" style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 เฉลยข้อ 4</summary>
+        <div class="reveal-content">
+          <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;">
+<span class="cmt"># คำตอบที่ 4</span><br>
+<span class="var">avg</span> <span class="op">=</span> <span class="fn">sum</span>(<span class="var">scores</span>) <span class="op">/</span> <span class="fn">len</span>(<span class="var">scores</span>)
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</div>
+<!-- NAV -->
+        <div class="nav">
+            <button onclick="engine.prev()" class="nav-btn">‹</button>
+            <span class="slide-counter"></span>
+            <button onclick="engine.next()" class="nav-btn">›</button>
+        </div>
+    </div>
+
+    <script>
+    class SlideEngine{constructor(){this.slides=document.querySelectorAll('.slide');this.current=0;this.total=this.slides.length;this.touchStartX=0;this.init()}init(){this.bindKeyboard();this.bindTouch();this.updateUI();const h=parseInt(location.hash.replace('#',''));if(h&&h>=1&&h<=this.total)this.goto(h-1)}goto(i){if(i<0||i>=this.total)return;this.slides[this.current].classList.remove('active');this.slides[this.current].querySelectorAll('.anim').forEach(el=>{el.style.animation='none';el.offsetHeight;el.style.animation=''});this.current=i;this.slides[this.current].classList.add('active');this.updateUI();location.hash=this.current+1}next(){this.goto(this.current+1)}prev(){this.goto(this.current-1)}updateUI(){const p=((this.current+1)/this.total)*100;document.querySelector('.progress-fill').style.width=p+'%';document.querySelector('.slide-counter').textContent=`${this.current+1} / ${this.total}`}bindKeyboard(){document.addEventListener('keydown',e=>{switch(e.key){case'ArrowRight':case' ':case'PageDown':e.preventDefault();this.next();break;case'ArrowLeft':case'PageUp':e.preventDefault();this.prev();break;case'Home':e.preventDefault();this.goto(0);break;case'End':e.preventDefault();this.goto(this.total-1);break}})}bindTouch(){document.addEventListener('touchstart',e=>{this.touchStartX=e.changedTouches[0].screenX},{passive:true});document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].screenX-this.touchStartX;if(Math.abs(dx)>50){dx>0?this.prev():this.next()}},{passive:true})}}
+    const engine=new SlideEngine();
+    </script>
+</body>
+</html>

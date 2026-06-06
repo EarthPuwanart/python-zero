@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วันที่ 6 — Practice Workshop 2 & Post Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#fff;--text:#111827;--text-muted:#6b7280;--text-light:#9ca3af;--accent:#8b5cf6;--accent-light:#ede9fe;--accent-dark:#5b21b6;--code-bg:#1e1e2e;--code-text:#cdd6f4;--border:#e5e7eb;--surface:#f9fafb;--success:#10b981;--warning:#f59e0b;--info:#3b82f6;--font-sans:'Prompt',system-ui,sans-serif;--font-mono:'JetBrains Mono','Fira Code',monospace;--transition:0.5s cubic-bezier(0.4,0,0.2,1)}
+        html,body{height:100%;overflow:hidden;font-family:var(--font-sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+        .presentation{position:relative;width:100%;height:100vh;overflow:hidden}
+        .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:60px 100px;opacity:0;transform:translateY(12px);transition:opacity var(--transition),transform var(--transition);pointer-events:none;overflow-y:auto}
+        .slide.active{opacity:1;transform:translateY(0);pointer-events:all}
+        .slide.active .anim{animation:fadeUp .6s ease both}
+        .slide.active .anim:nth-child(1){animation-delay:.08s}.slide.active .anim:nth-child(2){animation-delay:.16s}.slide.active .anim:nth-child(3){animation-delay:.24s}.slide.active .anim:nth-child(4){animation-delay:.32s}.slide.active .anim:nth-child(5){animation-delay:.4s}.slide.active .anim:nth-child(6){animation-delay:.48s}.slide.active .anim:nth-child(7){animation-delay:.56s}.slide.active .anim:nth-child(8){animation-delay:.64s}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+        .slide--title,.slide--section,.slide--center{align-items:center;text-align:center}
+        .title-hero{font-size:3.2rem;font-weight:700;letter-spacing:-.02em;line-height:1.2}.title-sub{font-size:1.3rem;font-weight:300;color:var(--text-muted);margin-top:.8rem}.title-accent{color:var(--accent)}
+        h2{font-size:2.1rem;font-weight:600;margin-bottom:1.5rem}h3{font-size:1.5rem;font-weight:600;margin-bottom:1rem;color:var(--accent-dark)}
+        p,li{font-size:1.15rem;line-height:1.8}.text-muted{color:var(--text-muted)}.text-small{font-size:.95rem;color:var(--text-muted)}
+        .badge{display:inline-block;padding:.25rem .9rem;border-radius:50px;font-size:.85rem;font-weight:500;background:var(--accent-light);color:var(--accent-dark);margin-bottom:1rem}
+        .divider{width:60px;height:3px;background:var(--accent);border-radius:2px;margin:1.2rem 0}.slide--title .divider,.slide--section .divider,.slide--center .divider{margin:1.2rem auto}
+        .list{list-style:none;padding:0}.list li{position:relative;padding-left:1.6rem;margin-bottom:.7rem}.list li::before{content:'';position:absolute;left:0;top:.65rem;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+        .columns{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;width:100%}.columns-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;width:100%}.columns-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;width:100%}
+        .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem}.card h3{font-size:1.15rem;margin-bottom:.5rem}.card p{font-size:1.05rem;color:var(--text-muted)}.card--accent{border-left:4px solid var(--accent)}
+        .emoji-lg{font-size:3rem;margin-bottom:.8rem;display:block}.emoji-md{font-size:1.6rem;margin-bottom:.4rem;display:block}
+        .highlight-box{background:var(--accent-light);border-radius:12px;padding:1.5rem 2rem;margin:1rem 0;border-left:4px solid var(--accent)}.highlight-box p{color:var(--accent-dark);font-weight:500}
+        .code-block{background:var(--code-bg);color:var(--code-text);border-radius:12px;padding:1.2rem 1.8rem;font-family:var(--font-mono);font-size:.95rem;line-height:1.7;overflow-x:auto;margin:1rem 0;white-space:pre-wrap}.code-block br{display:none}
+        .code-block .kw{color:#cba6f7}.code-block .fn{color:#89b4fa}.code-block .str{color:#a6e3a1}.code-block .num{color:#fab387}.code-block .cmt{color:#6c7086;font-style:italic}.code-block .op{color:#89dceb}.code-block .var{color:#f5c2e7}
+        .progress-bar{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--border);z-index:100}.progress-fill{height:100%;background:var(--accent);width:0%;transition:width .4s ease}
+        .nav{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:1.2rem;z-index:100}
+        .nav-btn{width:40px;height:40px;border:1px solid var(--border);background:var(--bg);border-radius:10px;font-size:1.2rem;color:var(--text-muted);cursor:pointer;transition:all .2s ease;display:flex;align-items:center;justify-content:center;font-family:var(--font-sans)}
+        .nav-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+        .slide-counter{font-size:.85rem;color:var(--text-light);font-variant-numeric:tabular-nums;min-width:60px;text-align:center}
+        .day-badge{position:fixed;top:16px;right:24px;padding:.3rem 1rem;background:var(--accent-light);color:var(--accent-dark);border-radius:8px;font-size:.8rem;font-weight:600;z-index:100}
+        @media(max-width:768px){.slide{padding:40px 30px}.title-hero{font-size:2.2rem}h2{font-size:1.6rem}p,li{font-size:1.05rem}.columns,.columns-3{grid-template-columns:1fr}}
+        @media print{.slide{position:relative;opacity:1;transform:none;page-break-after:always;height:100vh}.nav,.progress-bar,.day-badge{display:none}}
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <div class="day-badge">DAY 6</div>
+
+        <!-- SLIDE 1: Title -->
+        <section class="slide slide--title active">
+            <span class="badge anim">สำหรับสาขาวิชาวิทยาการข้อมูล</span>
+            <h1 class="title-hero anim">Practice Workshop 2<br>& <span class="title-accent">Post Test</span></h1>
+            <div class="divider anim"></div>
+            <p class="title-sub anim">วันที่ 6 — วันสุดท้าย! 🎉</p>
+        </section>
+
+        <!-- SLIDE 2: Agenda -->
+        <section class="slide">
+            <span class="badge anim">AGENDA</span>
+            <h2 class="anim">กิจกรรมวันนี้</h2>
+            <div class="columns anim">
+                <div class="card card--accent">
+                    <span class="emoji-md">☀️</span>
+                    <h3>ช่วงเช้า — Lab Part 4</h3>
+                    <ul class="list">
+                        <li>โจทย์ประยุกต์ (10 ข้อ)</li>
+                        <li>รวม if + loop + function + collection</li>
+                        <li>ใช้ built-in functions กับโจทย์จริง</li>
+                        <li>โจทย์สถานการณ์จริง</li>
+                    </ul>
+                </div>
+                <div class="card card--accent">
+                    <span class="emoji-md">🌤️</span>
+                    <h3>ช่วงบ่าย — Post Test</h3>
+                    <ul class="list">
+                        <li>ปรนัย 30 ข้อ (ก-ง)</li>
+                        <li>เติมคำ 10 ข้อ (เขียน output)</li>
+                        <li>เวลา 90 นาที</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: Lab Part 4 Header -->
+        <section class="slide slide--section">
+            <span class="emoji-lg anim" style="font-size:4rem">🚀</span>
+            <h1 class="title-hero anim" style="font-size:2.8rem">Lab Part 4</h1>
+            <div class="divider anim"></div>
+            <p class="title-sub anim">Applied Problems — 10 ข้อ</p>
+        </section>
+
+        <!-- SLIDE 4: Problem 4.1-4.2 -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">โจทย์ 4.1 & 4.2</h2>
+            <div class="columns anim">
+                <div class="card">
+                    <h3>4.1 — Simple Calculator</h3>
+                    <p>รับ 2 จำนวน + เครื่องหมาย (+,-,*,/) แสดงผล</p>
+                    <div class="code-block">
+<span class="cmt"># Input: 10, *, 5</span>
+<span class="cmt"># Output: Result: 50.0</span>
+<span class="cmt"># Input: 8, /, 0</span>
+<span class="cmt"># Output: Cannot divide by zero.</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>4.2 — Grade Checker</h3>
+                    <p>รับคะแนน (0-100) แสดงเกรด ถ้านอกช่วง → Error</p>
+                    <div class="code-block">
+<span class="cmt"># Input: 99.99 → A</span>
+<span class="cmt"># Input: -5 → Incorrect Score.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: Problem 4.3-4.4 -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">โจทย์ 4.3 & 4.4</h2>
+            <div class="columns anim">
+                <div class="card">
+                    <h3>4.3 — Tax Calculator</h3>
+                    <p>คำนวณภาษีตามฐานรายได้ (ใช้อัตราเดียวตามช่วง)</p>
+                    <div class="code-block">
+≤ <span class="num">150,000</span>       → <span class="num">0%</span>
+<span class="num">150,001-300,000</span>  → <span class="num">5%</span>
+<span class="num">300,001-500,000</span>  → <span class="num">10%</span>
+<span class="num">500,001-1,000,000</span> → <span class="num">20%</span>
+> <span class="num">1,000,000</span>      → <span class="num">30%</span>
+<span class="cmt"># ใช้ if-elif หาช่วง แล้วคูณอัตราเดียว</span>
+<span class="cmt"># เช่น 200,000 → 200,000 × 5% = 10,000</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>4.4 — Scholarship Checker</h3>
+                    <p>ตรวจสอบคุณสมบัติทุนการศึกษา</p>
+                    <div class="code-block"><span class="cmt"># GPA >= 3.0</span><span class="cmt"># Family income <= 10,000</span><span class="cmt"># Behavior == "good"</span>
+<span class="cmt"># ถ้าไม่ผ่าน → แสดงเหตุผล</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: Problem 4.5-4.6 -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">โจทย์ 4.5 & 4.6</h2>
+            <div class="columns anim">
+                <div class="card">
+                    <h3>4.5 — Parking Fee</h3>
+                    <p>คำนวณค่าจอดรถจากเวลาเข้า-ออก</p>
+                    <div class="code-block">
+≤ <span class="num">10</span> min → <span class="str">Free</span>
+≤ <span class="num">60</span> min → <span class="num">20</span> baht
+≤ <span class="num">240</span> min → <span class="num">30</span> + <span class="num">10</span>/hr
+> <span class="num">240</span> min → <span class="num">150</span> baht
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>4.6 — Bookstore Discount</h3>
+                    <p>ราคาเล่มละ 120 บาท ลดตามจำนวน</p>
+                    <div class="code-block">
+หาร <span class="num">4</span> ลงตัว → ลด <span class="num">15%</span>
+หาร <span class="num">2</span> ลงตัว → ลด <span class="num">8%</span>
+หาร <span class="num">3</span> ลงตัว → ลด <span class="num">5%</span>
+อื่นๆ       → ไม่ลด
+<span class="cmt"># ใช้ math.ceil() ปัดขึ้น</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: Problem 4.7-4.8 -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">โจทย์ 4.7 & 4.8</h2>
+            <div class="columns anim">
+                <div class="card">
+                    <h3>4.7 — Running Bonus</h3>
+                    <p>รับ N หาผลรวม km &lt; N ที่หาร 4 หรือ 6 ลงตัว</p>
+                    <div class="code-block no-bottom-radius">
+<span class="cmt"># Input: 25</span>
+<span class="cmt"># Output: 108</span>
+      </div>
+      <div class="output-box">4+6+8+12+16+18+20+24 = 108</div>
+                </div>
+                <div class="card">
+                    <h3>4.8 — Vending Machine</h3>
+                    <p>แจกแจงเงินทอนเป็นเหรียญ 10, 5, 2, 1</p>
+                    <div class="code-block"><span class="cmt"># Price=37, Paid=50</span><span class="cmt"># Change: 13 baht</span><span class="cmt"># 10: 1, 5: 0, 2: 1, 1: 1</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: Problem 4.9-4.10 -->
+        <section class="slide">
+            <span class="badge anim">Workshop</span>
+            <h2 class="anim">โจทย์ 4.9 & 4.10</h2>
+            <div class="columns anim">
+                <div class="card">
+                    <h3>4.9 — Password Generator</h3>
+                    <p>สร้าง password จากชื่อ นามสกุล ปีเกิด รหัสนักศึกษา</p>
+                    <div class="code-block"><span class="cmt"># Kookkai, MeawMeaw, 2003, 680710787</span><span class="cmt"># → Ki2003aw787</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>4.10 — Shabu Restaurant</h3>
+                    <p>รับจำนวนคน &lt;5 = 250/คน, ≥5 = 200/คน</p>
+                    <div class="code-block">
+<span class="cmt"># Input: 5 คน</span>
+<span class="cmt"># Output: 1000 Baht</span>
+<span class="cmt"># Input: 2 คน</span>
+<span class="cmt"># Output: 500 Baht</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: Post Test Section -->
+        <section class="slide slide--section">
+            <span class="emoji-lg anim" style="font-size:4rem">📝</span>
+            <h1 class="title-hero anim" style="font-size:2.8rem">Post Test</h1>
+            <div class="divider anim"></div>
+            <p class="title-sub anim">ข้อสอบวัดผลหลังเรียน</p>
+        </section>
+
+        <!-- SLIDE 10: Post Test Info -->
+        <section class="slide">
+            <span class="badge anim">POST TEST</span>
+            <h2 class="anim">รูปแบบข้อสอบ</h2>
+            <div class="columns anim">
+                <div class="card card--accent">
+                    <span class="emoji-md">📋</span>
+                    <h3>ปรนัย — 30 ข้อ (ข้อละ 1 คะแนน)</h3>
+                    <ul class="list">
+                        <li>เลือกตอบ ก-ง</li>
+                        <li>ครอบคลุมเนื้อหาแกนหลักทั้งคอร์ส</li>
+                    </ul>
+                </div>
+                <div class="card card--accent">
+                    <span class="emoji-md">✏️</span>
+                    <h3>เติมคำ — 10 ข้อ (ข้อละ 1 คะแนน)</h3>
+                    <ul class="list">
+                        <li>ให้โค้ด → เขียน output</li>
+                        <li>ฝึกอ่านโค้ดแบบไม่รันจริง</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight-box anim" style="margin-top:1.5rem">
+                <p>⏱️ เวลา: 90 นาที | 📖 ปิดหนังสือ ปิดคอมพิวเตอร์</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: What to Review -->
+        <section class="slide">
+            <span class="badge anim">REVIEW</span>
+            <h2 class="anim">หัวข้อที่ต้องทบทวน</h2>
+            <div class="columns-4 anim">
+                <div class="card" style="text-align:center;border-top:3px solid #6366f1">
+                    <h3>Variables</h3>
+                    <p>ชื่อ, type, casting, กฎการตั้งชื่อ</p>
+                </div>
+                <div class="card" style="text-align:center;border-top:3px solid #3b82f6">
+                    <h3>Operators</h3>
+                    <p>+,-,*,/,//,%,**, ลำดับ, assignment</p>
+                </div>
+                <div class="card" style="text-align:center;border-top:3px solid #10b981">
+                    <h3>String</h3>
+                    <p>indexing, slicing, methods, f-string</p>
+                </div>
+                <div class="card" style="text-align:center;border-top:3px solid #f59e0b">
+                    <h3>Collections</h3>
+                    <p>List methods, Dict access/methods</p>
+                </div>
+            </div>
+            <div class="columns-4 anim" style="margin-top:1rem">
+                <div class="card" style="text-align:center;border-top:3px solid #ef4444">
+                    <h3>Conditionals</h3>
+                    <p>if, elif, else, การไล่ลำดับเงื่อนไข</p>
+                </div>
+                <div class="card" style="text-align:center;border-top:3px solid #8b5cf6">
+                    <h3>Loops</h3>
+                    <p>for, while, range, break, continue</p>
+                </div>
+                <div class="card" style="text-align:center;border-top:3px solid #ec4899">
+                    <h3>Functions</h3>
+                    <p>def, parameter, argument, return</p>
+                </div>
+                <div class="card" style="text-align:center;border-top:3px solid #14b8a6">
+                    <h3>Built-ins</h3>
+                    <p>abs, max, min, sum, len, round</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12: Tips -->
+        <section class="slide">
+            <span class="badge anim">TIPS</span>
+            <h2 class="anim">💡 เคล็ดลับการทำข้อสอบ</h2>
+            <ul class="list anim">
+                <li><strong>ทำข้อง่ายก่อน</strong> — อย่าติดข้อยากนานเกินไป</li>
+                <li><strong>Trace โค้ดด้วยมือ</strong> — เขียนค่าตัวแปรทุกบรรทัด</li>
+                <li><strong>ระวัง index</strong> — เริ่มที่ 0 เสมอ</li>
+                <li><strong>ระวัง type</strong> — input() ได้ str, / ได้ float, // ได้ int</li>
+                <li><strong>เช็คเงื่อนไข</strong> — if-elif ทำแค่เงื่อนไขแรกที่ True</li>
+                <li><strong>อ่านให้ครบ</strong> — ดู = กับ == ให้ดี!</li>
+            </ul>
+        </section>
+
+        <!-- SLIDE 13: Q&A -->
+        <section class="slide slide--center">
+            <span class="emoji-lg anim" style="font-size:5rem">❓</span>
+            <h1 class="title-hero anim" style="font-size:2.8rem">Q & A</h1>
+            <div class="divider anim"></div>
+            <p class="title-sub anim">มีคำถามอะไรก่อนสอบ?</p>
+        </section>
+
+        <!-- SLIDE 14: Thank You -->
+        <section class="slide slide--title">
+            <span class="badge anim">THANK YOU</span>
+            <h1 class="title-hero anim">ขอบคุณทุกคน! 🎉</h1>
+            <div class="divider anim"></div>
+            <p class="title-sub anim">ขอให้โชคดีในข้อสอบและการเรียนต่อไป</p>
+            <div class="highlight-box anim" style="max-width:500px;margin:2rem auto 0">
+                <p>🐍 Python เป็นแค่จุดเริ่มต้น<br>ยิ่งฝึกเยอะ ยิ่งเก่ง!</p>
+            </div>
+        </section>
+
+        <!-- NAV -->
+        <div class="nav">
+            <button onclick="engine.prev()" class="nav-btn">‹</button>
+            <span class="slide-counter"></span>
+            <button onclick="engine.next()" class="nav-btn">›</button>
+        </div>
+    </div>
+
+    <script>
+    class SlideEngine{constructor(){this.slides=document.querySelectorAll('.slide');this.current=0;this.total=this.slides.length;this.touchStartX=0;this.init()}init(){this.bindKeyboard();this.bindTouch();this.updateUI();const h=parseInt(location.hash.replace('#',''));if(h&&h>=1&&h<=this.total)this.goto(h-1)}goto(i){if(i<0||i>=this.total)return;this.slides[this.current].classList.remove('active');this.slides[this.current].querySelectorAll('.anim').forEach(el=>{el.style.animation='none';el.offsetHeight;el.style.animation=''});this.current=i;this.slides[this.current].classList.add('active');this.updateUI();location.hash=this.current+1}next(){this.goto(this.current+1)}prev(){this.goto(this.current-1)}updateUI(){const p=((this.current+1)/this.total)*100;document.querySelector('.progress-fill').style.width=p+'%';document.querySelector('.slide-counter').textContent=`${this.current+1} / ${this.total}`}bindKeyboard(){document.addEventListener('keydown',e=>{switch(e.key){case'ArrowRight':case' ':case'PageDown':e.preventDefault();this.next();break;case'ArrowLeft':case'PageUp':e.preventDefault();this.prev();break;case'Home':e.preventDefault();this.goto(0);break;case'End':e.preventDefault();this.goto(this.total-1);break}})}bindTouch(){document.addEventListener('touchstart',e=>{this.touchStartX=e.changedTouches[0].screenX},{passive:true});document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].screenX-this.touchStartX;if(Math.abs(dx)>50){dx>0?this.prev():this.next()}},{passive:true})}}
+    const engine=new SlideEngine();
+    </script>
+</body>
+</html>
