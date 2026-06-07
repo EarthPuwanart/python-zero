@@ -582,10 +582,13 @@
         <div class="card card--accent">
           <span class="emoji-md">☀️</span>
           <h3>ช่วงเช้า — Lecture</h3>
-          <ul class="list">
-            <li>Python Basics (Variables, Types)</li>
-            <li>Operators & Input</li>
-            <li>String indexing & slicing</li>
+                    <ul class="list">
+            <li>ตัวแปร (Variables)</li>
+            <li>ชนิดข้อมูลและการแปลงชนิดข้อมูล (Data Types & Conversion)</li>
+            <li>การรับค่าและการแสดงผล (Input & Output)</li>
+            <li>ตัวดำเนินการ (Operators)</li>
+            <li>พื้นฐานข้อความ (String Basics)</li>
+            <li>คอมเมนต์และแบบฝึกหัด (Comments & Exercise)</li>
           </ul>
         </div>
         <div class="card card--accent">
@@ -630,83 +633,6 @@
           <span class="emoji-lg">💻</span>
           <h3>ใช้ได้กับทุก OS</h3>
           <p>Windows, Mac, Linux</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==================== SLIDE 6: First Program ==================== -->
-    <div class="slide slide--center">
-      <span class="badge anim">Python Basics</span>
-      <h2 class="anim">🎉 โปรแกรมแรกของเรา!</h2>
-      <pre class="code-block no-bottom-radius anim"
-        style="font-size:1.4rem; max-width:600px; width:100%; box-sizing:border-box; margin-left:auto; margin-right:auto;">
-<span class="fn">print</span>(<span class="str">'Hello, World!'</span>)</pre>
-      <pre class="output-box anim"
-        style="max-width:600px; width:100%; box-sizing:border-box; margin-left:auto; margin-right:auto;">Hello, World!</pre>
-      <div class="highlight-box anim"
-        style="max-width:600px; width:100%; box-sizing:border-box; margin-top:1.5rem; margin-left:auto; margin-right:auto;">
-        <p>🎯 นี่คือโปรแกรมคลาสสิกที่โปรแกรมเมอร์ทุกคนเริ่มต้น — ใช้แค่ 1 บรรทัด!</p>
-      </div>
-    </div>
-
-    <!-- ==================== SLIDE 7: print() ==================== -->
-    <div class="slide">
-      <span class="badge anim">Python Basics</span>
-      <h2 class="anim">print() — แสดงผลออกทางหน้าจอ</h2>
-      <div class="columns anim">
-        <div class="card card--accent">
-          <h3>พื้นฐาน</h3>
-          <pre class="code-block no-bottom-radius"><span class="fn">print</span>(<span class="str">"Hello, Python!"</span>)<br>
-<span class="fn">print</span>(<span class="num">42</span>)<br>
-<span class="fn">print</span>(<span class="num">3.14</span>)<br>
-<span class="fn">print</span>(<span class="str">"Score:"</span>, <span class="num">95</span>)</pre>
-          <pre class="output-box">Hello, Python!
-42
-3.14
-Score: 95</pre>
-        </div>
-        <div class="card card--accent">
-          <h3>sep และ end</h3>
-          <pre class="code-block no-bottom-radius"><span class="cmt"># sep = ตัวคั่นระหว่างค่า</span><br>
-<span class="fn">print</span>(<span class="str">"A"</span>, <span class="str">"B"</span>, <span class="str">"C"</span>, <span class="kw">sep</span><span class="op">=</span><span class="str">"-"</span>)<br><br>
-<span class="cmt"># end = สิ่งที่จะพิมพ์ท้ายบรรทัด (ค่าเริ่มต้นคือ \n)</span><br>
-<span class="fn">print</span>(<span class="str">"Hello"</span>, <span class="kw">end</span><span class="op">=</span><span class="str">" "</span>)<br>
-<span class="fn">print</span>("<span class="str">World</span>")</pre>
-          <pre class="output-box">A-B-C
-Hello World</pre>
-          <div class="highlight-box" style="margin-top:.5rem">
-            <p>💡 sep default = " " (space) / end default = "\n" (ขึ้นบรรทัดใหม่)</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==================== SLIDE 8: Comments ==================== -->
-    <div class="slide">
-      <span class="badge anim">Python Basics</span>
-      <h2 class="anim"># Comments — บันทึกโน้ตในโค้ด</h2>
-      <div class="columns anim">
-        <div>
-          <h3>ทำไมต้องเขียน Comment?</h3>
-          <ul class="list">
-            <li>อธิบายว่าโค้ดทำอะไร</li>
-            <li>ช่วยให้คนอื่น (และตัวเองในอนาคต) เข้าใจ</li>
-            <li>Python จะ <strong>ข้าม</strong> comment ไม่ประมวลผล</li>
-          </ul>
-          <div class="highlight-box" style="margin-top:1rem">
-            <p>💡 Comment ที่ดี = อธิบาย "ทำไม" ไม่ใช่แค่ "ทำอะไร"</p>
-          </div>
-        </div>
-        <div>
-          <h3>วิธีใช้</h3>
-          <pre class="code-block no-bottom-radius"><span class="cmt"># นี่คือการเขียนคอมเมนต์</span><br>
-<span class="fn">print</span>(<span class="str">"Hello"</span>) <span class="cmt"># คอมเมนต์ท้ายบรรทัด</span><br><br>
-<span class="cmt"># คำนวณพื้นที่วงกลม</span><br>
-<span class="var">radius</span> <span class="op">=</span> <span class="num">5</span><br>
-<span class="var">area</span> <span class="op">=</span> <span class="num">3.14</span> <span class="op">*</span> <span class="var">radius</span> <span class="op">**</span> <span class="num">2</span><br>
-<span class="fn">print</span>(<span class="var">area</span>)</pre>
-          <pre class="output-box">Hello
-78.5</pre>
         </div>
       </div>
     </div>
@@ -866,53 +792,191 @@ hello</pre>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 13: Quick Exercise ==================== -->
+  <!-- ==================== SLIDE 18: Type Conversion ==================== -->
   <div class="slide">
-    <span class="badge anim">Operators</span>
-    <h2 class="anim">🧪 ลองเติมคำตอบ — Output คืออะไร?</h2>
+    <span class="badge anim">Input & Conversion</span>
+    <h2 class="anim">🔄 การแปลงชนิดข้อมูล</h2>
+    <div class="columns-3 anim">
+      <div class="card card--accent" style="text-align:center">
+        <span class="emoji-lg">🔢</span>
+        <h3>int()</h3>
+        <p>แปลงเป็นจำนวนเต็ม</p>
+        <pre class="code-block no-bottom-radius" style="font-size:.9rem"><span class="fn">int</span>(<span class="str">"42"</span>)<br>
+<span class="fn">int</span>(<span class="num">3.9</span>)<br>
+<span class="fn">int</span>(<span class="kw">True</span>)</pre>
+        <pre class="output-box">42
+3
+1</pre>
+      </div>
+      <div class="card card--accent" style="text-align:center">
+        <span class="emoji-lg">💧</span>
+        <h3>float()</h3>
+        <p>แปลงเป็นทศนิยม</p>
+        <pre class="code-block no-bottom-radius" style="font-size:.9rem"><span class="fn">float</span>(<span class="str">"3.14"</span>)<br>
+<span class="fn">float</span>(<span class="num">42</span>)<br>
+<span class="fn">float</span>(<span class="str">"10"</span>)</pre>
+        <pre class="output-box">3.14
+42.0
+10.0</pre>
+      </div>
+      <div class="card card--accent" style="text-align:center">
+        <span class="emoji-lg">📝</span>
+        <h3>str()</h3>
+        <p>แปลงเป็นข้อความ</p>
+        <pre class="code-block no-bottom-radius" style="font-size:.9rem"><span class="fn">str</span>(<span class="num">42</span>)<br>
+<span class="fn">str</span>(<span class="num">3.14</span>)<br>
+<span class="fn">str</span>(<span class="kw">True</span>)</pre>
+        <pre class="output-box">"42"
+"3.14"
+"True"</pre>
+      </div>
+    </div>
+    <div class="highlight-box anim" style="margin-top:1rem">
+      <p>⚠️ int("3.14") จะ Error! ต้องใช้ int(float("3.14")) แทน</p>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 17: input() ==================== -->
+  <div class="slide">
+    <span class="badge anim">Input & Conversion</span>
+    <h2 class="anim">⌨️ input() — รับค่าจากผู้ใช้</h2>
     <div class="columns anim">
       <div>
-        <pre class="code-block no-bottom-radius" style="padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 1</span><br>
-<span class="var">x</span> <span class="op">=</span> <span class="num">10</span><br>
-<span class="var">y</span> <span class="op">=</span> <span class="num">3</span><br>
-<span class="fn">print</span>(<span class="var">x</span>, <span class="var">y</span>)</pre>
-        <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
-          <summary class="reveal-btn"
-            style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: \'Fira Code\', monospace;">
-            👀 ดูผลลัพธ์</summary>
-          <div class="reveal-content" style="margin-top: 0;">
-            <pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">10 3</pre>
-          </div>
-        </details>
-
-        <pre class="code-block no-bottom-radius" style="padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 2</span><br>
-<span class="var">name</span> <span class="op">=</span> <span class="str">"Python"</span><br>
-<span class="fn">print</span>(<span class="str">"Hello"</span>, <span class="var">name</span>, <span class="kw">sep</span><span class="op">=</span><span class="str">"-"</span>)</pre>
-        <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
-          <summary class="reveal-btn"
-            style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: \'Fira Code\', monospace;">
-            👀 ดูผลลัพธ์</summary>
-          <div class="reveal-content" style="margin-top: 0;">
-            <pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">Hello-Python</pre>
-          </div>
-        </details>
+        <h3>การใช้งานพื้นฐาน</h3>
+        <pre class="code-block no-bottom-radius"><span class="var">name</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter your name: "</span>)<br>
+<span class="fn">print</span>(<span class="str">"Hello,"</span>, <span class="var">name</span>)</pre>
+        <pre class="output-box">Enter your name: Alice
+Hello, Alice</pre>
       </div>
-
       <div>
-        <pre class="code-block no-bottom-radius" style="padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 3</span><br>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="str">"100"</span>))</pre>
-        <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
-          <summary class="reveal-btn"
-            style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: \'Fira Code\', monospace;">
-            👀 ดูผลลัพธ์</summary>
-          <div class="reveal-content" style="margin-top: 0;">
-            <pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">&lt;class 'str'&gt;</pre>
-          </div>
-        </details>
+        <div class="highlight-box">
+          <p>⚠️ input() คืนค่าเป็น <strong>str</strong> เสมอ!</p>
+        </div>
+        <pre class="code-block no-bottom-radius" style="margin-top:1rem"><span class="var">age</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter your age: "</span>)<br>
+<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">age</span>))<br>
+<span class="cmt"># ← ไม่ใช่ int!</span><br><br>
+<span class="cmt"># ถ้าต้องการใช้คำนวณ ต้องแปลงก่อน</span><br>
+<span class="var">age</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">age</span>)<br>
+<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">age</span>))</pre>
+        <pre class="output-box">&lt;class 'str'&gt;
+&lt;class 'int'&gt;</pre>
       </div>
     </div>
   </div>
-  <!-- ==================== SLIDE 14: Arithmetic Operators ==================== -->
+
+  <!-- ==================== SLIDE 19: split() ==================== -->
+  <div class="slide">
+    <span class="badge anim">Input & Conversion</span>
+    <h2 class="anim">✂️ split() — รับหลายค่าในบรรทัดเดียว</h2>
+    <div class="columns anim">
+      <div>
+        <h3>แยกค่าด้วย split()</h3>
+        <pre class="code-block no-bottom-radius"><span class="cmt"># รับชื่อและนามสกุล</span><br>
+<span class="var">data</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter
+  name: "</span>)<br>
+<span class="var">first</span>, <span class="var">last</span> <span class="op">=</span> <span class="var">data</span>.<span class="fn">split</span>()<br>
+<span class="fn">print</span>(<span class="str">"First:"</span>, <span class="var">first</span>)<br>
+<span class="fn">print</span>(<span class="str">"Last:"</span>, <span class="var">last</span>)</pre>
+        <pre class="output-box">Enter name: Alice Smith
+First: Alice
+Last: Smith</pre>
+      </div>
+      <div>
+        <h3>แยกด้วยตัวคั่นอื่น</h3>
+        <pre class="code-block no-bottom-radius"><span class="cmt"># แยกด้วย comma</span><br>
+<span class="var">data</span> <span class="op">=</span> <span class="str">"Alice,20,3.75"</span><br>
+<span class="var">name</span>, <span class="var">age</span>, <span class="var">gpa</span> <span class="op">=</span> <span class="var">data</span>.<span class="fn">split</span>(<span class="str">","</span>)<br><br>
+<span class="fn">print</span>(<span class="var">name</span>)<br>
+<span class="fn">print</span>(<span class="var">age</span>)<br>
+<span class="fn">print</span>(<span class="var">gpa</span>)</pre>
+        <pre class="output-box">Alice
+20
+3.75</pre>
+        <div class="highlight-box" style="margin-top:.5rem">
+          <p>💡 split() default แยกด้วย space — ระบุตัวคั่นอื่นได้ เช่น split(",")</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 20: split() + int() ==================== -->
+  <div class="slide">
+    <span class="badge anim">Input & Conversion</span>
+    <h2 class="anim">🔢 แปลงค่าหลัง split() ทีละตัว</h2>
+    <div class="columns anim">
+      <div>
+        <h3>ปัญหา: split() ได้ str ทั้งหมด</h3>
+        <pre class="code-block no-bottom-radius"><span class="cmt"># ❌ ใช้ split() อย่างเดียว</span><br>
+<span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span class="fn">input</span>().<span class="fn">split</span>()<br>
+<span class="fn">print</span>(<span class="var">a</span> <span class="op">+</span> <span class="var">b</span>)</pre>
+        <pre class="output-box">10 20
+1020</pre>
+      </div>
+      <div>
+        <h3>วิธีแก้: แปลงด้วย int() หลัง split()</h3>
+        <pre class="code-block no-bottom-radius"><span class="cmt"># ✅ แยกก่อน แล้วค่อยแปลงทีละตัว</span><br>
+<span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span class="fn">input</span>().<span class="fn">split</span>()<br>
+<span class="var">a</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">a</span>)<br>
+<span class="var">b</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">b</span>)<br>
+<span class="fn">print</span>(<span class="var">a</span> <span class="op">+</span> <span class="var">b</span>)</pre>
+        <pre class="output-box">10 20
+30</pre>
+      </div>
+    </div>
+    <div class="highlight-box anim" style="margin-top:1rem">
+      <p>💡 สำหรับผู้เริ่มต้น วิธีนี้อ่านง่ายและเห็นชัดว่า <code>input()</code> ได้ข้อความก่อน
+        แล้วเราค่อยแปลงเป็นตัวเลข</p>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 6: First Program ==================== -->
+    <div class="slide slide--center">
+      <span class="badge anim">Python Basics</span>
+      <h2 class="anim">🎉 โปรแกรมแรกของเรา!</h2>
+      <pre class="code-block no-bottom-radius anim"
+        style="font-size:1.4rem; max-width:600px; width:100%; box-sizing:border-box; margin-left:auto; margin-right:auto;">
+<span class="fn">print</span>(<span class="str">'Hello, World!'</span>)</pre>
+      <pre class="output-box anim"
+        style="max-width:600px; width:100%; box-sizing:border-box; margin-left:auto; margin-right:auto;">Hello, World!</pre>
+      <div class="highlight-box anim"
+        style="max-width:600px; width:100%; box-sizing:border-box; margin-top:1.5rem; margin-left:auto; margin-right:auto;">
+        <p>🎯 นี่คือโปรแกรมคลาสสิกที่โปรแกรมเมอร์ทุกคนเริ่มต้น — ใช้แค่ 1 บรรทัด!</p>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 7: print() ==================== -->
+    <div class="slide">
+      <span class="badge anim">Python Basics</span>
+      <h2 class="anim">print() — แสดงผลออกทางหน้าจอ</h2>
+      <div class="columns anim">
+        <div class="card card--accent">
+          <h3>พื้นฐาน</h3>
+          <pre class="code-block no-bottom-radius"><span class="fn">print</span>(<span class="str">"Hello, Python!"</span>)<br>
+<span class="fn">print</span>(<span class="num">42</span>)<br>
+<span class="fn">print</span>(<span class="num">3.14</span>)<br>
+<span class="fn">print</span>(<span class="str">"Score:"</span>, <span class="num">95</span>)</pre>
+          <pre class="output-box">Hello, Python!
+42
+3.14
+Score: 95</pre>
+        </div>
+        <div class="card card--accent">
+          <h3>sep และ end</h3>
+          <pre class="code-block no-bottom-radius"><span class="cmt"># sep = ตัวคั่นระหว่างค่า</span><br>
+<span class="fn">print</span>(<span class="str">"A"</span>, <span class="str">"B"</span>, <span class="str">"C"</span>, <span class="kw">sep</span><span class="op">=</span><span class="str">"-"</span>)<br><br>
+<span class="cmt"># end = สิ่งที่จะพิมพ์ท้ายบรรทัด (ค่าเริ่มต้นคือ \n)</span><br>
+<span class="fn">print</span>(<span class="str">"Hello"</span>, <span class="kw">end</span><span class="op">=</span><span class="str">" "</span>)<br>
+<span class="fn">print</span>("<span class="str">World</span>")</pre>
+          <pre class="output-box">A-B-C
+Hello World</pre>
+          <div class="highlight-box" style="margin-top:.5rem">
+            <p>💡 sep default = " " (space) / end default = "\n" (ขึ้นบรรทัดใหม่)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 14: Arithmetic Operators ==================== -->
   <div class="slide">
     <span class="badge anim">Operators</span>
     <h2 class="anim">🔢 ตัวดำเนินการทางคณิตศาสตร์</h2>
@@ -1096,143 +1160,6 @@ hello</pre>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 17: input() ==================== -->
-  <div class="slide">
-    <span class="badge anim">Input & Conversion</span>
-    <h2 class="anim">⌨️ input() — รับค่าจากผู้ใช้</h2>
-    <div class="columns anim">
-      <div>
-        <h3>การใช้งานพื้นฐาน</h3>
-        <pre class="code-block no-bottom-radius"><span class="var">name</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter your name: "</span>)<br>
-<span class="fn">print</span>(<span class="str">"Hello,"</span>, <span class="var">name</span>)</pre>
-        <pre class="output-box">Enter your name: Alice
-Hello, Alice</pre>
-      </div>
-      <div>
-        <div class="highlight-box">
-          <p>⚠️ input() คืนค่าเป็น <strong>str</strong> เสมอ!</p>
-        </div>
-        <pre class="code-block no-bottom-radius" style="margin-top:1rem"><span class="var">age</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter your age: "</span>)<br>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">age</span>))<br>
-<span class="cmt"># ← ไม่ใช่ int!</span><br><br>
-<span class="cmt"># ถ้าต้องการใช้คำนวณ ต้องแปลงก่อน</span><br>
-<span class="var">age</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">age</span>)<br>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">age</span>))</pre>
-        <pre class="output-box">&lt;class 'str'&gt;
-&lt;class 'int'&gt;</pre>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 18: Type Conversion ==================== -->
-  <div class="slide">
-    <span class="badge anim">Input & Conversion</span>
-    <h2 class="anim">🔄 การแปลงชนิดข้อมูล</h2>
-    <div class="columns-3 anim">
-      <div class="card card--accent" style="text-align:center">
-        <span class="emoji-lg">🔢</span>
-        <h3>int()</h3>
-        <p>แปลงเป็นจำนวนเต็ม</p>
-        <pre class="code-block no-bottom-radius" style="font-size:.9rem"><span class="fn">int</span>(<span class="str">"42"</span>)<br>
-<span class="fn">int</span>(<span class="num">3.9</span>)<br>
-<span class="fn">int</span>(<span class="kw">True</span>)</pre>
-        <pre class="output-box">42
-3
-1</pre>
-      </div>
-      <div class="card card--accent" style="text-align:center">
-        <span class="emoji-lg">💧</span>
-        <h3>float()</h3>
-        <p>แปลงเป็นทศนิยม</p>
-        <pre class="code-block no-bottom-radius" style="font-size:.9rem"><span class="fn">float</span>(<span class="str">"3.14"</span>)<br>
-<span class="fn">float</span>(<span class="num">42</span>)<br>
-<span class="fn">float</span>(<span class="str">"10"</span>)</pre>
-        <pre class="output-box">3.14
-42.0
-10.0</pre>
-      </div>
-      <div class="card card--accent" style="text-align:center">
-        <span class="emoji-lg">📝</span>
-        <h3>str()</h3>
-        <p>แปลงเป็นข้อความ</p>
-        <pre class="code-block no-bottom-radius" style="font-size:.9rem"><span class="fn">str</span>(<span class="num">42</span>)<br>
-<span class="fn">str</span>(<span class="num">3.14</span>)<br>
-<span class="fn">str</span>(<span class="kw">True</span>)</pre>
-        <pre class="output-box">"42"
-"3.14"
-"True"</pre>
-      </div>
-    </div>
-    <div class="highlight-box anim" style="margin-top:1rem">
-      <p>⚠️ int("3.14") จะ Error! ต้องใช้ int(float("3.14")) แทน</p>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 19: split() ==================== -->
-  <div class="slide">
-    <span class="badge anim">Input & Conversion</span>
-    <h2 class="anim">✂️ split() — รับหลายค่าในบรรทัดเดียว</h2>
-    <div class="columns anim">
-      <div>
-        <h3>แยกค่าด้วย split()</h3>
-        <pre class="code-block no-bottom-radius"><span class="cmt"># รับชื่อและนามสกุล</span><br>
-<span class="var">data</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter
-  name: "</span>)<br>
-<span class="var">first</span>, <span class="var">last</span> <span class="op">=</span> <span class="var">data</span>.<span class="fn">split</span>()<br>
-<span class="fn">print</span>(<span class="str">"First:"</span>, <span class="var">first</span>)<br>
-<span class="fn">print</span>(<span class="str">"Last:"</span>, <span class="var">last</span>)</pre>
-        <pre class="output-box">Enter name: Alice Smith
-First: Alice
-Last: Smith</pre>
-      </div>
-      <div>
-        <h3>แยกด้วยตัวคั่นอื่น</h3>
-        <pre class="code-block no-bottom-radius"><span class="cmt"># แยกด้วย comma</span><br>
-<span class="var">data</span> <span class="op">=</span> <span class="str">"Alice,20,3.75"</span><br>
-<span class="var">name</span>, <span class="var">age</span>, <span class="var">gpa</span> <span class="op">=</span> <span class="var">data</span>.<span class="fn">split</span>(<span class="str">","</span>)<br><br>
-<span class="fn">print</span>(<span class="var">name</span>)<br>
-<span class="fn">print</span>(<span class="var">age</span>)<br>
-<span class="fn">print</span>(<span class="var">gpa</span>)</pre>
-        <pre class="output-box">Alice
-20
-3.75</pre>
-        <div class="highlight-box" style="margin-top:.5rem">
-          <p>💡 split() default แยกด้วย space — ระบุตัวคั่นอื่นได้ เช่น split(",")</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 20: split() + int() ==================== -->
-  <div class="slide">
-    <span class="badge anim">Input & Conversion</span>
-    <h2 class="anim">🔢 แปลงค่าหลัง split() ทีละตัว</h2>
-    <div class="columns anim">
-      <div>
-        <h3>ปัญหา: split() ได้ str ทั้งหมด</h3>
-        <pre class="code-block no-bottom-radius"><span class="cmt"># ❌ ใช้ split() อย่างเดียว</span><br>
-<span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span class="fn">input</span>().<span class="fn">split</span>()<br>
-<span class="fn">print</span>(<span class="var">a</span> <span class="op">+</span> <span class="var">b</span>)</pre>
-        <pre class="output-box">10 20
-1020</pre>
-      </div>
-      <div>
-        <h3>วิธีแก้: แปลงด้วย int() หลัง split()</h3>
-        <pre class="code-block no-bottom-radius"><span class="cmt"># ✅ แยกก่อน แล้วค่อยแปลงทีละตัว</span><br>
-<span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span class="fn">input</span>().<span class="fn">split</span>()<br>
-<span class="var">a</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">a</span>)<br>
-<span class="var">b</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">b</span>)<br>
-<span class="fn">print</span>(<span class="var">a</span> <span class="op">+</span> <span class="var">b</span>)</pre>
-        <pre class="output-box">10 20
-30</pre>
-      </div>
-    </div>
-    <div class="highlight-box anim" style="margin-top:1rem">
-      <p>💡 สำหรับผู้เริ่มต้น วิธีนี้อ่านง่ายและเห็นชัดว่า <code>input()</code> ได้ข้อความก่อน
-        แล้วเราค่อยแปลงเป็นตัวเลข</p>
-    </div>
-  </div>
-
   <!-- ==================== SLIDE 21: String Basics ==================== -->
   <div class="slide">
     <span class="badge anim">Strings</span>
@@ -1361,38 +1288,67 @@ Programming</pre>
   <div class="slide">
     <span class="badge anim">Strings</span>
     <h2 class="anim">🛠️ String Methods ที่ใช้บ่อย</h2>
-    <div class="columns anim">
-      <div>
-        <pre class="code-block no-bottom-radius" style="font-size:.95rem"><span class="var">s</span> <span class="op">=</span> <span class="str">"Hello, World!"</span><br><br>
-<span class="cmt"># ความยาว</span><br>
-<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">s</span>))<br><br>
-<span class="cmt"># ขนาดตัวอักษร</span><br>
-<span class="fn">print</span>(<span class="var">s</span>.<span class="fn">upper</span>())<br>
-<span class="fn">print</span>(<span class="var">s</span>.<span class="fn">lower</span>())<br><br>
-<span class="cmt"># ค้นหา</span><br>
-<span class="fn">print</span>(<span class="var">s</span>.<span class="fn">find</span>(<span class="str">"World"</span>))<br>
-<span class="fn">print</span>(<span class="var">s</span>.<span class="fn">count</span>(<span class="str">"l"</span>))</pre>
-        <pre class="output-box">13
-hello, world!
-HELLO, WORLD!
-7
-3</pre>
-      </div>
-      <div>
-        <pre class="code-block no-bottom-radius" style="font-size:.95rem"><span class="cmt"># ลบช่องว่าง</span><br>
-<span class="var">t</span> <span class="op">=</span> <span class="str">" hello "</span><br>
-<span class="fn">print</span>(<span class="var">t</span>.<span class="fn">strip</span>())<br><br>
-<span class="cmt"># แทนที่</span><br>
-<span class="fn">print</span>(<span class="var">s</span>.<span class="fn">replace</span>(<span class="str">"World"</span>, <span class="str">"Python"</span>))<br><br><br>
-<span class="cmt"># แยกและเชื่อมข้อความ</span><br>
-<span class="var">words</span> <span class="op">=</span> <span class="var">s</span>.<span class="fn">split</span>(<span class="str">", "</span>)<br>
-<span class="fn">print</span>(<span class="var">words</span>)<br><br>
-<span class="fn">print</span>(<span class="str">" - "</span>.<span class="fn">join</span>(<span class="var">words</span>))<br></pre>
-        <pre class="output-box">"hello"
-Hello, Python!
-['Hello', 'World!']
-Hello - World!</pre>
-      </div>
+    <div class="anim" style="margin-top: 1rem;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 1.1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+        <thead style="background: var(--accent-light); color: var(--accent-dark);">
+          <tr>
+            <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--accent);">Method</th>
+            <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--accent);">คำอธิบาย</th>
+            <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--accent);">ตัวอย่างโค้ด</th>
+            <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--accent);">ผลลัพธ์</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent);">len(s)</td>
+            <td style="padding: 1rem;">หาความยาวข้อความ</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">len("Hello")</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">5</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent);">.upper()</td>
+            <td style="padding: 1rem;">เปลี่ยนเป็นพิมพ์ใหญ่</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">"hi".upper()</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">"HI"</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent);">.lower()</td>
+            <td style="padding: 1rem;">เปลี่ยนเป็นพิมพ์เล็ก</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">"HI".lower()</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">"hi"</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent);">.find(x)</td>
+            <td style="padding: 1rem;">ค้นหาตำแหน่งแรกของ x</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">"abc".find("b")</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">1</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent);">.count(x)</td>
+            <td style="padding: 1rem;">นับจำนวน x ในข้อความ</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">"aba".count("a")</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">2</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent);">.strip()</td>
+            <td style="padding: 1rem;">ลบช่องว่างหน้า-หลัง</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">" a ".strip()</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">"a"</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent);">.replace(x,y)</td>
+            <td style="padding: 1rem;">แทนที่ x ด้วย y</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">"a".replace("a","b")</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">"b"</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem; font-family: var(--font-mono); color: var(--accent);">.split(x)</td>
+            <td style="padding: 1rem;">แยกข้อความด้วย x</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">"a,b".split(",")</td>
+            <td style="padding: 1rem; font-family: var(--font-mono);">['a', 'b']</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -1432,76 +1388,137 @@ Alice |</pre>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 26: Exercise — String Output ==================== -->
+  <!-- ==================== SLIDE 8: Comments ==================== -->
+    <div class="slide">
+      <span class="badge anim">Python Basics</span>
+      <h2 class="anim"># Comments — บันทึกโน้ตในโค้ด</h2>
+      <div class="columns anim">
+        <div>
+          <h3>ทำไมต้องเขียน Comment?</h3>
+          <ul class="list">
+            <li>อธิบายว่าโค้ดทำอะไร</li>
+            <li>ช่วยให้คนอื่น (และตัวเองในอนาคต) เข้าใจ</li>
+            <li>Python จะ <strong>ข้าม</strong> comment ไม่ประมวลผล</li>
+          </ul>
+          <div class="highlight-box" style="margin-top:1rem">
+            <p>💡 Comment ที่ดี = อธิบาย "ทำไม" ไม่ใช่แค่ "ทำอะไร"</p>
+          </div>
+        </div>
+        <div>
+          <h3>วิธีใช้</h3>
+          <pre class="code-block no-bottom-radius"><span class="cmt"># นี่คือการเขียนคอมเมนต์</span><br>
+<span class="fn">print</span>(<span class="str">"Hello"</span>) <span class="cmt"># คอมเมนต์ท้ายบรรทัด</span><br><br>
+<span class="cmt"># คำนวณพื้นที่วงกลม</span><br>
+<span class="var">radius</span> <span class="op">=</span> <span class="num">5</span><br>
+<span class="var">area</span> <span class="op">=</span> <span class="num">3.14</span> <span class="op">*</span> <span class="var">radius</span> <span class="op">**</span> <span class="num">2</span><br>
+<span class="fn">print</span>(<span class="var">area</span>)</pre>
+          <pre class="output-box">Hello
+78.5</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 13: Quick Exercise ==================== -->
   <div class="slide">
     <span class="badge anim">Operators</span>
     <h2 class="anim">🧪 ลองเติมคำตอบ — Output คืออะไร?</h2>
-    <div class="anim" style="max-width: 800px; margin: 0 auto 1rem auto;">
-      <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0;"><span class="var">s</span> <span class="op">=</span> <span class="str">"Data Science"</span></pre>
-    </div>
     <div class="columns anim">
       <div>
-        <pre class="code-block no-bottom-radius"
-          style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 1</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">0</span>])</pre>
+        <pre class="code-block no-bottom-radius" style="padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 1</span><br>
+<span class="var">x</span> <span class="op">=</span> <span class="num">10</span><br>
+<span class="var">y</span> <span class="op">=</span> <span class="num">3</span><br>
+<span class="fn">print</span>(<span class="var">x</span>, <span class="var">y</span>)</pre>
         <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
           <summary class="reveal-btn"
             style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: \'Fira Code\', monospace;">
             👀 ดูผลลัพธ์</summary>
           <div class="reveal-content" style="margin-top: 0;">
-            <pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">D</pre>
+            <pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">10 3</pre>
           </div>
         </details>
 
-        <pre class="code-block no-bottom-radius"
-          style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 2</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">-1</span>])</pre>
+        <pre class="code-block no-bottom-radius" style="padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 2</span><br>
+<span class="var">name</span> <span class="op">=</span> <span class="str">"Python"</span><br>
+<span class="fn">print</span>(<span class="str">"Hello"</span>, <span class="var">name</span>, <span class="kw">sep</span><span class="op">=</span><span class="str">"-"</span>)</pre>
         <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
           <summary class="reveal-btn"
             style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: \'Fira Code\', monospace;">
             👀 ดูผลลัพธ์</summary>
           <div class="reveal-content" style="margin-top: 0;">
-            <pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">e</pre>
-          </div>
-        </details>
-
-        <pre class="code-block no-bottom-radius"
-          style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 3</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[:<span class="num">4</span>])</pre>
-        <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
-          <summary class="reveal-btn"
-            style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: \'Fira Code\', monospace;">
-            👀 ดูผลลัพธ์</summary>
-          <div class="reveal-content" style="margin-top: 0;">
-            <pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">Data</pre>
+            <pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">Hello-Python</pre>
           </div>
         </details>
       </div>
 
       <div>
-        <pre class="code-block no-bottom-radius"
-          style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 4</span><br>
-<span class="fn">print</span>(<span class="var">s</span>.<span class="fn">upper</span>())</pre>
+        <pre class="code-block no-bottom-radius" style="padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 3</span><br>
+<span class="fn">print</span>(<span class="fn">type</span>(<span class="str">"100"</span>))</pre>
         <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
           <summary class="reveal-btn"
             style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: \'Fira Code\', monospace;">
             👀 ดูผลลัพธ์</summary>
           <div class="reveal-content" style="margin-top: 0;">
-            <pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">DATA SCIENCE</pre>
+            <pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">&lt;class 'str'&gt;</pre>
           </div>
         </details>
+      </div>
+    </div>
+  </div>
+  <!-- ==================== SLIDE 26: Exercise — String Output ==================== -->
+  <div class="slide">
+    <span class="badge anim">Operators</span>
+    <h2 class="anim">🧪 ลองเติมคำตอบ — Output คืออะไร?</h2>
+    <div class="anim" style="max-width: 800px; margin: 0 auto 1rem auto; text-align: center;">
+      <pre class="code-block" style="font-size:1.1rem; padding: 0.8rem 1.8rem; margin: 0; display: inline-block;"><span class="var">s</span> <span class="op">=</span> <span class="str">"Python Programming"</span></pre>
+    </div>
+    <div class="columns anim">
+      <div>
+        <div style="margin-bottom: 1rem;">
+          <h4 style="margin-bottom: 0.5rem; color: var(--accent);">ข้อที่ 1</h4>
+          <pre class="code-block no-bottom-radius" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0;"><span class="fn">print</span>(<span class="var">s</span>[<span class="num">0</span>])</pre>
+          <details class="reveal-solution" style="margin-top: 0;">
+            <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: 'Fira Code', monospace;">👀 ดูผลลัพธ์</summary>
+            <div class="reveal-content" style="margin-top: 0;"><pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">P</pre></div>
+          </details>
+        </div>
 
-        <pre class="code-block no-bottom-radius"
-          style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 5</span><br>
-<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">s</span>))</pre>
-        <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
-          <summary class="reveal-btn"
-            style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: \'Fira Code\', monospace;">
-            👀 ดูผลลัพธ์</summary>
-          <div class="reveal-content" style="margin-top: 0;">
-            <pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">12</pre>
-          </div>
-        </details>
+        <div style="margin-bottom: 1rem;">
+          <h4 style="margin-bottom: 0.5rem; color: var(--accent);">ข้อที่ 2</h4>
+          <pre class="code-block no-bottom-radius" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0;"><span class="fn">print</span>(<span class="var">s</span>[<span class="num">-1</span>])</pre>
+          <details class="reveal-solution" style="margin-top: 0;">
+            <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: 'Fira Code', monospace;">👀 ดูผลลัพธ์</summary>
+            <div class="reveal-content" style="margin-top: 0;"><pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">g</pre></div>
+          </details>
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <h4 style="margin-bottom: 0.5rem; color: var(--accent);">ข้อที่ 3</h4>
+          <pre class="code-block no-bottom-radius" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0;"><span class="fn">print</span>(<span class="var">s</span>[:<span class="num">4</span>])</pre>
+          <details class="reveal-solution" style="margin-top: 0;">
+            <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: 'Fira Code', monospace;">👀 ดูผลลัพธ์</summary>
+            <div class="reveal-content" style="margin-top: 0;"><pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">Pyth</pre></div>
+          </details>
+        </div>
+      </div>
+
+      <div>
+        <div style="margin-bottom: 1rem;">
+          <h4 style="margin-bottom: 0.5rem; color: var(--accent);">ข้อที่ 4</h4>
+          <pre class="code-block no-bottom-radius" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0;"><span class="fn">print</span>(<span class="var">s</span>.<span class="fn">upper</span>())</pre>
+          <details class="reveal-solution" style="margin-top: 0;">
+            <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: 'Fira Code', monospace;">👀 ดูผลลัพธ์</summary>
+            <div class="reveal-content" style="margin-top: 0;"><pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">PYTHON PROGRAMMING</pre></div>
+          </details>
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <h4 style="margin-bottom: 0.5rem; color: var(--accent);">ข้อที่ 5</h4>
+          <pre class="code-block no-bottom-radius" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0;"><span class="fn">print</span>(<span class="fn">len</span>(<span class="var">s</span>))</pre>
+          <details class="reveal-solution" style="margin-top: 0;">
+            <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: 'Fira Code', monospace;">👀 ดูผลลัพธ์</summary>
+            <div class="reveal-content" style="margin-top: 0;"><pre class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">18</pre></div>
+          </details>
+        </div>
       </div>
     </div>
   </div>
@@ -1511,48 +1528,48 @@ Alice |</pre>
     <h2 class="anim">🧪 เติมโค้ด — ให้ได้ Output ตามต้องการ</h2>
     <div class="columns anim">
       <div>
-        <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># Q1: เอาช่องว่างรอบๆ ออก และแทนที่ด้วย "_"</span><br>
-<span class="var">text</span> <span class="op">=</span> <span class="str">" hello world "</span><br>
+        <div style="margin-bottom: 1rem;">
+          <h4 style="margin-bottom: 0.5rem; color: var(--accent);">ข้อที่ 1: เอาช่องว่างรอบๆ ออก และแทนที่ด้วย "_"</h4>
+          <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0;"><span class="var">text</span> <span class="op">=</span> <span class="str">" hello world "</span><br>
 <span class="var">text</span> <span class="op">=</span> <span class="var">text</span>.<span class="fn">strip</span>()<br>
 <span class="var">result</span> <span class="op">=</span> <span class="var">text</span>.___(<span class="str">" "</span>, <span class="str">"_"</span>)</pre>
-        <details class="reveal-solution" style="margin-bottom: 0.4rem;">
-          <summary class="reveal-btn"
-            style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: \'Fira Code\', monospace;">👀 เฉลยข้อ
-            1</summary>
-          <div class="reveal-content">
-            <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="var">result</span> <span class="op">=</span> <span class="var">text</span>.<span class="fn">replace</span>(<span class="str">" "</span>, <span class="str">"_"</span>)</pre>
-          </div>
-        </details>
+          <details class="reveal-solution" style="margin-bottom: 0;">
+            <summary class="reveal-btn" style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: 'Fira Code', monospace;">👀 เฉลย</summary>
+            <div class="reveal-content">
+              <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="var">result</span> <span class="op">=</span> <span class="var">text</span>.<span class="fn">replace</span>(<span class="str">" "</span>, <span class="str">"_"</span>)</pre>
+            </div>
+          </details>
+        </div>
 
-        <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># Q2: รับค่าตัวเลข 2 ตัวแล้วแปลงเป็น int</span><br>
-<span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span class="fn">input</span>().___()<br>
+        <div style="margin-bottom: 1rem;">
+          <h4 style="margin-bottom: 0.5rem; color: var(--accent);">ข้อที่ 2: รับค่าตัวเลข 2 ตัวแล้วแปลงเป็น int</h4>
+          <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0;"><span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span class="fn">input</span>().___()<br>
 <span class="var">a</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">a</span>)<br>
 <span class="var">b</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">b</span>)</pre>
-        <details class="reveal-solution" style="margin-bottom: 0.4rem;">
-          <summary class="reveal-btn"
-            style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: \'Fira Code\', monospace;">👀 เฉลยข้อ
-            2</summary>
-          <div class="reveal-content">
-            <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span class="fn">input</span>().<span class="fn">split</span>()<br>
+          <details class="reveal-solution" style="margin-bottom: 0;">
+            <summary class="reveal-btn" style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: 'Fira Code', monospace;">👀 เฉลย</summary>
+            <div class="reveal-content">
+              <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span class="fn">input</span>().<span class="fn">split</span>()<br>
 <span class="var">a</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">a</span>)<br>
 <span class="var">b</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">b</span>)</pre>
-          </div>
-        </details>
+            </div>
+          </details>
+        </div>
       </div>
 
       <div>
-        <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># Q3: จัดรูปแบบด้วย f-string ให้ได้ "Bob: 85"</span><br>
-<span class="var">name</span> <span class="op">=</span> <span class="str">"Bob"</span><br>
+        <div style="margin-bottom: 1rem;">
+          <h4 style="margin-bottom: 0.5rem; color: var(--accent);">ข้อที่ 3: จัดรูปแบบด้วย f-string ให้ได้ "Bob: 85"</h4>
+          <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0;"><span class="var">name</span> <span class="op">=</span> <span class="str">"Bob"</span><br>
 <span class="var">score</span> <span class="op">=</span> <span class="num">85</span><br>
 <span class="fn">print</span>(___)</pre>
-        <details class="reveal-solution" style="margin-bottom: 0.4rem;">
-          <summary class="reveal-btn"
-            style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: \'Fira Code\', monospace;">👀 เฉลยข้อ
-            3</summary>
-          <div class="reveal-content">
-            <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="fn">print</span>(<span class="str">f"{name}: {score}"</span>)</pre>
-          </div>
-        </details>
+          <details class="reveal-solution" style="margin-bottom: 0;">
+            <summary class="reveal-btn" style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid #238636; background: #0d1117; color: #2ea043; font-family: 'Fira Code', monospace;">👀 เฉลย</summary>
+            <div class="reveal-content">
+              <pre class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="fn">print</span>(<span class="str">f"{name}: {score}"</span>)</pre>
+            </div>
+          </details>
+        </div>
       </div>
     </div>
   </div>
