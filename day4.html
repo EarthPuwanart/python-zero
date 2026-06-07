@@ -95,18 +95,21 @@
             <h2 class="anim">while loop — ทำซ้ำจนกว่าเงื่อนไขจะเป็น False</h2>
             <div class="columns anim">
                 <div>
-                <div class="code-block no-bottom-radius"><span class="var">i</span> <span class="op">=</span> <span class="num">1</span>
+                <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">i</span> <span class="op">=</span> <span class="num">1</span>
 <span class="kw">while</span> i <span class="op">&lt;=</span> <span class="num">5</span>:
     <span class="fn">print</span>(i)
     i <span class="op">+=</span> <span class="num">1</span></div>
-      <div class="output-box">1
+      <!-- prettier-ignore -->
+<div class="output-box">1
 2
 3
 4
 5</div>
                 </div>
                 <div>
-                <div class="code-block no-bottom-radius"><span class="cmt"># Sum 1 to N</span>
+                <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="cmt"># Sum 1 to N</span>
 <span class="var">n</span> <span class="op">=</span> <span class="num">10</span>
 <span class="var">total</span> <span class="op">=</span> <span class="num">0</span>
 <span class="var">i</span> <span class="op">=</span> <span class="num">1</span>
@@ -114,7 +117,8 @@
     total <span class="op">+=</span> i
     i <span class="op">+=</span> <span class="num">1</span>
 <span class="fn">print</span>(total)</div>
-      <div class="output-box">55</div>
+      <!-- prettier-ignore -->
+<div class="output-box">55</div>
                 </div>
             </div>
             <div class="highlight-box anim">
@@ -126,7 +130,8 @@
         <section class="slide">
             <span class="badge anim">While Loop</span>
             <h2 class="anim">while True + break — Menu Pattern</h2>
-            <div class="code-block anim"><span class="kw">while</span> <span class="num">True</span>:
+            <!-- prettier-ignore -->
+<div class="code-block anim"><span class="kw">while</span> <span class="num">True</span>:
 <span class="var">answer</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Continue? (y/n): "</span>)
 <span class="kw">if</span> answer <span class="op">==</span> <span class="str">"n"</span>:
     <span class="fn">print</span>(<span class="str">"Goodbye!"</span>)
@@ -155,17 +160,21 @@
             <div class="columns anim">
                 <div>
                     <h3>Syntax</h3>
-                    <div class="code-block no-bottom-radius"><span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
+                    <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
 <span class="fn">print</span>(i)</div>
-      <div class="output-box">0 1 2 3 4</div>
+      <!-- prettier-ignore -->
+<div class="output-box">0 1 2 3 4</div>
                 </div>
                 <div>
                     <h3>range() variations</h3>
-                    <div class="code-block no-bottom-radius"><span class="fn">range</span>(<span class="num">5</span>)
+                    <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="fn">range</span>(<span class="num">5</span>)
 <span class="fn">range</span>(<span class="num">1</span>,<span class="num">6</span>)
 <span class="fn">range</span>(<span class="num">0</span>,<span class="num">10</span>,<span class="num">2</span>)
 <span class="fn">range</span>(<span class="num">5</span>,<span class="num">0</span>,<span class="num">-1</span>)</div>
-      <div class="output-box">0,1,2,3,4
+      <!-- prettier-ignore -->
+<div class="output-box">0,1,2,3,4
 1,2,3,4,5
 0,2,4,6,8
 5,4,3,2,1</div>
@@ -179,17 +188,21 @@
             <h2 class="anim">for loop กับ List และ String</h2>
             <div class="columns anim">
                 <div>
-                    <div class="code-block no-bottom-radius"><span class="var">fruits</span> <span class="op">=</span> [<span class="str">"apple"</span>, <span class="str">"banana"</span>, <span class="str">"cherry"</span>]
+                    <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">fruits</span> <span class="op">=</span> [<span class="str">"apple"</span>, <span class="str">"banana"</span>, <span class="str">"cherry"</span>]
 <span class="kw">for</span> <span class="var">fruit</span> <span class="kw">in</span> fruits:
     <span class="fn">print</span>(fruit)</div>
-      <div class="output-box">apple
+      <!-- prettier-ignore -->
+<div class="output-box">apple
 banana
 cherry</div>
                 </div>
                 <div>
-                    <div class="code-block no-bottom-radius"><span class="kw">for</span> <span class="var">letter</span> <span class="kw">in</span> <span class="str">"apple"</span>:
+                    <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="kw">for</span> <span class="var">letter</span> <span class="kw">in</span> <span class="str">"apple"</span>:
 <span class="fn">print</span>(letter)</div>
-      <div class="output-box">a
+      <!-- prettier-ignore -->
+<div class="output-box">a
 p
 p
 l
@@ -205,19 +218,23 @@ e</div>
             <div class="columns anim">
                 <div>
                     <h3>break — ออกจากลูปทันที</h3>
-                    <div class="code-block no-bottom-radius"><span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>):
+                    <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>):
 <span class="kw">if</span> i <span class="op">==</span> <span class="num">5</span>:
     <span class="kw">break</span>
 <span class="fn">print</span>(i)</div>
-      <div class="output-box">0 1 2 3 4</div>
+      <!-- prettier-ignore -->
+<div class="output-box">0 1 2 3 4</div>
                 </div>
                 <div>
                     <h3>continue — ข้ามไปรอบถัดไป</h3>
-                    <div class="code-block no-bottom-radius"><span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
+                    <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
 <span class="kw">if</span> i <span class="op">==</span> <span class="num">2</span>:
     <span class="kw">continue</span>
 <span class="fn">print</span>(i)</div>
-      <div class="output-box">0 1 3 4</div>
+      <!-- prettier-ignore -->
+<div class="output-box">0 1 3 4</div>
                 </div>
             </div>
         </section>
@@ -227,11 +244,13 @@ e</div>
             <span class="badge anim">For Loop</span>
             <h2 class="anim">Nested Loops — ลูปซ้อนลูป</h2>
             <div class="columns anim">
-                <div class="code-block no-bottom-radius"><span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">4</span>):
+                <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">4</span>):
 <span class="kw">for</span> <span class="var">j</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, i<span class="op">+</span><span class="num">1</span>):
     <span class="fn">print</span>(j, <span class="var">end</span><span class="op">=</span><span class="str">" "</span>)
 <span class="fn">print</span>()</div>
-      <div class="output-box">1
+      <!-- prettier-ignore -->
+<div class="output-box">1
 1 2
 1 2 3</div>
                 <div class="card card--accent">
@@ -251,13 +270,15 @@ e</div>
             <span class="badge anim">Loops</span>
             <h2 class="anim">🧪 ลองทำ — จงเติม output</h2>
             <div class="columns anim">
-                <div class="code-block"><span class="var">people</span> <span class="op">=</span> [<span class="str">'Zed'</span>, <span class="str">'Shen'</span>, <span class="str">'Braum'</span>]
+                <!-- prettier-ignore -->
+<div class="code-block"><span class="var">people</span> <span class="op">=</span> [<span class="str">'Zed'</span>, <span class="str">'Shen'</span>, <span class="str">'Braum'</span>]
 <span class="var">c</span> <span class="op">=</span> <span class="num">0</span>
 <span class="kw">for</span> <span class="var">person</span> <span class="kw">in</span> people:
     c <span class="op">+=</span> <span class="fn">len</span>(person)
 <span class="fn">print</span>(c)
 <span class="cmt"># output: ?</span></div>
-                <div class="code-block"><span class="var">a</span> <span class="op">=</span> <span class="num">22</span>
+                <!-- prettier-ignore -->
+<div class="code-block"><span class="var">a</span> <span class="op">=</span> <span class="num">22</span>
 <span class="var">b</span> <span class="op">=</span> <span class="num">10</span>
 <span class="kw">while</span> b <span class="op"><=</span> a:
     b <span class="op">+=</span> <span class="num">2</span>
@@ -271,12 +292,14 @@ e</div>
             <span class="badge anim">Functions</span>
             <h2 class="anim">Function คืออะไร?</h2>
             <p class="anim">บล็อกของโค้ดที่ <strong>ทำงานเมื่อถูกเรียกใช้</strong> — เขียนครั้งเดียว ใช้ซ้ำได้หลายครั้ง</p>
-            <div class="code-block no-bottom-radius anim"><span class="kw">def</span> <span class="fn">greet</span>():
+            <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius anim"><span class="kw">def</span> <span class="fn">greet</span>():
     <span class="fn">print</span>(<span class="str">"Hello from a function"</span>)
 
 <span class="fn">greet</span>()
 <span class="fn">greet</span>()   <span class="cmt"># เรียกซ้ำได้!</span></div>
-      <div class="output-box">Hello from a function
+      <!-- prettier-ignore -->
+<div class="output-box">Hello from a function
 Hello from a function</div>
         </section>
 
@@ -286,11 +309,13 @@ Hello from a function</div>
             <h2 class="anim">Parameter & Argument</h2>
             <div class="columns anim">
                 <div>
-                    <div class="code-block no-bottom-radius"><span class="kw">def</span> <span class="fn">greet</span>(<span class="var">name</span>):       <span class="cmt"># name คือ พารามิเตอร์</span>
+                    <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="kw">def</span> <span class="fn">greet</span>(<span class="var">name</span>):       <span class="cmt"># name คือ พารามิเตอร์</span>
     <span class="fn">print</span>(<span class="str">"Hello, "</span> <span class="op">+</span> name)
 
 <span class="fn">greet</span>(<span class="str">"Alice"</span>)         <span class="cmt"># "Alice" คือ อาร์กิวเมนต์</span></div>
-      <div class="output-box">Hello, Alice</div>
+      <!-- prettier-ignore -->
+<div class="output-box">Hello, Alice</div>
                 </div>
                 <div class="card card--accent">
                     <h3>💡 ความแตกต่าง</h3>
@@ -309,17 +334,20 @@ Hello from a function</div>
             <div class="columns anim">
                 <div>
                     <h3>ค่าเริ่มต้น (Default)</h3>
-                    <div class="code-block no-bottom-radius"><span class="kw">def</span> <span class="fn">greet</span>(<span class="var">country</span><span class="op">=</span><span class="str">"Norway"</span>):
+                    <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="kw">def</span> <span class="fn">greet</span>(<span class="var">country</span><span class="op">=</span><span class="str">"Norway"</span>):
     <span class="fn">print</span>(<span class="str">"I am from "</span> <span class="op">+</span> country)
 
 <span class="fn">greet</span>(<span class="str">"Sweden"</span>)
 <span class="fn">greet</span>()</div>
-      <div class="output-box">I am from Sweden
+      <!-- prettier-ignore -->
+<div class="output-box">I am from Sweden
 I am from Norway</div>
                 </div>
                 <div>
                     <h3>return — คืนค่า</h3>
-                    <div class="code-block no-bottom-radius"><span class="kw">def</span> <span class="fn">multiply</span>(<span class="var">x</span>):
+                    <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="kw">def</span> <span class="fn">multiply</span>(<span class="var">x</span>):
     <span class="kw">return</span> <span class="num">5</span> <span class="op">*</span> x
 
 <span class="var">result</span> <span class="op">=</span> <span class="fn">multiply</span>(<span class="num">3</span>)
@@ -342,13 +370,15 @@ I am from Norway</div>
                         <li>คืนค่าเฉลี่ยเป็นตัวเลข</li>
                     </ul>
                 </div>
-                <div class="code-block no-bottom-radius"><span class="kw">def</span> <span class="fn">average3</span>(<span class="var">a</span>, <span class="var">b</span>, <span class="var">c</span>):
+                <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="kw">def</span> <span class="fn">average3</span>(<span class="var">a</span>, <span class="var">b</span>, <span class="var">c</span>):
     <span class="var">total</span> <span class="op">=</span> a <span class="op">+</span> b <span class="op">+</span> c
     <span class="kw">return</span> total <span class="op">/</span> <span class="num">3</span>
 
 <span class="var">avg</span> <span class="op">=</span> <span class="fn">average3</span>(<span class="num">80</span>, <span class="num">75</span>, <span class="num">90</span>)
 <span class="fn">print</span>(<span class="var">avg</span>)</div>
-      <div class="output-box">81.666...</div>
+      <!-- prettier-ignore -->
+<div class="output-box">81.666...</div>
             </div>
         </section>
 
@@ -380,7 +410,8 @@ I am from Norway</div>
         <section class="slide">
             <span class="badge anim">Functions</span>
             <h2 class="anim">อ่านเสริม: math Module</h2>
-            <div class="code-block no-bottom-radius anim"><span class="kw">import</span> math
+            <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius anim"><span class="kw">import</span> math
 <span class="fn">print</span>(math.<span class="fn">ceil</span>(<span class="num">4.2</span>))       <span class="cmt"># 5 (ปัดขึ้น)</span>
 <span class="fn">print</span>(math.<span class="fn">floor</span>(<span class="num">4.8</span>))      <span class="cmt"># 4 (ปัดลง)</span>
 <span class="fn">print</span>(math.<span class="fn">sqrt</span>(<span class="num">25</span>))        <span class="cmt"># 5.0 (รากที่ 2)</span>
@@ -389,7 +420,8 @@ I am from Norway</div>
 <span class="fn">print</span>(math.<span class="fn">log10</span>(<span class="num">100</span>))
 <span class="fn">print</span>(math.<span class="fn">radians</span>(<span class="num">90</span>))
 <span class="fn">print</span>(math.<span class="fn">sin</span>(math.<span class="var">pi</span>/<span class="num">2</span>))</div>
-      <div class="output-box">120 (5!)
+      <!-- prettier-ignore -->
+<div class="output-box">120 (5!)
 3.14159...
 2.0
 1.5707... (π/2)
@@ -400,7 +432,8 @@ I am from Norway</div>
         <section class="slide">
             <span class="badge anim">Functions</span>
             <h2 class="anim">อ่านเสริม: random Module</h2>
-            <div class="code-block no-bottom-radius anim"><span class="kw">import</span> random
+            <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius anim"><span class="kw">import</span> random
 <span class="fn">print</span>(random.<span class="fn">random</span>())
 <span class="fn">print</span>(random.<span class="fn">randint</span>(<span class="num">1</span>, <span class="num">100</span>))      <span class="cmt"># 42 (รวมปลายทาง)</span>
 <span class="fn">print</span>(random.<span class="fn">choice</span>([<span class="str">"A"</span>,<span class="str">"B"</span>,<span class="str">"C"</span>]))  <span class="cmt"># B (สุ่ม 1 ตัว)</span>
@@ -409,7 +442,8 @@ I am from Norway</div>
 <span class="var">nums</span> <span class="op">=</span> [<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>]
 random.<span class="fn">shuffle</span>(nums)                  <span class="cmt"># สลับ in-place</span>
 <span class="fn">print</span>(nums)</div>
-      <div class="output-box">0.6278... (0.0-1.0)
+      <!-- prettier-ignore -->
+<div class="output-box">0.6278... (0.0-1.0)
 [3,1,5,2,4]</div>
         </section>
 
@@ -417,19 +451,22 @@ random.<span class="fn">shuffle</span>(nums)                  <span class="cmt">
         <section class="slide">
             <span class="badge anim">Functions</span>
             <h2 class="anim">อ่านเสริม: statistics Module</h2>
-            <div class="code-block anim"><span class="kw">import</span> statistics
+            <!-- prettier-ignore -->
+<div class="code-block anim"><span class="kw">import</span> statistics
 <span class="var">scores</span> <span class="op">=</span> [<span class="num">70</span>, <span class="num">85</span>, <span class="num">90</span>, <span class="num">60</span>]
 <span class="fn">print</span>(statistics.<span class="fn">mean</span>(scores))    <span class="cmt"># 76.25 (ค่าเฉลี่ย)</span>
 <span class="fn">print</span>(statistics.<span class="fn">median</span>(scores))  <span class="cmt"># 77.5 (มัธยฐาน)</span>
 <span class="fn">print</span>(statistics.<span class="fn">mode</span>([<span class="num">1</span>,<span class="num">2</span>,<span class="num">2</span>,<span class="num">3</span>])) <span class="cmt"># 2 (ฐานนิยม)</span>
 <span class="fn">print</span>(statistics.<span class="fn">stdev</span>(scores))   <span class="cmt"># 13.15 (ส่วนเบี่ยงเบน)</span></div>
             <h3 class="anim" style="margin-top:1rem">การย่อชื่อ Module</h3>
-            <div class="code-block no-bottom-radius anim"><span class="kw">import</span> statistics <span class="kw">as</span> <span class="var">stat</span>
+            <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius anim"><span class="kw">import</span> statistics <span class="kw">as</span> <span class="var">stat</span>
 <span class="fn">print</span>(stat.<span class="fn">mean</span>([<span class="num">12</span>,<span class="num">15</span>,<span class="num">18</span>]))
 
 <span class="kw">from</span> statistics <span class="kw">import</span> mean
 <span class="fn">print</span>(<span class="fn">mean</span>([<span class="num">70</span>,<span class="num">85</span>,<span class="num">90</span>]))</div>
-      <div class="output-box">15.0
+      <!-- prettier-ignore -->
+<div class="output-box">15.0
 81.67</div>
         </section>
 
@@ -438,11 +475,13 @@ random.<span class="fn">shuffle</span>(nums)                  <span class="cmt">
             <span class="badge anim">Loops</span>
             <h2 class="anim">🧪 ลองทำ — จงเติม output</h2>
             <div class="columns anim">
-                <div class="code-block no-bottom-radius"><span class="kw">def</span> <span class="fn">greet</span>(<span class="var">name</span><span class="op">=</span><span class="str">"Guest"</span>):
+                <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="kw">def</span> <span class="fn">greet</span>(<span class="var">name</span><span class="op">=</span><span class="str">"Guest"</span>):
     <span class="kw">return</span> <span class="str">f"Hello, {name}!"</span>
 <span class="fn">print</span>(<span class="fn">greet</span>())
 <span class="fn">print</span>(<span class="fn">greet</span>(<span class="str">"Nina"</span>))</div>
-                <div class="code-block no-bottom-radius"><span class="kw">def</span> <span class="fn">double</span>(<span class="var">x</span>):
+                <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="kw">def</span> <span class="fn">double</span>(<span class="var">x</span>):
     <span class="kw">return</span> x <span class="op">+</span> x
 <span class="fn">print</span>(<span class="fn">double</span>(<span class="str">"Hi"</span>))
 <span class="fn">print</span>(<span class="fn">double</span>(<span class="num">3</span>))</div>
@@ -454,7 +493,8 @@ random.<span class="fn">shuffle</span>(nums)                  <span class="cmt">
             <span class="badge anim">Functions</span>
             <h2 class="anim">อ่านเสริม: List Comprehension</h2>
             <p class="anim">วิธีสร้าง List ใหม่แบบสั้นๆ หลังจากเข้าใจ <code>for</code> และ <code>append()</code> แล้ว</p>
-            <div class="code-block no-bottom-radius anim"><span class="cmt"># แบบปกติ</span>
+            <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius anim"><span class="cmt"># แบบปกติ</span>
 <span class="var">squares</span> <span class="op">=</span> []
 <span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
     squares.<span class="fn">append</span>(i<span class="op">**</span><span class="num">2</span>)
@@ -462,11 +502,14 @@ random.<span class="fn">shuffle</span>(nums)                  <span class="cmt">
 <span class="cmt"># แบบ List Comprehension</span>
 <span class="var">squares</span> <span class="op">=</span> [i<span class="op">**</span><span class="num">2</span> <span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>)]
 <span class="fn">print</span>(squares)</div>
-      <div class="output-box">[0, 1, 4, 9, 16]</div>
+      <!-- prettier-ignore -->
+<div class="output-box">[0, 1, 4, 9, 16]</div>
             <h3 class="anim" style="margin-top:1rem">ใส่เงื่อนไข (if)</h3>
-            <div class="code-block no-bottom-radius anim"><span class="var">evens</span> <span class="op">=</span> [x <span class="kw">for</span> <span class="var">x</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>) <span class="kw">if</span> x <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span>]
+            <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius anim"><span class="var">evens</span> <span class="op">=</span> [x <span class="kw">for</span> <span class="var">x</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>) <span class="kw">if</span> x <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span>]
 <span class="fn">print</span>(evens)</div>
-      <div class="output-box">[0, 2, 4, 6, 8]</div>
+      <!-- prettier-ignore -->
+<div class="output-box">[0, 2, 4, 6, 8]</div>
         </section>
 
         <!-- SLIDE 23: Error Handling -->
@@ -474,7 +517,8 @@ random.<span class="fn">shuffle</span>(nums)                  <span class="cmt">
             <span class="badge anim">Functions</span>
             <h2 class="anim">อ่านเสริม: การจัดการข้อผิดพลาด (try/except)</h2>
             <p class="anim">ใช้เมื่อเริ่มเขียนโปรแกรมที่ต้องรับ input หลายแบบ ในคอร์สนี้ให้รู้จักไว้ก่อน</p>
-            <div class="code-block anim"><span class="kw">try</span>:
+            <!-- prettier-ignore -->
+<div class="code-block anim"><span class="kw">try</span>:
     <span class="var">x</span> <span class="op">=</span> <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter a number: "</span>))
     <span class="var">result</span> <span class="op">=</span> <span class="num">10</span> <span class="op">/</span> x
     <span class="fn">print</span>(<span class="str">f"Result: {result}"</span>)
@@ -527,16 +571,19 @@ random.<span class="fn">shuffle</span>(nums)                  <span class="cmt">
             <span class="badge anim">Wrap-up</span>
             <h2 class="anim">🧠 Quick Quiz — ผลลัพธ์คืออะไร?</h2>
             <div class="columns anim">
-                <div class="code-block"><span class="cmt"># คำถามที่ 1</span>
+                <!-- prettier-ignore -->
+<div class="code-block"><span class="cmt"># คำถามที่ 1</span>
 <span class="fn">print</span>(<span class="num">2</span> <span class="op">**</span> <span class="num">3</span> <span class="op">+</span> <span class="num">5</span> <span class="op">//</span> <span class="num">3</span>)
 <span class="cmt"># คำตอบ: ?</span></div>
-                <div class="code-block"><span class="cmt"># คำถามที่ 2</span>
+                <!-- prettier-ignore -->
+<div class="code-block"><span class="cmt"># คำถามที่ 2</span>
 <span class="var">text</span> <span class="op">=</span> <span class="str">"DataScience"</span>
 <span class="fn">print</span>(text[<span class="num">4</span>:<span class="num">11</span>])
 <span class="cmt"># คำตอบ: ?</span></div>
             </div>
             <div class="columns anim">
-                <div class="code-block"><span class="cmt"># คำถามที่ 3</span>
+                <!-- prettier-ignore -->
+<div class="code-block"><span class="cmt"># คำถามที่ 3</span>
 <span class="var">nums</span> <span class="op">=</span> [<span class="num">5</span>,<span class="num">23</span>,<span class="num">30</span>,<span class="num">47</span>]
 <span class="var">result</span> <span class="op">=</span> []
 <span class="kw">for</span> <span class="var">n</span> <span class="kw">in</span> nums:
@@ -544,7 +591,8 @@ random.<span class="fn">shuffle</span>(nums)                  <span class="cmt">
         result.<span class="fn">append</span>(n)
 <span class="fn">print</span>(result)
 <span class="cmt"># คำตอบ: ?</span></div>
-                <div class="code-block"><span class="cmt"># คำถามที่ 4</span>
+                <!-- prettier-ignore -->
+<div class="code-block"><span class="cmt"># คำถามที่ 4</span>
 <span class="kw">def</span> <span class="fn">f</span>(<span class="var">x</span>):
     <span class="kw">return</span> x<span class="op">+</span><span class="num">1</span>, x<span class="op">+</span><span class="num">2</span>
 <span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span class="fn">f</span>(<span class="num">5</span>)

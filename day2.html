@@ -640,10 +640,15 @@
     <div class="slide slide--center">
       <span class="badge anim">Python Basics</span>
       <h2 class="anim">🎉 โปรแกรมแรกของเรา!</h2>
-      <div class="code-block no-bottom-radius anim"
-        style="font-size:1.4rem; max-width:600px; width:100%; box-sizing:border-box; margin-left:auto; margin-right:auto;"><span class="fn">print</span>(<span class="str">'Hello, World!'</span>)</div>
-      <div class="output-box anim"
-        style="max-width:600px; width:100%; box-sizing:border-box; margin-left:auto; margin-right:auto;">Hello, World!</div>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius anim"
+        style="font-size:1.4rem; max-width:600px; width:100%; box-sizing:border-box; margin-left:auto; margin-right:auto;">
+        <span class="fn">print</span>(<span class="str">'Hello, World!'</span>)
+      </div>
+      <!-- prettier-ignore -->
+<div class="output-box anim"
+        style="max-width:600px; width:100%; box-sizing:border-box; margin-left:auto; margin-right:auto;">Hello, World!
+      </div>
       <div class="highlight-box anim"
         style="max-width:600px; width:100%; box-sizing:border-box; margin-top:1.5rem; margin-left:auto; margin-right:auto;">
         <p>🎯 นี่คือโปรแกรมคลาสสิกที่โปรแกรมเมอร์ทุกคนเริ่มต้น — ใช้แค่ 1 บรรทัด!</p>
@@ -657,28 +662,34 @@
       <div class="columns anim">
         <div>
           <h3>พื้นฐาน</h3>
-          <div class="code-block no-bottom-radius"><span class="fn">print</span>(<span class="str">"Hello,
-  Python!"</span>)<br>
-<span class="fn">print</span>(<span class="num">42</span>)<br>
-<span class="fn">print</span>(<span class="num">3.14</span>)<br>
-<span class="fn">print</span>(<span class="str">"Score:"</span>, <span class="num">95</span>)</div>
-          <div class="output-box">Hello, Python!
-42
-3.14
-Score: 95</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="fn">print</span>(<span class="str">"Hello,
+              Python!"</span>)<br>
+            <span class="fn">print</span>(<span class="num">42</span>)<br>
+            <span class="fn">print</span>(<span class="num">3.14</span>)<br>
+            <span class="fn">print</span>(<span class="str">"Score:"</span>, <span class="num">95</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">Hello, Python!
+            42
+            3.14
+            Score: 95</div>
         </div>
         <div>
           <h3>sep และ end</h3>
-          <div class="code-block no-bottom-radius"><span class="cmt"># sep = ตัวคั่นระหว่างค่า</span><br>
-<span class="fn">print</span>(<span class="str">"A"</span>, <span class="str">"B"</span>, <span
-  class="str">"C"</span>, <span class="kw">sep</span><span class="op">=</span><span
-  class="str">"-"</span>)<br><br>
-<span class="cmt"># end = สิ่งที่จะพิมพ์ท้ายบรรทัด (ค่าเริ่มต้นคือ \n)</span><br>
-<span class="fn">print</span>(<span class="str">"Hello"</span>, <span class="kw">end</span><span
-  class="op">=</span><span class="str">" "</span>)<br>
-<span class="fn">print</span>("<span class="str">World</span>")</div>
-          <div class="output-box">A-B-C
-Hello World</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="cmt"># sep = ตัวคั่นระหว่างค่า</span><br>
+            <span class="fn">print</span>(<span class="str">"A"</span>, <span class="str">"B"</span>, <span
+              class="str">"C"</span>, <span class="kw">sep</span><span class="op">=</span><span
+              class="str">"-"</span>)<br><br>
+            <span class="cmt"># end = สิ่งที่จะพิมพ์ท้ายบรรทัด (ค่าเริ่มต้นคือ \n)</span><br>
+            <span class="fn">print</span>(<span class="str">"Hello"</span>, <span class="kw">end</span><span
+              class="op">=</span><span class="str">" "</span>)<br>
+            <span class="fn">print</span>("<span class="str">World</span>")
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">A-B-C
+            Hello World</div>
           <div class="highlight-box" style="margin-top:.5rem">
             <p>💡 sep default = " " (space) / end default = "\n" (ขึ้นบรรทัดใหม่)</p>
           </div>
@@ -704,17 +715,20 @@ Hello World</div>
         </div>
         <div>
           <h3>วิธีใช้</h3>
-          <div class="code-block no-bottom-radius"><span class="cmt"># นี่คือการเขียนคอมเมนต์</span><br>
-<span class="fn">print</span>(<span class="str">"Hello"</span>) <span class="cmt">#
-  คอมเมนต์ท้ายบรรทัด</span><br><br>
-<span class="cmt"># คำนวณพื้นที่วงกลม</span><br>
-<span class="var">radius</span> <span class="op">=</span> <span class="num">5</span><br>
-<span class="var">area</span> <span class="op">=</span> <span class="num">3.14</span> <span
-  class="op">*</span> <span class="var">radius</span> <span class="op">**</span> <span
-  class="num">2</span><br>
-<span class="fn">print</span>(<span class="var">area</span>)</div>
-          <div class="output-box">Hello
-78.5</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="cmt"># นี่คือการเขียนคอมเมนต์</span><br>
+            <span class="fn">print</span>(<span class="str">"Hello"</span>) <span class="cmt">#
+              คอมเมนต์ท้ายบรรทัด</span><br><br>
+            <span class="cmt"># คำนวณพื้นที่วงกลม</span><br>
+            <span class="var">radius</span> <span class="op">=</span> <span class="num">5</span><br>
+            <span class="var">area</span> <span class="op">=</span> <span class="num">3.14</span> <span
+              class="op">*</span> <span class="var">radius</span> <span class="op">**</span> <span
+              class="num">2</span><br>
+            <span class="fn">print</span>(<span class="var">area</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">Hello
+            78.5</div>
         </div>
       </div>
     </div>
@@ -726,31 +740,37 @@ Hello World</div>
       <div class="columns anim">
         <div>
           <h3>กำหนดค่าตัวแปร (Assignment)</h3>
-          <div class="code-block no-bottom-radius"><span class="var">name</span> <span class="op">=</span> <span
-  class="str">"Alice"</span><br>
-<span class="var">age</span> <span class="op">=</span> <span class="num">20</span><br>
-<span class="var">gpa</span> <span class="op">=</span> <span class="num">3.75</span><br>
-<span class="var">is_student</span> <span class="op">=</span> <span class="kw">True</span><br><br>
-<span class="fn">print</span>(<span class="var">name</span>)<br>
-<span class="fn">print</span>(<span class="var">age</span>)<br>
-<span class="fn">print</span>(<span class="var">gpa</span>)<br>
-<span class="fn">print</span>(<span class="var">is_student</span>)</div>
-          <div class="output-box">Alice
-20
-3.75
-True</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">name</span> <span class="op">=</span> <span
+              class="str">"Alice"</span><br>
+            <span class="var">age</span> <span class="op">=</span> <span class="num">20</span><br>
+            <span class="var">gpa</span> <span class="op">=</span> <span class="num">3.75</span><br>
+            <span class="var">is_student</span> <span class="op">=</span> <span class="kw">True</span><br><br>
+            <span class="fn">print</span>(<span class="var">name</span>)<br>
+            <span class="fn">print</span>(<span class="var">age</span>)<br>
+            <span class="fn">print</span>(<span class="var">gpa</span>)<br>
+            <span class="fn">print</span>(<span class="var">is_student</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">Alice
+            20
+            3.75
+            True</div>
         </div>
         <div>
           <h3>เปลี่ยนค่าได้ตลอดเวลา</h3>
-          <div class="code-block no-bottom-radius"><span class="var">x</span> <span class="op">=</span> <span
-  class="num">10</span><br>
-<span class="fn">print</span>(<span class="var">x</span>)<br><br>
-<span class="var">x</span> <span class="op">=</span> <span class="num">20</span><br>
-<span class="fn">print</span>(<span class="var">x</span>)<br><br>
-<span class="var">x</span> <span class="op">=</span> <span class="str">"hello"</span><br>
-<span class="fn">print</span>(<span class="var">x</span>)</div>
-          <div class="output-box">10
-hello</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">x</span> <span class="op">=</span> <span
+              class="num">10</span><br>
+            <span class="fn">print</span>(<span class="var">x</span>)<br><br>
+            <span class="var">x</span> <span class="op">=</span> <span class="num">20</span><br>
+            <span class="fn">print</span>(<span class="var">x</span>)<br><br>
+            <span class="var">x</span> <span class="op">=</span> <span class="str">"hello"</span><br>
+            <span class="fn">print</span>(<span class="var">x</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">10
+            hello</div>
           <div class="highlight-box" style="margin-top:.5rem">
             <p>💡 Python เป็น Dynamic Typing — ตัวแปรเปลี่ยนชนิดได้!</p>
           </div>
@@ -789,20 +809,18 @@ hello</div>
         <div style="display: flex; flex-direction: column; gap: 1rem;">
           <div>
             <h3 style="margin-top: 0; margin-bottom: 0.5rem; color: #16a34a;">✅ ทำได้ (ถูกต้อง)</h3>
-            <div class="code-block" style="margin: 0; padding: 0.8rem; font-size: 0.95rem;"><span
-  class="var">name</span> <span class="op">=</span> <span class="str">"Alice"</span> <span class="cmt">#
-  ตัวอักษรล้วน</span><br>
-<span class="var">_private</span> <span class="op">=</span> <span class="num">42</span> <span
-  class="cmt"># ขีดล่างนำหน้า</span><br>
-<span class="var">student_name</span> <span class="op">=</span> <span class="str">"Bob"</span> <span
-  class="cmt"># snake_case</span></div>
+            <!-- prettier-ignore -->
+<div class="code-block" style="margin: 0; padding: 0.8rem; font-size: 0.95rem;"><span class="var">name</span> <span class="op">=</span> <span class="str">"Alice"</span> <span class="cmt"># ตัวอักษรล้วน</span><br>
+<span class="var">_private</span> <span class="op">=</span> <span class="num">42</span> <span class="cmt"># ขีดล่างนำหน้า</span><br>
+<span class="var">student_name</span> <span class="op">=</span> <span class="str">"Bob"</span> <span class="cmt"># snake_case</span></div>
           </div>
           <div>
             <h3 style="margin-top: 0; margin-bottom: 0.5rem; color: #dc2626;">❌ ทำไม่ได้ (ผิดกฎ)</h3>
-            <div class="code-block" style="margin: 0; padding: 0.8rem; font-size: 0.95rem;"><span class="cmt"># 1name =
-  "error" # ❌ ขึ้นต้นด้วยตัวเลข</span><br>
+            <!-- prettier-ignore -->
+<div class="code-block" style="margin: 0; padding: 0.8rem; font-size: 0.95rem;"><span class="cmt"># 1name = "error" # ❌ ขึ้นต้นด้วยตัวเลข</span><br>
 <span class="cmt"># my-name = "error" # ❌ ห้ามใช้ขีดกลาง (-)</span><br>
 <span class="cmt"># class = "error" # ❌ ซ้ำกับคำสงวน</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -817,36 +835,44 @@ hello</div>
           <span class="emoji-lg">🔢</span>
           <h3>int</h3>
           <p>จำนวนเต็ม</p>
-          <div class="code-block" style="font-size:.9rem"><span class="var">x</span> <span class="op">=</span> <span
-  class="num">42</span><br>
-<span class="var">y</span> <span class="op">=</span> <span class="num">-10</span><br>
-<span class="var">z</span> <span class="op">=</span> <span class="num">0</span></div>
+          <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.9rem"><span class="var">x</span> <span class="op">=</span> <span
+              class="num">42</span><br>
+            <span class="var">y</span> <span class="op">=</span> <span class="num">-10</span><br>
+            <span class="var">z</span> <span class="op">=</span> <span class="num">0</span>
+          </div>
         </div>
         <div class="card card--accent" style="text-align:center">
           <span class="emoji-lg">💧</span>
           <h3>float</h3>
           <p>ทศนิยม</p>
-          <div class="code-block" style="font-size:.9rem"><span class="var">pi</span> <span class="op">=</span> <span
-  class="num">3.14</span><br>
-<span class="var">temp</span> <span class="op">=</span> <span class="num">-2.5</span><br>
-<span class="var">rate</span> <span class="op">=</span> <span class="num">0.05</span></div>
+          <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.9rem"><span class="var">pi</span> <span class="op">=</span> <span
+              class="num">3.14</span><br>
+            <span class="var">temp</span> <span class="op">=</span> <span class="num">-2.5</span><br>
+            <span class="var">rate</span> <span class="op">=</span> <span class="num">0.05</span>
+          </div>
         </div>
         <div class="card card--accent" style="text-align:center">
           <span class="emoji-lg">📝</span>
           <h3>str</h3>
           <p>ข้อความ</p>
-          <div class="code-block" style="font-size:.9rem"><span class="var">s</span> <span class="op">=</span> <span
-  class="str">"Hello"</span><br>
-<span class="var">c</span> <span class="op">=</span> <span class="str">'A'</span><br>
-<span class="var">n</span> <span class="op">=</span> <span class="str">"123"</span></div>
+          <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.9rem"><span class="var">s</span> <span class="op">=</span> <span
+              class="str">"Hello"</span><br>
+            <span class="var">c</span> <span class="op">=</span> <span class="str">'A'</span><br>
+            <span class="var">n</span> <span class="op">=</span> <span class="str">"123"</span>
+          </div>
         </div>
         <div class="card card--accent" style="text-align:center">
           <span class="emoji-lg">✅</span>
           <h3>bool</h3>
           <p>จริง/เท็จ</p>
-          <div class="code-block" style="font-size:.9rem"><span class="var">a</span> <span class="op">=</span> <span
-  class="kw">True</span><br>
-<span class="var">b</span> <span class="op">=</span> <span class="kw">False</span></div>
+          <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.9rem"><span class="var">a</span> <span class="op">=</span> <span
+              class="kw">True</span><br>
+            <span class="var">b</span> <span class="op">=</span> <span class="kw">False</span>
+          </div>
         </div>
       </div>
       <div class="highlight-box anim" style="margin-top:1.5rem">
@@ -860,28 +886,34 @@ hello</div>
       <h2 class="anim">type() — ตรวจสอบชนิดข้อมูล</h2>
       <div class="columns anim">
         <div>
-          <div class="code-block no-bottom-radius"><span class="fn">print</span>(<span class="fn">type</span>(<span
-  class="num">42</span>))<br>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="num">3.14</span>))<br>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="str">"Hello"</span>))<br>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="kw">True</span>))</div>
-          <div class="output-box">&lt;class 'int'&gt;
-&lt;class 'float'&gt;
-&lt;class 'str'&gt;
-&lt;class 'bool'&gt;</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="fn">print</span>(<span class="fn">type</span>(<span
+              class="num">42</span>))<br>
+            <span class="fn">print</span>(<span class="fn">type</span>(<span class="num">3.14</span>))<br>
+            <span class="fn">print</span>(<span class="fn">type</span>(<span class="str">"Hello"</span>))<br>
+            <span class="fn">print</span>(<span class="fn">type</span>(<span class="kw">True</span>))
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">&lt;class 'int'&gt;
+            &lt;class 'float'&gt;
+            &lt;class 'str'&gt;
+            &lt;class 'bool'&gt;</div>
         </div>
         <div>
           <h3>ใช้กับตัวแปร</h3>
-          <div class="code-block no-bottom-radius"><span class="var">score</span> <span class="op">=</span> <span
-  class="num">95</span><br>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">score</span>))<br><br>
-<span class="var">score</span> <span class="op">=</span> <span class="num">95.5</span><br>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">score</span>))<br><br>
-<span class="var">score</span> <span class="op">=</span> <span class="str">"95"</span><br>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">score</span>))</div>
-          <div class="output-box">&lt;class 'int'&gt;
-&lt;class 'float'&gt;
-&lt;class 'str'&gt;</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">score</span> <span class="op">=</span> <span
+              class="num">95</span><br>
+            <span class="fn">print</span>(<span class="fn">type</span>(<span class="var">score</span>))<br><br>
+            <span class="var">score</span> <span class="op">=</span> <span class="num">95.5</span><br>
+            <span class="fn">print</span>(<span class="fn">type</span>(<span class="var">score</span>))<br><br>
+            <span class="var">score</span> <span class="op">=</span> <span class="str">"95"</span><br>
+            <span class="fn">print</span>(<span class="fn">type</span>(<span class="var">score</span>))
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">&lt;class 'int'&gt;
+            &lt;class 'float'&gt;
+            &lt;class 'str'&gt;</div>
         </div>
       </div>
     </div>
@@ -892,45 +924,57 @@ hello</div>
       <h2 class="anim">🧪 ลองเติมคำตอบ — Output คืออะไร?</h2>
       <div class="columns anim">
         <div>
-          <div class="code-block no-bottom-radius" style="padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
-  class="cmt"># คำถามที่ 1</span><br>
-<span class="var">x</span> <span class="op">=</span> <span class="num">10</span><br>
-<span class="var">y</span> <span class="op">=</span> <span class="num">3</span><br>
-<span class="fn">print</span>(<span class="var">x</span>, <span class="var">y</span>)</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
+              class="cmt"># คำถามที่ 1</span><br>
+            <span class="var">x</span> <span class="op">=</span> <span class="num">10</span><br>
+            <span class="var">y</span> <span class="op">=</span> <span class="num">3</span><br>
+            <span class="fn">print</span>(<span class="var">x</span>, <span class="var">y</span>)
+          </div>
           <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
             <summary class="reveal-btn"
               style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">
               👀 ดูผลลัพธ์</summary>
             <div class="reveal-content" style="margin-top: 0;">
-              <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">10 3</div>
+              <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">10 3
+              </div>
             </div>
           </details>
 
-          <div class="code-block no-bottom-radius" style="padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
-  class="cmt"># คำถามที่ 2</span><br>
-<span class="var">name</span> <span class="op">=</span> <span class="str">"Python"</span><br>
-<span class="fn">print</span>(<span class="str">"Hello"</span>, <span class="var">name</span>, <span
-  class="kw">sep</span><span class="op">=</span><span class="str">"-"</span>)</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
+              class="cmt"># คำถามที่ 2</span><br>
+            <span class="var">name</span> <span class="op">=</span> <span class="str">"Python"</span><br>
+            <span class="fn">print</span>(<span class="str">"Hello"</span>, <span class="var">name</span>, <span
+              class="kw">sep</span><span class="op">=</span><span class="str">"-"</span>)
+          </div>
           <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
             <summary class="reveal-btn"
               style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">
               👀 ดูผลลัพธ์</summary>
             <div class="reveal-content" style="margin-top: 0;">
-              <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">Hello-Python</div>
+              <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">
+                Hello-Python</div>
             </div>
           </details>
         </div>
 
         <div>
-          <div class="code-block no-bottom-radius" style="padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
-  class="cmt"># คำถามที่ 3</span><br>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="str">"100"</span>))</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
+              class="cmt"># คำถามที่ 3</span><br>
+            <span class="fn">print</span>(<span class="fn">type</span>(<span class="str">"100"</span>))
+          </div>
           <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
             <summary class="reveal-btn"
               style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">
               👀 ดูผลลัพธ์</summary>
             <div class="reveal-content" style="margin-top: 0;">
-              <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">&lt;class 'str'&gt;</div>
+              <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">
+                &lt;class 'str'&gt;</div>
             </div>
           </details>
         </div>
@@ -994,26 +1038,29 @@ hello</div>
           </table>
         </div>
         <div>
-          <div class="code-block no-bottom-radius"><span class="fn">print</span>(<span class="num">10</span> <span
-  class="op">+</span> <span class="num">3</span>)<br>
-<span class="fn">print</span>(<span class="num">10</span> <span class="op">-</span> <span
-  class="num">3</span>)<br>
-<span class="fn">print</span>(<span class="num">10</span> <span class="op">*</span> <span
-  class="num">3</span>)<br>
-<span class="fn">print</span>(<span class="num">10</span> <span class="op">/</span> <span
-  class="num">3</span>)<br>
-<span class="fn">print</span>(<span class="num">10</span> <span class="op">//</span> <span
-  class="num">3</span>)<br>
-<span class="fn">print</span>(<span class="num">10</span> <span class="op">%</span> <span
-  class="num">3</span>)<br>
-<span class="fn">print</span>(<span class="num">2</span> <span class="op">**</span> <span
-  class="num">5</span>)</div>
-          <div class="output-box">13
-0
-3.3333...
-3
-1
-32</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="fn">print</span>(<span class="num">10</span> <span
+              class="op">+</span> <span class="num">3</span>)<br>
+            <span class="fn">print</span>(<span class="num">10</span> <span class="op">-</span> <span
+              class="num">3</span>)<br>
+            <span class="fn">print</span>(<span class="num">10</span> <span class="op">*</span> <span
+              class="num">3</span>)<br>
+            <span class="fn">print</span>(<span class="num">10</span> <span class="op">/</span> <span
+              class="num">3</span>)<br>
+            <span class="fn">print</span>(<span class="num">10</span> <span class="op">//</span> <span
+              class="num">3</span>)<br>
+            <span class="fn">print</span>(<span class="num">10</span> <span class="op">%</span> <span
+              class="num">3</span>)<br>
+            <span class="fn">print</span>(<span class="num">2</span> <span class="op">**</span> <span
+              class="num">5</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">13
+            0
+            3.3333...
+            3
+            1
+            32</div>
         </div>
       </div>
     </div>
@@ -1056,21 +1103,24 @@ hello</div>
           </div>
         </div>
         <div>
-          <div class="code-block no-bottom-radius"><span class="var">x</span> <span class="op">=</span> <span
-  class="num">10</span><br>
-<span class="fn">print</span>(<span class="var">x</span>)<br><br>
-<span class="var">x</span> <span class="op">+=</span> <span class="num">5</span><br>
-<span class="fn">print</span>(<span class="var">x</span>)<br><br>
-<span class="var">x</span> <span class="op">-=</span> <span class="num">3</span><br>
-<span class="fn">print</span>(<span class="var">x</span>)<br><br>
-<span class="var">x</span> <span class="op">*=</span> <span class="num">2</span><br>
-<span class="fn">print</span>(<span class="var">x</span>)<br><br>
-<span class="var">x</span> <span class="op">/=</span> <span class="num">4</span><br>
-<span class="fn">print</span>(<span class="var">x</span>)</div>
-          <div class="output-box">10
-12
-24
-6.0</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">x</span> <span class="op">=</span> <span
+              class="num">10</span><br>
+            <span class="fn">print</span>(<span class="var">x</span>)<br><br>
+            <span class="var">x</span> <span class="op">+=</span> <span class="num">5</span><br>
+            <span class="fn">print</span>(<span class="var">x</span>)<br><br>
+            <span class="var">x</span> <span class="op">-=</span> <span class="num">3</span><br>
+            <span class="fn">print</span>(<span class="var">x</span>)<br><br>
+            <span class="var">x</span> <span class="op">*=</span> <span class="num">2</span><br>
+            <span class="fn">print</span>(<span class="var">x</span>)<br><br>
+            <span class="var">x</span> <span class="op">/=</span> <span class="num">4</span><br>
+            <span class="fn">print</span>(<span class="var">x</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">10
+            12
+            24
+            6.0</div>
         </div>
       </div>
     </div>
@@ -1113,21 +1163,24 @@ hello</div>
           </div>
         </div>
         <div>
-          <div class="code-block no-bottom-radius"><span class="cmt"># * ก่อน +</span><br>
-<span class="fn">print</span>(<span class="num">2</span> <span class="op">+</span> <span
-  class="num">3</span> <span class="op">*</span> <span class="num">4</span>)<br><br>
-<span class="cmt"># วงเล็บก่อน</span><br>
-<span class="fn">print</span>((<span class="num">2</span> <span class="op">+</span> <span
-  class="num">3</span>) <span class="op">*</span> <span class="num">4</span>)<br><br>
-<span class="cmt"># ** ก่อน *</span><br>
-<span class="fn">print</span>(<span class="num">2</span> <span class="op">*</span> <span
-  class="num">3</span> <span class="op">**</span> <span class="num">2</span>)<br><br>
-<span class="cmt"># วงเล็บเปลี่ยนลำดับ</span><br>
-<span class="fn">print</span>((<span class="num">2</span> <span class="op">*</span> <span
-  class="num">3</span>) <span class="op">**</span> <span class="num">2</span>)</div>
-          <div class="output-box">14
-18
-36</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="cmt"># * ก่อน +</span><br>
+            <span class="fn">print</span>(<span class="num">2</span> <span class="op">+</span> <span
+              class="num">3</span> <span class="op">*</span> <span class="num">4</span>)<br><br>
+            <span class="cmt"># วงเล็บก่อน</span><br>
+            <span class="fn">print</span>((<span class="num">2</span> <span class="op">+</span> <span
+              class="num">3</span>) <span class="op">*</span> <span class="num">4</span>)<br><br>
+            <span class="cmt"># ** ก่อน *</span><br>
+            <span class="fn">print</span>(<span class="num">2</span> <span class="op">*</span> <span
+              class="num">3</span> <span class="op">**</span> <span class="num">2</span>)<br><br>
+            <span class="cmt"># วงเล็บเปลี่ยนลำดับ</span><br>
+            <span class="fn">print</span>((<span class="num">2</span> <span class="op">*</span> <span
+              class="num">3</span>) <span class="op">**</span> <span class="num">2</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">14
+            18
+            36</div>
         </div>
       </div>
     </div>
@@ -1139,26 +1192,32 @@ hello</div>
       <div class="columns anim">
         <div>
           <h3>การใช้งานพื้นฐาน</h3>
-          <div class="code-block no-bottom-radius"><span class="var">name</span> <span class="op">=</span> <span
-  class="fn">input</span>(<span class="str">"Enter your name: "</span>)<br>
-<span class="fn">print</span>(<span class="str">"Hello,"</span>, <span class="var">name</span>)</div>
-          <div class="output-box">Enter your name: Alice
-Hello, Alice</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">name</span> <span class="op">=</span> <span
+              class="fn">input</span>(<span class="str">"Enter your name: "</span>)<br>
+            <span class="fn">print</span>(<span class="str">"Hello,"</span>, <span class="var">name</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">Enter your name: Alice
+            Hello, Alice</div>
         </div>
         <div>
           <div class="highlight-box">
             <p>⚠️ input() คืนค่าเป็น <strong>str</strong> เสมอ!</p>
           </div>
-          <div class="code-block no-bottom-radius" style="margin-top:1rem"><span class="var">age</span> <span
-  class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter your age: "</span>)<br>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">age</span>))<br>
-<span class="cmt"># ← ไม่ใช่ int!</span><br><br>
-<span class="cmt"># ถ้าต้องการใช้คำนวณ ต้องแปลงก่อน</span><br>
-<span class="var">age</span> <span class="op">=</span> <span class="fn">int</span>(<span
-  class="var">age</span>)<br>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">age</span>))</div>
-          <div class="output-box">&lt;class 'str'&gt;
-&lt;class 'int'&gt;</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="margin-top:1rem"><span class="var">age</span> <span
+              class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter your age: "</span>)<br>
+            <span class="fn">print</span>(<span class="fn">type</span>(<span class="var">age</span>))<br>
+            <span class="cmt"># ← ไม่ใช่ int!</span><br><br>
+            <span class="cmt"># ถ้าต้องการใช้คำนวณ ต้องแปลงก่อน</span><br>
+            <span class="var">age</span> <span class="op">=</span> <span class="fn">int</span>(<span
+              class="var">age</span>)<br>
+            <span class="fn">print</span>(<span class="fn">type</span>(<span class="var">age</span>))
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">&lt;class 'str'&gt;
+            &lt;class 'int'&gt;</div>
         </div>
       </div>
     </div>
@@ -1172,37 +1231,46 @@ Hello, Alice</div>
           <span class="emoji-lg">🔢</span>
           <h3>int()</h3>
           <p>แปลงเป็นจำนวนเต็ม</p>
-          <div class="code-block no-bottom-radius" style="font-size:.9rem"><span class="fn">int</span>(<span
-  class="str">"42"</span>)<br>
-<span class="fn">int</span>(<span class="num">3.9</span>)<br>
-<span class="fn">int</span>(<span class="kw">True</span>)</div>
-          <div class="output-box">42
-3
-1</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.9rem"><span class="fn">int</span>(<span
+              class="str">"42"</span>)<br>
+            <span class="fn">int</span>(<span class="num">3.9</span>)<br>
+            <span class="fn">int</span>(<span class="kw">True</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">42
+            3
+            1</div>
         </div>
         <div class="card card--accent" style="text-align:center">
           <span class="emoji-lg">💧</span>
           <h3>float()</h3>
           <p>แปลงเป็นทศนิยม</p>
-          <div class="code-block no-bottom-radius" style="font-size:.9rem"><span class="fn">float</span>(<span
-  class="str">"3.14"</span>)<br>
-<span class="fn">float</span>(<span class="num">42</span>)<br>
-<span class="fn">float</span>(<span class="str">"10"</span>)</div>
-          <div class="output-box">3.14
-42.0
-10.0</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.9rem"><span class="fn">float</span>(<span
+              class="str">"3.14"</span>)<br>
+            <span class="fn">float</span>(<span class="num">42</span>)<br>
+            <span class="fn">float</span>(<span class="str">"10"</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">3.14
+            42.0
+            10.0</div>
         </div>
         <div class="card card--accent" style="text-align:center">
           <span class="emoji-lg">📝</span>
           <h3>str()</h3>
           <p>แปลงเป็นข้อความ</p>
-          <div class="code-block no-bottom-radius" style="font-size:.9rem"><span class="fn">str</span>(<span
-  class="num">42</span>)<br>
-<span class="fn">str</span>(<span class="num">3.14</span>)<br>
-<span class="fn">str</span>(<span class="kw">True</span>)</div>
-          <div class="output-box">"42"
-"3.14"
-"True"</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.9rem"><span class="fn">str</span>(<span
+              class="num">42</span>)<br>
+            <span class="fn">str</span>(<span class="num">3.14</span>)<br>
+            <span class="fn">str</span>(<span class="kw">True</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">"42"
+            "3.14"
+            "True"</div>
         </div>
       </div>
       <div class="highlight-box anim" style="margin-top:1rem">
@@ -1217,30 +1285,36 @@ Hello, Alice</div>
       <div class="columns anim">
         <div>
           <h3>แยกค่าด้วย split()</h3>
-          <div class="code-block no-bottom-radius"><span class="cmt"># รับชื่อและนามสกุล</span><br>
-<span class="var">data</span> <span class="op">=</span> <span class="fn">input</span>(<span
-  class="str">"Enter name: "</span>)<br>
-<span class="var">first</span>, <span class="var">last</span> <span class="op">=</span> <span
-  class="var">data</span>.<span class="fn">split</span>()<br>
-<span class="fn">print</span>(<span class="str">"First:"</span>, <span class="var">first</span>)<br>
-<span class="fn">print</span>(<span class="str">"Last:"</span>, <span class="var">last</span>)</div>
-          <div class="output-box">Enter name: Alice Smith
-First: Alice
-Last: Smith</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="cmt"># รับชื่อและนามสกุล</span><br>
+            <span class="var">data</span> <span class="op">=</span> <span class="fn">input</span>(<span
+              class="str">"Enter name: "</span>)<br>
+            <span class="var">first</span>, <span class="var">last</span> <span class="op">=</span> <span
+              class="var">data</span>.<span class="fn">split</span>()<br>
+            <span class="fn">print</span>(<span class="str">"First:"</span>, <span class="var">first</span>)<br>
+            <span class="fn">print</span>(<span class="str">"Last:"</span>, <span class="var">last</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">Enter name: Alice Smith
+            First: Alice
+            Last: Smith</div>
         </div>
         <div>
           <h3>แยกด้วยตัวคั่นอื่น</h3>
-          <div class="code-block no-bottom-radius"><span class="cmt"># แยกด้วย comma</span><br>
-<span class="var">data</span> <span class="op">=</span> <span class="str">"Alice,20,3.75"</span><br>
-<span class="var">name</span>, <span class="var">age</span>, <span class="var">gpa</span> <span
-  class="op">=</span> <span class="var">data</span>.<span class="fn">split</span>(<span
-  class="str">","</span>)<br><br>
-<span class="fn">print</span>(<span class="var">name</span>)<br>
-<span class="fn">print</span>(<span class="var">age</span>)<br>
-<span class="fn">print</span>(<span class="var">gpa</span>)</div>
-          <div class="output-box">Alice
-20
-3.75</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="cmt"># แยกด้วย comma</span><br>
+            <span class="var">data</span> <span class="op">=</span> <span class="str">"Alice,20,3.75"</span><br>
+            <span class="var">name</span>, <span class="var">age</span>, <span class="var">gpa</span> <span
+              class="op">=</span> <span class="var">data</span>.<span class="fn">split</span>(<span
+              class="str">","</span>)<br><br>
+            <span class="fn">print</span>(<span class="var">name</span>)<br>
+            <span class="fn">print</span>(<span class="var">age</span>)<br>
+            <span class="fn">print</span>(<span class="var">gpa</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">Alice
+            20
+            3.75</div>
           <div class="highlight-box" style="margin-top:.5rem">
             <p>💡 split() default แยกด้วย space — ระบุตัวคั่นอื่นได้ เช่น split(",")</p>
           </div>
@@ -1255,27 +1329,33 @@ Last: Smith</div>
       <div class="columns anim">
         <div>
           <h3>ปัญหา: split() ได้ str ทั้งหมด</h3>
-          <div class="code-block no-bottom-radius"><span class="cmt"># ❌ ใช้ split() อย่างเดียว</span><br>
-<span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span
-  class="fn">input</span>().<span class="fn">split</span>()<br>
-<span class="fn">print</span>(<span class="var">a</span> <span class="op">+</span> <span
-  class="var">b</span>)</div>
-          <div class="output-box">10 20
-1020</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="cmt"># ❌ ใช้ split() อย่างเดียว</span><br>
+            <span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span
+              class="fn">input</span>().<span class="fn">split</span>()<br>
+            <span class="fn">print</span>(<span class="var">a</span> <span class="op">+</span> <span
+              class="var">b</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">10 20
+            1020</div>
         </div>
         <div>
           <h3>วิธีแก้: แปลงด้วย int() หลัง split()</h3>
-          <div class="code-block no-bottom-radius"><span class="cmt"># ✅ แยกก่อน แล้วค่อยแปลงทีละตัว</span><br>
-<span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span
-  class="fn">input</span>().<span class="fn">split</span>()<br>
-<span class="var">a</span> <span class="op">=</span> <span class="fn">int</span>(<span
-  class="var">a</span>)<br>
-<span class="var">b</span> <span class="op">=</span> <span class="fn">int</span>(<span
-  class="var">b</span>)<br>
-<span class="fn">print</span>(<span class="var">a</span> <span class="op">+</span> <span
-  class="var">b</span>)</div>
-          <div class="output-box">10 20
-30</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="cmt"># ✅ แยกก่อน แล้วค่อยแปลงทีละตัว</span><br>
+            <span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span
+              class="fn">input</span>().<span class="fn">split</span>()<br>
+            <span class="var">a</span> <span class="op">=</span> <span class="fn">int</span>(<span
+              class="var">a</span>)<br>
+            <span class="var">b</span> <span class="op">=</span> <span class="fn">int</span>(<span
+              class="var">b</span>)<br>
+            <span class="fn">print</span>(<span class="var">a</span> <span class="op">+</span> <span
+              class="var">b</span>)
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">10 20
+            30</div>
         </div>
       </div>
       <div class="highlight-box anim" style="margin-top:1rem">
@@ -1291,27 +1371,32 @@ Last: Smith</div>
       <div class="columns anim">
         <div>
           <h3>วิธีสร้าง String</h3>
-          <div class="code-block"><span class="cmt"># อัญประกาศเดี่ยว</span><br>
-<span class="var">s1</span> <span class="op">=</span> <span class="str">'Hello, World!'</span><br><br>
-<span class="cmt"># อัญประกาศคู่</span><br>
-<span class="var">s2</span> <span class="op">=</span> <span class="str">"Hello, World!"</span><br><br>
-<span class="cmt"># อัญประกาศสามตัว (หลายบรรทัด)</span><br>
-<span class="var">s3</span> <span class="op">=</span> <span class="str">"""Line 1
-  Line 2
-  Line 3"""</span></div>
+          <!-- prettier-ignore -->
+<div class="code-block"><span class="cmt"># อัญประกาศเดี่ยว</span><br>
+            <span class="var">s1</span> <span class="op">=</span> <span class="str">'Hello, World!'</span><br><br>
+            <span class="cmt"># อัญประกาศคู่</span><br>
+            <span class="var">s2</span> <span class="op">=</span> <span class="str">"Hello, World!"</span><br><br>
+            <span class="cmt"># อัญประกาศสามตัว (หลายบรรทัด)</span><br>
+            <span class="var">s3</span> <span class="op">=</span> <span class="str">"""Line 1
+              Line 2
+              Line 3"""</span>
+          </div>
         </div>
         <div>
           <h3>Escape Characters</h3>
-          <div class="code-block no-bottom-radius"><span class="fn">print</span>(<span class="str">"Hello<span
-    class="op">\n</span>World"</span>)<br><br><br><br>
-<span class="fn">print</span>(<span class="str">"Tab<span class="op">\t</span>here"</span>)<br><br><br>
-<span class="fn">print</span>(<span class="str">"She said <span class="op">\"</span>Hi<span
-    class="op">\"</span>"</span>)<br><br><br>
-<span class="fn">print</span>(<span class="str">"Path: C:<span class="op">\\</span>Users"</span>)<br></div>
-          <div class="output-box">World
-Tab here
-She said "Hi"
-Path: C:\Users</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="fn">print</span>(<span class="str">"Hello<span
+                class="op">\n</span>World"</span>)<br><br><br><br>
+            <span class="fn">print</span>(<span class="str">"Tab<span class="op">\t</span>here"</span>)<br><br><br>
+            <span class="fn">print</span>(<span class="str">"She said <span class="op">\"</span>Hi<span
+                class="op">\"</span>"</span>)<br><br><br>
+            <span class="fn">print</span>(<span class="str">"Path: C:<span class="op">\\</span>Users"</span>)<br>
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">World
+            Tab here
+            She said "Hi"
+            Path: C:\Users</div>
         </div>
       </div>
     </div>
@@ -1350,26 +1435,32 @@ Path: C:\Users</div>
       </div>
       <div class="columns anim">
         <div>
-          <div class="code-block no-bottom-radius"><span class="var">s</span> <span class="op">=</span> <span
-  class="str">"Python"</span><br><br>
-<span class="cmt"># ดัชนีบวก (จากซ้าย)</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">0</span>])<br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">1</span>])<br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">5</span>])</div>
-          <div class="output-box">P
-y
-n</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">s</span> <span class="op">=</span> <span
+              class="str">"Python"</span><br><br>
+            <span class="cmt"># ดัชนีบวก (จากซ้าย)</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>[<span class="num">0</span>])<br>
+            <span class="fn">print</span>(<span class="var">s</span>[<span class="num">1</span>])<br>
+            <span class="fn">print</span>(<span class="var">s</span>[<span class="num">5</span>])
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">P
+            y
+            n</div>
         </div>
         <div>
-          <div class="code-block no-bottom-radius"><span class="var">s</span> <span class="op">=</span> <span
-  class="str">"Python"</span><br><br>
-<span class="cmt"># ดัชนีลบ (จากขวา)</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">-1</span>])<br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">-2</span>])<br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">-6</span>])</div>
-          <div class="output-box">n
-o
-P</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">s</span> <span class="op">=</span> <span
+              class="str">"Python"</span><br><br>
+            <span class="cmt"># ดัชนีลบ (จากขวา)</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>[<span class="num">-1</span>])<br>
+            <span class="fn">print</span>(<span class="var">s</span>[<span class="num">-2</span>])<br>
+            <span class="fn">print</span>(<span class="var">s</span>[<span class="num">-6</span>])
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">n
+            o
+            P</div>
         </div>
       </div>
       <div class="highlight-box anim" style="margin-top:1rem">
@@ -1384,34 +1475,40 @@ P</div>
       <div class="columns anim">
         <div>
           <h3>รูปแบบ: [start : stop : step]</h3>
-          <div class="code-block no-bottom-radius"><span class="var">s</span> <span class="op">=</span> <span
-  class="str">"Python Programming"</span><br><br>
-<span class="cmt"># [start:stop] — stop ไม่รวม!</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">0</span>:<span
-  class="num">6</span>])<br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">7</span>:<span
-  class="num">18</span>])<br><br>
-<span class="cmt"># ละ start หรือ stop</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[:<span class="num">6</span>])<br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">7</span>:])</div>
-          <div class="output-box">Python
-Programming
-Python
-Programming</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">s</span> <span class="op">=</span> <span
+              class="str">"Python Programming"</span><br><br>
+            <span class="cmt"># [start:stop] — stop ไม่รวม!</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>[<span class="num">0</span>:<span
+              class="num">6</span>])<br>
+            <span class="fn">print</span>(<span class="var">s</span>[<span class="num">7</span>:<span
+              class="num">18</span>])<br><br>
+            <span class="cmt"># ละ start หรือ stop</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>[:<span class="num">6</span>])<br>
+            <span class="fn">print</span>(<span class="var">s</span>[<span class="num">7</span>:])
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">Python
+            Programming
+            Python
+            Programming</div>
         </div>
         <div>
           <h3>step &amp; reverse</h3>
-          <div class="code-block no-bottom-radius"><span class="var">s</span> <span class="op">=</span> <span
-  class="str">"Python Programming"</span><br><br>
-<span class="cmt"># step = 2 (ข้ามทีละ 2)</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[::<span class="num">2</span>])<br><br>
-<span class="cmt"># step = -1 (กลับหลัง)</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[::<span class="num">-1</span>])<br><br><br>
-<span class="cmt"># การตัดสตริงด้วยดัชนีลบ</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">-11</span>:])</div>
-          <div class="output-box">Pto rgamn
-gnimmargorP nohtyP
-Programming</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">s</span> <span class="op">=</span> <span
+              class="str">"Python Programming"</span><br><br>
+            <span class="cmt"># step = 2 (ข้ามทีละ 2)</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>[::<span class="num">2</span>])<br><br>
+            <span class="cmt"># step = -1 (กลับหลัง)</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>[::<span class="num">-1</span>])<br><br><br>
+            <span class="cmt"># การตัดสตริงด้วยดัชนีลบ</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>[<span class="num">-11</span>:])
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">Pto rgamn
+            gnimmargorP nohtyP
+            Programming</div>
         </div>
       </div>
     </div>
@@ -1422,41 +1519,47 @@ Programming</div>
       <h2 class="anim">🛠️ String Methods ที่ใช้บ่อย</h2>
       <div class="columns anim">
         <div>
-          <div class="code-block no-bottom-radius" style="font-size:.95rem"><span class="var">s</span> <span
-  class="op">=</span> <span class="str">"Hello, World!"</span><br><br>
-<span class="cmt"># ความยาว</span><br>
-<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">s</span>))<br><br>
-<span class="cmt"># ขนาดตัวอักษร</span><br>
-<span class="fn">print</span>(<span class="var">s</span>.<span class="fn">upper</span>())<br>
-<span class="fn">print</span>(<span class="var">s</span>.<span class="fn">lower</span>())<br><br>
-<span class="cmt"># ค้นหา</span><br>
-<span class="fn">print</span>(<span class="var">s</span>.<span class="fn">find</span>(<span
-  class="str">"World"</span>))<br>
-<span class="fn">print</span>(<span class="var">s</span>.<span class="fn">count</span>(<span
-  class="str">"l"</span>))</div>
-          <div class="output-box">13
-hello, world!
-HELLO, WORLD!
-7
-3</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.95rem"><span class="var">s</span> <span
+              class="op">=</span> <span class="str">"Hello, World!"</span><br><br>
+            <span class="cmt"># ความยาว</span><br>
+            <span class="fn">print</span>(<span class="fn">len</span>(<span class="var">s</span>))<br><br>
+            <span class="cmt"># ขนาดตัวอักษร</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>.<span class="fn">upper</span>())<br>
+            <span class="fn">print</span>(<span class="var">s</span>.<span class="fn">lower</span>())<br><br>
+            <span class="cmt"># ค้นหา</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>.<span class="fn">find</span>(<span
+              class="str">"World"</span>))<br>
+            <span class="fn">print</span>(<span class="var">s</span>.<span class="fn">count</span>(<span
+              class="str">"l"</span>))
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">13
+            hello, world!
+            HELLO, WORLD!
+            7
+            3</div>
         </div>
         <div>
-          <div class="code-block no-bottom-radius" style="font-size:.95rem"><span class="cmt"># ลบช่องว่าง</span><br>
-<span class="var">t</span> <span class="op">=</span> <span class="str">" hello "</span><br>
-<span class="fn">print</span>(<span class="var">t</span>.<span class="fn">strip</span>())<br><br>
-<span class="cmt"># แทนที่</span><br>
-<span class="fn">print</span>(<span class="var">s</span>.<span class="fn">replace</span>(<span
-  class="str">"World"</span>, <span class="str">"Python"</span>))<br><br><br>
-<span class="cmt"># แยกและเชื่อมข้อความ</span><br>
-<span class="var">words</span> <span class="op">=</span> <span class="var">s</span>.<span
-  class="fn">split</span>(<span class="str">", "</span>)<br>
-<span class="fn">print</span>(<span class="var">words</span>)<br><br>
-<span class="fn">print</span>(<span class="str">" - "</span>.<span class="fn">join</span>(<span
-  class="var">words</span>))<br></div>
-          <div class="output-box">"hello"
-Hello, Python!
-['Hello', 'World!']
-Hello - World!</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.95rem"><span class="cmt"># ลบช่องว่าง</span><br>
+            <span class="var">t</span> <span class="op">=</span> <span class="str">" hello "</span><br>
+            <span class="fn">print</span>(<span class="var">t</span>.<span class="fn">strip</span>())<br><br>
+            <span class="cmt"># แทนที่</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>.<span class="fn">replace</span>(<span
+              class="str">"World"</span>, <span class="str">"Python"</span>))<br><br><br>
+            <span class="cmt"># แยกและเชื่อมข้อความ</span><br>
+            <span class="var">words</span> <span class="op">=</span> <span class="var">s</span>.<span
+              class="fn">split</span>(<span class="str">", "</span>)<br>
+            <span class="fn">print</span>(<span class="var">words</span>)<br><br>
+            <span class="fn">print</span>(<span class="str">" - "</span>.<span class="fn">join</span>(<span
+              class="var">words</span>))<br>
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">"hello"
+            Hello, Python!
+            ['Hello', 'World!']
+            Hello - World!</div>
         </div>
       </div>
     </div>
@@ -1468,36 +1571,42 @@ Hello - World!</div>
       <div class="columns anim">
         <div>
           <h3>วิธีใช้</h3>
-          <div class="code-block no-bottom-radius"><span class="var">name</span> <span class="op">=</span> <span
-  class="str">"Alice"</span><br>
-<span class="var">age</span> <span class="op">=</span> <span class="num">20</span><br>
-<span class="var">gpa</span> <span class="op">=</span> <span class="num">3.7582</span><br><br>
-<span class="cmt"># f-string พื้นฐาน</span><br>
-<span class="fn">print</span>(<span class="str">f"Name: <span class="op">{</span><span
-    class="var">name</span><span class="op">}</span>, Age: <span class="op">{</span><span
-    class="var">age</span><span class="op">}</span>"</span>)<br><br><br>
-<span class="cmt"># จัดรูปแบบทศนิยม</span><br>
-<span class="fn">print</span>(<span class="str">f"GPA: <span class="op">{</span><span
-    class="var">gpa</span><span class="op">:.2f}</span>"</span>)<br></div>
-          <div class="output-box">Name: Alice, Age: 20
-GPA: 3.76</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">name</span> <span class="op">=</span> <span
+              class="str">"Alice"</span><br>
+            <span class="var">age</span> <span class="op">=</span> <span class="num">20</span><br>
+            <span class="var">gpa</span> <span class="op">=</span> <span class="num">3.7582</span><br><br>
+            <span class="cmt"># f-string พื้นฐาน</span><br>
+            <span class="fn">print</span>(<span class="str">f"Name: <span class="op">{</span><span
+                class="var">name</span><span class="op">}</span>, Age: <span class="op">{</span><span
+                class="var">age</span><span class="op">}</span>"</span>)<br><br><br>
+            <span class="cmt"># จัดรูปแบบทศนิยม</span><br>
+            <span class="fn">print</span>(<span class="str">f"GPA: <span class="op">{</span><span
+                class="var">gpa</span><span class="op">:.2f}</span>"</span>)<br>
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">Name: Alice, Age: 20
+            GPA: 3.76</div>
         </div>
         <div>
           <h3>คำนวณใน {} ได้</h3>
-          <div class="code-block no-bottom-radius"><span class="var">price</span> <span class="op">=</span> <span
-  class="num">1500</span><br>
-<span class="var">qty</span> <span class="op">=</span> <span class="num">3</span><br><br>
-<span class="fn">print</span>(<span class="str">f"Total: <span class="op">{</span><span
-    class="var">price</span> <span class="op">*</span> <span class="var">qty</span><span class="op">}</span>
-  baht"</span>)<br><br><br>
-<span class="cmt"># การจัดตำแหน่ง</span><br>
-<span class="fn">print</span>(<span class="str">f"<span class="op">{</span><span
-    class="var">name</span><span class="op">:&gt;10}</span>"</span>)<br><br><br>
-<span class="fn">print</span>(<span class="str">f"<span class="op">{</span><span
-    class="var">name</span><span class="op">:&lt;10}</span>|"</span>)<br></div>
-          <div class="output-box">Total: 4500 baht
-Alice
-Alice |</div>
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">price</span> <span class="op">=</span> <span
+              class="num">1500</span><br>
+            <span class="var">qty</span> <span class="op">=</span> <span class="num">3</span><br><br>
+            <span class="fn">print</span>(<span class="str">f"Total: <span class="op">{</span><span
+                class="var">price</span> <span class="op">*</span> <span class="var">qty</span><span class="op">}</span>
+              baht"</span>)<br><br><br>
+            <span class="cmt"># การจัดตำแหน่ง</span><br>
+            <span class="fn">print</span>(<span class="str">f"<span class="op">{</span><span
+                class="var">name</span><span class="op">:&gt;10}</span>"</span>)<br><br><br>
+            <span class="fn">print</span>(<span class="str">f"<span class="op">{</span><span
+                class="var">name</span><span class="op">:&lt;10}</span>|"</span>)<br>
+          </div>
+          <!-- prettier-ignore -->
+<div class="output-box">Total: 4500 baht
+            Alice
+            Alice |</div>
           <div class="highlight-box" style="margin-top:.5rem">
             <p>💡 f-string = f"..." ใส่ f นำหน้า แล้วใช้ {} ใส่ตัวแปร</p>
           </div>
@@ -1510,76 +1619,97 @@ Alice |</div>
       <span class="badge anim">Operators</span>
       <h2 class="anim">🧪 ลองเติมคำตอบ — Output คืออะไร?</h2>
       <div class="anim" style="max-width: 800px; margin: 0 auto 1rem auto;">
-        <div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0;"><span class="var">s</span>
-<span class="op">=</span> <span class="str">"Data Science"</span></div>
+        <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0;"><span class="var">s</span>
+          <span class="op">=</span> <span class="str">"Data Science"</span>
+        </div>
       </div>
       <div class="columns anim">
         <div>
-          <div class="code-block no-bottom-radius"
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"
             style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่
-  1</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">0</span>])</div>
+              1</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>[<span class="num">0</span>])
+          </div>
           <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
             <summary class="reveal-btn"
               style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">
               👀 ดูผลลัพธ์</summary>
             <div class="reveal-content" style="margin-top: 0;">
-              <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">D</div>
+              <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">D
+              </div>
             </div>
           </details>
 
-          <div class="code-block no-bottom-radius"
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"
             style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่
-  2</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[<span class="num">-1</span>])</div>
+              2</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>[<span class="num">-1</span>])
+          </div>
           <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
             <summary class="reveal-btn"
               style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">
               👀 ดูผลลัพธ์</summary>
             <div class="reveal-content" style="margin-top: 0;">
-              <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">e</div>
+              <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">e
+              </div>
             </div>
           </details>
 
-          <div class="code-block no-bottom-radius"
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"
             style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่
-  3</span><br>
-<span class="fn">print</span>(<span class="var">s</span>[:<span class="num">4</span>])</div>
+              3</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>[:<span class="num">4</span>])
+          </div>
           <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
             <summary class="reveal-btn"
               style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">
               👀 ดูผลลัพธ์</summary>
             <div class="reveal-content" style="margin-top: 0;">
-              <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">Data</div>
+              <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">Data
+              </div>
             </div>
           </details>
         </div>
 
         <div>
-          <div class="code-block no-bottom-radius"
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"
             style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่
-  4</span><br>
-<span class="fn">print</span>(<span class="var">s</span>.<span class="fn">upper</span>())</div>
+              4</span><br>
+            <span class="fn">print</span>(<span class="var">s</span>.<span class="fn">upper</span>())
+          </div>
           <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
             <summary class="reveal-btn"
               style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">
               👀 ดูผลลัพธ์</summary>
             <div class="reveal-content" style="margin-top: 0;">
-              <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">DATA
-SCIENCE</div>
+              <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">DATA
+                SCIENCE</div>
             </div>
           </details>
 
-          <div class="code-block no-bottom-radius"
+          <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"
             style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่
-  5</span><br>
-<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">s</span>))</div>
+              5</span><br>
+            <span class="fn">print</span>(<span class="fn">len</span>(<span class="var">s</span>))
+          </div>
           <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
             <summary class="reveal-btn"
               style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">
               👀 ดูผลลัพธ์</summary>
             <div class="reveal-content" style="margin-top: 0;">
-              <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">12</div>
+              <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">12
+              </div>
             </div>
           </details>
         </div>
@@ -1591,63 +1721,75 @@ SCIENCE</div>
       <h2 class="anim">🧪 เติมโค้ด — ให้ได้ Output ตามต้องการ</h2>
       <div class="columns anim">
         <div>
-          <div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
-  class="cmt"># Q1: เอาช่องว่างรอบๆ ออก และแทนที่ด้วย "_"</span><br>
-<span class="var">text</span> <span class="op">=</span> <span class="str">" hello world "</span><br>
-<span class="var">text</span> <span class="op">=</span> <span class="var">text</span>.<span
-  class="fn">strip</span>()<br>
-<span class="var">result</span> <span class="op">=</span> <span class="var">text</span>.___(<span
-  class="str">" "</span>, <span class="str">"_"</span>)</div>
+          <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
+              class="cmt"># Q1: เอาช่องว่างรอบๆ ออก และแทนที่ด้วย "_"</span><br>
+            <span class="var">text</span> <span class="op">=</span> <span class="str">" hello world "</span><br>
+            <span class="var">text</span> <span class="op">=</span> <span class="var">text</span>.<span
+              class="fn">strip</span>()<br>
+            <span class="var">result</span> <span class="op">=</span> <span class="var">text</span>.___(<span
+              class="str">" "</span>, <span class="str">"_"</span>)
+          </div>
           <details class="reveal-solution" style="margin-bottom: 0.4rem;">
             <summary class="reveal-btn"
               style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 เฉลยข้อ
               1</summary>
             <div class="reveal-content">
-              <div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
-  class="cmt"># คำตอบที่ 1</span><br>
-<span class="var">result</span> <span class="op">=</span> <span class="var">text</span>.<span
-  class="fn">replace</span>(<span class="str">" "</span>, <span class="str">"_"</span>)</div>
+              <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
+                  class="cmt"># คำตอบที่ 1</span><br>
+                <span class="var">result</span> <span class="op">=</span> <span class="var">text</span>.<span
+                  class="fn">replace</span>(<span class="str">" "</span>, <span class="str">"_"</span>)
+              </div>
             </div>
           </details>
 
-          <div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
-  class="cmt"># Q2: รับค่าตัวเลข 2 ตัวแล้วแปลงเป็น int</span><br>
-<span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span
-  class="fn">input</span>().___()<br>
-<span class="var">a</span> <span class="op">=</span> <span class="fn">int</span>(<span
-  class="var">a</span>)<br>
-<span class="var">b</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">b</span>)</div>
+          <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
+              class="cmt"># Q2: รับค่าตัวเลข 2 ตัวแล้วแปลงเป็น int</span><br>
+            <span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span
+              class="fn">input</span>().___()<br>
+            <span class="var">a</span> <span class="op">=</span> <span class="fn">int</span>(<span
+              class="var">a</span>)<br>
+            <span class="var">b</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">b</span>)
+          </div>
           <details class="reveal-solution" style="margin-bottom: 0.4rem;">
             <summary class="reveal-btn"
               style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 เฉลยข้อ
               2</summary>
             <div class="reveal-content">
-              <div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
-  class="cmt"># คำตอบที่ 2</span><br>
-<span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span
-  class="fn">input</span>().<span class="fn">split</span>()<br>
-<span class="var">a</span> <span class="op">=</span> <span class="fn">int</span>(<span
-  class="var">a</span>)<br>
-<span class="var">b</span> <span class="op">=</span> <span class="fn">int</span>(<span
-  class="var">b</span>)</div>
+              <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
+                  class="cmt"># คำตอบที่ 2</span><br>
+                <span class="var">a</span>, <span class="var">b</span> <span class="op">=</span> <span
+                  class="fn">input</span>().<span class="fn">split</span>()<br>
+                <span class="var">a</span> <span class="op">=</span> <span class="fn">int</span>(<span
+                  class="var">a</span>)<br>
+                <span class="var">b</span> <span class="op">=</span> <span class="fn">int</span>(<span
+                  class="var">b</span>)
+              </div>
             </div>
           </details>
         </div>
 
         <div>
-          <div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
-  class="cmt"># Q3: จัดรูปแบบด้วย f-string ให้ได้ "Bob: 85"</span><br>
-<span class="var">name</span> <span class="op">=</span> <span class="str">"Bob"</span><br>
-<span class="var">score</span> <span class="op">=</span> <span class="num">85</span><br>
-<span class="fn">print</span>(___)</div>
+          <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
+              class="cmt"># Q3: จัดรูปแบบด้วย f-string ให้ได้ "Bob: 85"</span><br>
+            <span class="var">name</span> <span class="op">=</span> <span class="str">"Bob"</span><br>
+            <span class="var">score</span> <span class="op">=</span> <span class="num">85</span><br>
+            <span class="fn">print</span>(___)
+          </div>
           <details class="reveal-solution" style="margin-bottom: 0.4rem;">
             <summary class="reveal-btn"
               style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 เฉลยข้อ
               3</summary>
             <div class="reveal-content">
-              <div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
-  class="cmt"># คำตอบที่ 3</span><br>
-<span class="fn">print</span>(<span class="str">f"{name}: {score}"</span>)</div>
+              <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.95rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span
+                  class="cmt"># คำตอบที่ 3</span><br>
+                <span class="fn">print</span>(<span class="str">f"{name}: {score}"</span>)
+              </div>
             </div>
           </details>
         </div>

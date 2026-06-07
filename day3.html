@@ -133,24 +133,28 @@
   <div class="columns anim">
     <div>
       <h3>สร้าง List</h3>
-      <div class="code-block no-bottom-radius"><span class="cmt"># List of integers</span><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="cmt"># List of integers</span><br>
 <span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>, <span class="num">78</span>, <span class="num">95</span>, <span class="num">88</span>]<br><br>
 <span class="cmt"># List of strings</span><br>
 <span class="var">names</span> <span class="op">=</span> [<span class="str">"Alice"</span>, <span class="str">"Bob"</span>, <span class="str">"Charlie"</span>]<br><br><br>
 <span class="var">info</span> <span class="op">=</span> [<span class="str">"Alice"</span>, <span class="num">20</span>, <span class="num">3.75</span>, <span class="kw">True</span>]<br><br><br>
 <span class="var">empty</span> <span class="op">=</span> []</div>
-      <div class="output-box">Mixed types
+      <!-- prettier-ignore -->
+<div class="output-box">Mixed types
 Empty list</div>
     </div>
     <div>
       <h3>เข้าถึง &amp; แก้ไข</h3>
-      <div class="code-block no-bottom-radius"><span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>, <span class="num">78</span>, <span class="num">95</span>, <span class="num">88</span>]<br><br><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>, <span class="num">78</span>, <span class="num">95</span>, <span class="num">88</span>]<br><br><br>
 <span class="fn">print</span>(<span class="var">scores</span>[<span class="num">0</span>])<br>
 <span class="fn">print</span>(<span class="var">scores</span>[<span class="num">-1</span>])<br>
 <span class="fn">print</span>(<span class="fn">len</span>(<span class="var">scores</span>))<br><br><span class="cmt"># Mutable — change values</span><br>
 <span class="var">scores</span>[<span class="num">2</span>] <span class="op">=</span> <span class="num">80</span><br>
 <span class="fn">print</span>(<span class="var">scores</span>)</div>
-      <div class="output-box">Access by index
+      <!-- prettier-ignore -->
+<div class="output-box">Access by index
 5
 [85, 92, 80, 95, 88]
 85
@@ -165,19 +169,22 @@ Empty list</div>
   <h2 class="anim">🔧 List Methods ที่ใช้บ่อย</h2>
   <div class="columns anim">
     <div>
-      <div class="code-block no-bottom-radius" style="font-size:.95rem"><span class="var">fruits</span> <span class="op">=</span> [<span class="str">"apple"</span>, <span class="str">"banana"</span>]<br><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.95rem"><span class="var">fruits</span> <span class="op">=</span> [<span class="str">"apple"</span>, <span class="str">"banana"</span>]<br><br>
 <span class="cmt"># append — เพิ่มท้าย</span><br>
 <span class="var">fruits</span>.<span class="fn">append</span>(<span class="str">"cherry"</span>)<br><br><br>
 <span class="cmt"># insert — แทรกที่ตำแหน่ง</span><br>
 <span class="var">fruits</span>.<span class="fn">insert</span>(<span class="num">1</span>, <span class="str">"mango"</span>)<br><br><br>
 <span class="cmt"># remove — ลบตามค่า</span><br>
 <span class="var">fruits</span>.<span class="fn">remove</span>(<span class="str">"banana"</span>)<br></div>
-      <div class="output-box">["apple", "banana", "cherry"]
+      <!-- prettier-ignore -->
+<div class="output-box">["apple", "banana", "cherry"]
 ["apple", "mango", "banana", "cherry"]
 ["apple", "mango", "cherry"]</div>
     </div>
     <div>
-      <div class="code-block no-bottom-radius" style="font-size:.95rem"><span class="cmt"># pop — ลบตามตำแหน่ง (return ค่า)</span><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.95rem"><span class="cmt"># pop — ลบตามตำแหน่ง (return ค่า)</span><br>
 <span class="var">last</span> <span class="op">=</span> <span class="var">fruits</span>.<span class="fn">pop</span>()<br><br><br>
 <span class="var">nums</span> <span class="op">=</span> [<span class="num">3</span>, <span class="num">1</span>, <span class="num">4</span>, <span class="num">1</span>, <span class="num">5</span>]<br><br>
 <span class="cmt"># sort — เรียงลำดับ (in-place)</span><br>
@@ -186,7 +193,8 @@ Empty list</div>
 <span class="var">nums</span>.<span class="fn">reverse</span>()<br><br><br><span class="cmt"># index &amp; count</span><br>
 <span class="fn">print</span>(<span class="var">nums</span>.<span class="fn">index</span>(<span class="num">4</span>))<br>
 <span class="fn">print</span>(<span class="var">nums</span>.<span class="fn">count</span>(<span class="num">1</span>))</div>
-      <div class="output-box">last = "cherry"
+      <!-- prettier-ignore -->
+<div class="output-box">last = "cherry"
 [1, 1, 3, 4, 5]
 [5, 4, 3, 1, 1]
 1
@@ -201,21 +209,25 @@ Empty list</div>
   <h2 class="anim">✂️ List Slicing — เหมือน String Slicing!</h2>
   <div class="columns anim">
     <div>
-      <div class="code-block no-bottom-radius"><span class="var">nums</span> <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>, <span class="num">50</span>, <span class="num">60</span>]<br><br><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">nums</span> <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>, <span class="num">50</span>, <span class="num">60</span>]<br><br><br>
 <span class="fn">print</span>(<span class="var">nums</span>[<span class="num">1</span>:<span class="num">4</span>])<br><br><br><span class="cmt"># [:stop]</span><br>
 <span class="fn">print</span>(<span class="var">nums</span>[:<span class="num">3</span>])<br><br><br><span class="cmt"># [start:]</span><br>
 <span class="fn">print</span>(<span class="var">nums</span>[<span class="num">3</span>:])<br></div>
-      <div class="output-box">[start:stop]
+      <!-- prettier-ignore -->
+<div class="output-box">[start:stop]
 [20, 30, 40]
 [10, 20, 30]
 [40, 50, 60]</div>
     </div>
     <div>
-      <div class="code-block no-bottom-radius"><span class="var">nums</span> <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>, <span class="num">50</span>, <span class="num">60</span>]<br><br><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">nums</span> <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>, <span class="num">50</span>, <span class="num">60</span>]<br><br><br>
 <span class="fn">print</span>(<span class="var">nums</span>[<span class="num">-3</span>:])<br><br><br><span class="cmt"># Step</span><br>
 <span class="fn">print</span>(<span class="var">nums</span>[::<span class="num">2</span>])<br><br><br><span class="cmt"># Reverse</span><br>
 <span class="fn">print</span>(<span class="var">nums</span>[::<span class="num">-1</span>])<br></div>
-      <div class="output-box">Last 3 elements
+      <!-- prettier-ignore -->
+<div class="output-box">Last 3 elements
 [40, 50, 60]
 [10, 30, 50]
 [60, 50, 40, 30, 20, 10]</div>
@@ -229,14 +241,16 @@ Empty list</div>
   <h2 class="anim">📊 Built-in Functions สำหรับ List</h2>
   <div class="columns anim">
     <div>
-      <div class="code-block no-bottom-radius"><span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>, <span class="num">78</span>, <span class="num">95</span>, <span class="num">88</span>]<br><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>, <span class="num">78</span>, <span class="num">95</span>, <span class="num">88</span>]<br><br>
 <span class="fn">print</span>(<span class="fn">len</span>(<span class="var">scores</span>))<br>
 <span class="fn">print</span>(<span class="fn">sum</span>(<span class="var">scores</span>))<br>
 <span class="fn">print</span>(<span class="fn">max</span>(<span class="var">scores</span>))<br>
 <span class="fn">print</span>(<span class="fn">min</span>(<span class="var">scores</span>))<br><br><br>
 <span class="var">avg</span> <span class="op">=</span> <span class="fn">sum</span>(<span class="var">scores</span>) <span class="op">/</span> <span class="fn">len</span>(<span class="var">scores</span>)<br>
 <span class="fn">print</span>(<span class="var">avg</span>)</div>
-      <div class="output-box">Average
+      <!-- prettier-ignore -->
+<div class="output-box">Average
 5
 438
 95
@@ -245,13 +259,15 @@ Empty list</div>
     </div>
     <div>
       <h3>sorted() vs .sort()</h3>
-      <div class="code-block no-bottom-radius"><span class="var">nums</span> <span class="op">=</span> [<span class="num">3</span>, <span class="num">1</span>, <span class="num">4</span>, <span class="num">1</span>, <span class="num">5</span>]<br><br><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">nums</span> <span class="op">=</span> [<span class="num">3</span>, <span class="num">1</span>, <span class="num">4</span>, <span class="num">1</span>, <span class="num">5</span>]<br><br><br>
 <span class="var">new_list</span> <span class="op">=</span> <span class="fn">sorted</span>(<span class="var">nums</span>)<br>
 <span class="fn">print</span>(<span class="var">new_list</span>)<br>
 <span class="fn">print</span>(<span class="var">nums</span>)      <span class="cmt"># [3, 1, 4, 1, 5] ←ไม่เปลี่ยน</span><br><br><br>
 <span class="var">nums</span>.<span class="fn">sort</span>()<br>
 <span class="fn">print</span>(<span class="var">nums</span>)</div>
-      <div class="output-box">sorted() — returns new list
+      <!-- prettier-ignore -->
+<div class="output-box">sorted() — returns new list
 .sort() — modifies in-place
 [1, 1, 3, 4, 5] ←เปลี่ยนแล้ว</div>
       <div class="highlight-box" style="margin-top:.5rem">
@@ -268,23 +284,27 @@ Empty list</div>
   <div class="columns anim">
     <div>
       <h3>สร้าง Dictionary</h3>
-      <div class="code-block no-bottom-radius"><span class="var">student</span> <span class="op">=</span> {<br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">student</span> <span class="op">=</span> {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"name"</span>: <span class="str">"Alice"</span>,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"age"</span>: <span class="num">20</span>,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"major"</span>: <span class="str">"Data Science"</span>,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"gpa"</span>: <span class="num">3.75</span><br>
 }<br><br><br>
 <span class="var">empty</span> <span class="op">=</span> {}</div>
-      <div class="output-box">Empty dict</div>
+      <!-- prettier-ignore -->
+<div class="output-box">Empty dict</div>
     </div>
     <div>
       <h3>เข้าถึงค่า</h3>
-      <div class="code-block no-bottom-radius"><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><br>
 <span class="fn">print</span>(<span class="var">student</span>[<span class="str">"name"</span>])<br><br><br>
 <span class="fn">print</span>(<span class="var">student</span>[<span class="str">"gpa"</span>])<br><br><br><span class="cmt"># Add / Update</span><br>
 <span class="var">student</span>[<span class="str">"email"</span>] <span class="op">=</span> <span class="str">"alice@uni.edu"</span><br>
 <span class="var">student</span>[<span class="str">"gpa"</span>] <span class="op">=</span> <span class="num">3.85</span></div>
-      <div class="output-box">Bracket notation
+      <!-- prettier-ignore -->
+<div class="output-box">Bracket notation
 Alice
 3.75</div>
     </div>
@@ -298,18 +318,22 @@ Alice
   <div class="columns anim">
     <div>
       <h3>d["key"] vs d.get("key")</h3>
-      <div class="code-block no-bottom-radius"><span class="var">student</span> <span class="op">=</span> {<span class="str">"name"</span>: <span class="str">"Alice"</span>, <span class="str">"age"</span>: <span class="num">20</span>}<br><br><span class="cmt"># ❌ KeyError if key doesn't exist</span><br><span class="cmt"># print(student["phone"])  # Error!</span><br><br><span class="cmt"># ✅ .get() returns None or default</span><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">student</span> <span class="op">=</span> {<span class="str">"name"</span>: <span class="str">"Alice"</span>, <span class="str">"age"</span>: <span class="num">20</span>}<br><br><span class="cmt"># ❌ KeyError if key doesn't exist</span><br><span class="cmt"># print(student["phone"])  # Error!</span><br><br><span class="cmt"># ✅ .get() returns None or default</span><br>
 <span class="fn">print</span>(<span class="var">student</span>.<span class="fn">get</span>(<span class="str">"phone"</span>))<br><br><br>
 <span class="fn">print</span>(<span class="var">student</span>.<span class="fn">get</span>(<span class="str">"phone"</span>, <span class="str">"N/A"</span>))<br></div>
-      <div class="output-box">/A</div>
+      <!-- prettier-ignore -->
+<div class="output-box">/A</div>
     </div>
     <div>
       <h3>ตรวจสอบ key</h3>
-      <div class="code-block no-bottom-radius"><span class="var">student</span> <span class="op">=</span> {<span class="str">"name"</span>: <span class="str">"Alice"</span>, <span class="str">"age"</span>: <span class="num">20</span>}<br><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius"><span class="var">student</span> <span class="op">=</span> {<span class="str">"name"</span>: <span class="str">"Alice"</span>, <span class="str">"age"</span>: <span class="num">20</span>}<br><br>
 <span class="cmt"># Check if key exists</span><br>
 <span class="fn">print</span>(<span class="str">"name"</span> <span class="kw">in</span> <span class="var">student</span>)<br><br><br>
 <span class="fn">print</span>(<span class="str">"phone"</span> <span class="kw">in</span> <span class="var">student</span>)<br></div>
-      <div class="output-box">alse</div>
+      <!-- prettier-ignore -->
+<div class="output-box">alse</div>
       <div class="highlight-box" style="margin-top:.5rem">
         <p>💡 ใช้ <code>.get()</code> เมื่อไม่แน่ใจว่า key มีอยู่หรือไม่ — ป้องกัน Error!</p>
       </div>
@@ -323,17 +347,20 @@ Alice
   <h2 class="anim">🛠️ Dictionary Methods ที่ใช้บ่อย</h2>
   <div class="columns anim">
     <div>
-      <div class="code-block no-bottom-radius" style="font-size:.95rem"><span class="var">d</span> <span class="op">=</span> {<span class="str">"a"</span>: <span class="num">1</span>, <span class="str">"b"</span>: <span class="num">2</span>, <span class="str">"c"</span>: <span class="num">3</span>}<br><br><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.95rem"><span class="var">d</span> <span class="op">=</span> {<span class="str">"a"</span>: <span class="num">1</span>, <span class="str">"b"</span>: <span class="num">2</span>, <span class="str">"c"</span>: <span class="num">3</span>}<br><br><br>
 <span class="fn">print</span>(<span class="var">d</span>.<span class="fn">keys</span>())<br><br><br>
 <span class="fn">print</span>(<span class="var">d</span>.<span class="fn">values</span>())<br><br><br>
 <span class="fn">print</span>(<span class="var">d</span>.<span class="fn">items</span>())<br></div>
-      <div class="output-box">keys(), values(), items()
+      <!-- prettier-ignore -->
+<div class="output-box">keys(), values(), items()
 dict_keys(['a', 'b', 'c'])
 dict_values([1, 2, 3])
 dict_items([('a', 1), ('b', 2), ('c', 3)])</div>
     </div>
     <div>
-      <div class="code-block no-bottom-radius" style="font-size:.95rem"><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.95rem"><br>
 <span class="var">d</span>.<span class="fn">update</span>({<span class="str">"d"</span>: <span class="num">4</span>, <span class="str">"e"</span>: <span class="num">5</span>})<br>
 <span class="fn">print</span>(<span class="var">d</span>)<br><br><br><span class="cmt"># pop — remove by key (return value)</span><br>
 <span class="var">val</span> <span class="op">=</span> <span class="var">d</span>.<span class="fn">pop</span>(<span class="str">"b"</span>)<br>
@@ -342,7 +369,8 @@ dict_items([('a', 1), ('b', 2), ('c', 3)])</div>
 <span class="cmt"># Loop through dict</span><br>
 <span class="kw">for</span> <span class="var">key</span>, <span class="var">value</span> <span class="kw">in</span> <span class="var">d</span>.<span class="fn">items</span>():<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">f"<span class="op">{</span><span class="var">key</span><span class="op">}</span>: <span class="op">{</span><span class="var">value</span><span class="op">}</span>"</span>)</div>
-      <div class="output-box">update — merge another dict
+      <!-- prettier-ignore -->
+<div class="output-box">update — merge another dict
 {'a':1, 'b':2, 'c':3, 'd':4, 'e':5}
 {'a':1, 'c':3, 'd':4, 'e':5}
 2</div>
@@ -366,14 +394,18 @@ dict_items([('a', 1), ('b', 2), ('c', 3)])</div>
     </table>
   </div>
   <div class="columns anim" style="margin-top:1.5rem">
-    <div class="code-block no-bottom-radius" style="font-size:.9rem"><span class="cmt"># List — ordered collection</span><br>
+    <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.9rem"><span class="cmt"># List — ordered collection</span><br>
 <span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>, <span class="num">78</span>]<br>
 <span class="fn">print</span>(<span class="var">scores</span>[<span class="num">0</span>])</div>
-      <div class="output-box">85</div>
-    <div class="code-block no-bottom-radius" style="font-size:.9rem"><span class="cmt"># Dict — labeled data</span><br>
+      <!-- prettier-ignore -->
+<div class="output-box">85</div>
+    <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.9rem"><span class="cmt"># Dict — labeled data</span><br>
 <span class="var">student</span> <span class="op">=</span> {<span class="str">"name"</span>: <span class="str">"Alice"</span>, <span class="str">"gpa"</span>: <span class="num">3.75</span>}<br>
 <span class="fn">print</span>(<span class="var">student</span>[<span class="str">"name"</span>])</div>
-      <div class="output-box">Alice</div>
+      <!-- prettier-ignore -->
+<div class="output-box">Alice</div>
   </div>
 </div>
 
@@ -383,54 +415,64 @@ dict_items([('a', 1), ('b', 2), ('c', 3)])</div>
   <h2 class="anim">🧪 ลองเติมคำตอบ — Output คืออะไร?</h2>
   <div class="columns anim">
     <div>
-      <div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 1</span><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 1</span><br>
 <span class="var">nums</span> <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>]<br>
 <span class="var">nums</span>.<span class="fn">append</span>(<span class="num">50</span>)<br>
 <span class="fn">print</span>(<span class="fn">len</span>(<span class="var">nums</span>))</div>
       <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
         <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 ดูผลลัพธ์</summary>
         <div class="reveal-content" style="margin-top: 0;">
-          <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">5</div>
+          <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">5</div>
         </div>
       </details>
 
-      <div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 2</span><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 2</span><br>
 <span class="fn">print</span>(<span class="var">nums</span>[<span class="num">1</span>:<span class="num">3</span>])</div>
       <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
         <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 ดูผลลัพธ์</summary>
         <div class="reveal-content" style="margin-top: 0;">
-          <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">[20, 30]</div>
+          <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">[20, 30]</div>
         </div>
       </details>
 
-      <div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 3</span><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 3</span><br>
 <span class="var">d</span> <span class="op">=</span> {<span class="str">"x"</span>: <span class="num">10</span>, <span class="str">"y"</span>: <span class="num">20</span>}<br>
 <span class="var">d</span>[<span class="str">"z"</span>] <span class="op">=</span> <span class="num">30</span><br>
 <span class="fn">print</span>(<span class="fn">len</span>(<span class="var">d</span>))</div>
       <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
         <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 ดูผลลัพธ์</summary>
         <div class="reveal-content" style="margin-top: 0;">
-          <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">3</div>
+          <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">3</div>
         </div>
       </details>
     </div>
 
     <div>
-      <div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 4</span><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 4</span><br>
 <span class="fn">print</span>(<span class="var">d</span>.<span class="fn">get</span>(<span class="str">"w"</span>, <span class="num">0</span>))</div>
       <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
         <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 ดูผลลัพธ์</summary>
         <div class="reveal-content" style="margin-top: 0;">
-          <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">0</div>
+          <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">0</div>
         </div>
       </details>
 
-      <div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 5</span><br>
+      <!-- prettier-ignore -->
+<div class="code-block no-bottom-radius" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำถามที่ 5</span><br>
 <span class="fn">print</span>(<span class="fn">sum</span>([<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>]))</div>
       <details class="reveal-solution" style="margin-top: 0; margin-bottom: 0.4rem;">
         <summary class="reveal-btn" style="width: 100%; border-radius: 0 0 12px 12px; margin-top: 0; box-sizing: border-box; padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 ดูผลลัพธ์</summary>
         <div class="reveal-content" style="margin-top: 0;">
-          <div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">15</div>
+          <!-- prettier-ignore -->
+<div class="output-box" style="border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;">15</div>
         </div>
       </details>
     </div>
@@ -442,49 +484,57 @@ dict_items([('a', 1), ('b', 2), ('c', 3)])</div>
   <h2 class="anim">🧪 เติมโค้ด — ให้ได้ Output ตามต้องการ</h2>
   <div class="columns anim">
     <div>
-      <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># Q1: Add "grape" to end of list</span><br>
+      <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># Q1: Add "grape" to end of list</span><br>
 <span class="var">fruits</span> <span class="op">=</span> [<span class="str">"apple"</span>, <span class="str">"banana"</span>]<br>
 <span class="var">fruits</span>.___(<span class="str">"grape"</span>)</div>
       <details class="reveal-solution" style="margin-bottom: 0.4rem;">
         <summary class="reveal-btn" style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 เฉลยข้อ 1</summary>
         <div class="reveal-content">
-          <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำตอบที่ 1</span><br>
+          <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำตอบที่ 1</span><br>
 <span class="var">fruits</span>.<span class="fn">append</span>(<span class="str">"grape"</span>)</div>
         </div>
       </details>
 
-      <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># Q2: Get value safely</span><br>
+      <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># Q2: Get value safely</span><br>
 <span class="var">info</span> <span class="op">=</span> {<span class="str">"name"</span>: <span class="str">"Alice"</span>}<br>
 <span class="var">phone</span> <span class="op">=</span> <span class="var">info</span>.___(<span class="str">"phone"</span>, <span class="str">"N/A"</span>)</div>
       <details class="reveal-solution" style="margin-bottom: 0.4rem;">
         <summary class="reveal-btn" style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 เฉลยข้อ 2</summary>
         <div class="reveal-content">
-          <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำตอบที่ 2</span><br>
+          <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำตอบที่ 2</span><br>
 <span class="var">phone</span> <span class="op">=</span> <span class="var">info</span>.<span class="fn">get</span>(<span class="str">"phone"</span>, <span class="str">"N/A"</span>)</div>
         </div>
       </details>
     </div>
 
     <div>
-      <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># Q3: Sort in descending order</span><br>
+      <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># Q3: Sort in descending order</span><br>
 <span class="var">nums</span> <span class="op">=</span> [<span class="num">3</span>, <span class="num">1</span>, <span class="num">4</span>]<br>
 <span class="var">nums</span>.<span class="fn">sort</span>(<span class="kw">reverse</span><span class="op">=</span>___)<br>
 <span class="cmt"># [4, 3, 1]</span></div>
       <details class="reveal-solution" style="margin-bottom: 0.4rem;">
         <summary class="reveal-btn" style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 เฉลยข้อ 3</summary>
         <div class="reveal-content">
-          <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำตอบที่ 3</span><br>
+          <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำตอบที่ 3</span><br>
 <span class="var">nums</span>.<span class="fn">sort</span>(<span class="kw">reverse</span><span class="op">=</span><span class="kw">True</span>)</div>
         </div>
       </details>
 
-      <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># Q4: Calculate average</span><br>
+      <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># Q4: Calculate average</span><br>
 <span class="var">scores</span> <span class="op">=</span> [<span class="num">80</span>, <span class="num">90</span>, <span class="num">85</span>]<br>
 <span class="var">avg</span> <span class="op">=</span> ___(scores) <span class="op">/</span> ___(scores)</div>
       <details class="reveal-solution" style="margin-bottom: 0.4rem;">
         <summary class="reveal-btn" style="padding: .8rem 1.8rem; line-height: 1.7; border-left: 3px solid rgba(255,255,255,0.2);">👀 เฉลยข้อ 4</summary>
         <div class="reveal-content">
-          <div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำตอบที่ 4</span><br>
+          <!-- prettier-ignore -->
+<div class="code-block" style="font-size:.9rem; padding: 0.6rem 1.8rem; margin: 0.2rem 0 0 0;"><span class="cmt"># คำตอบที่ 4</span><br>
 <span class="var">avg</span> <span class="op">=</span> <span class="fn">sum</span>(<span class="var">scores</span>) <span class="op">/</span> <span class="fn">len</span>(<span class="var">scores</span>)</div>
         </div>
       </details>
